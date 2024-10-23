@@ -1,0 +1,19 @@
+body{
+    background-color: purple;
+}
+
+@media screen and (min-width:300px) {
+    @media screen and (max-width:600px) {
+        #post-btn{
+            font-size: 4.5vw;
+            width: fit-content;
+            height: 7vw;
+            box-sizing: border-box;
+            padding: 10px;
+            border-radius: 8px;
+            top: 90vh;
+            left: 80vw;
+        }
+    }
+}
+

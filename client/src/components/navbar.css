@@ -1,0 +1,260 @@
+body{
+  background-color: purple;
+}
+.nav-btns1{
+  position: fixed;
+  width: 22vw;
+  height: 100%;
+  left: 79vw;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  justify-content: space-evenly;
+}
+.profileinfo{
+  position: relative;
+  width: 20vw;
+  left: 1vw;
+  height: 25vw;
+  background-color: transparent;
+  box-sizing: border-box;
+  padding: 10px;
+}
+.profileinfo img{
+  width: 100%;
+  height: 80%;
+  
+  border: 3px solid rgb(99, 1, 99);
+  animation: profileinfo 10s infinite ease;
+}
+
+@keyframes profileinfo {
+  0%{
+    border-radius: 2vw 3vw 2vw 1.5vw;
+  }
+  15%{
+    border-radius: 2.5vw 2vw 3vw 2.5vw;
+  }
+  30%{
+    border-radius: 3vw 2.5vw 2vw 1.5vw;
+  }
+  45%{
+    border-radius: 2vw 3vw 1.5vw 1.5vw;
+  }
+  60%{
+    border-radius: 1.5vw 2.5vw 2vw 1.5vw;
+  }
+  75%{
+    border-radius: 3vw 1vw 1.5vw 2vw;
+  }
+  95%{
+    border-radius: 2vw 3vw 2vw 1.5vw;
+  }
+  100%{
+    border-radius: 2vw 3vw 2vw 1.5vw;
+
+  }
+ 
+}
+
+.profilename{
+  font-size: 3vw;
+  box-sizing: border-box;
+  padding: 1px;
+  text-align: center;
+  font-family: nunito;
+  color: #fff;
+  font-weight: 700;
+}
+
+
+.nav-btns1 button{
+  width: 85%;
+  height: 4vw;
+  box-shadow: 0 0 0px black;
+  background-color: transparent;
+  border-radius: 10vw 0vw 0vw 2vw;
+  box-sizing: border-box;
+  padding: 4px;
+  /* cursor: pointer; */
+  transition-duration: 0.2s;
+  position: relative;
+  left: 2vw;
+  border: none;
+  outline: none;
+  font-family: "Nunito", sans-serif;
+  font-size: 2.2vw;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  text-align: end;
+  padding-right: 1.5vw;
+  color: rgb(255, 255, 255);
+}
+
+
+.nav-btns1 a{
+  color: #fff;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 10px 40px;
+  box-sizing: border-box;
+  border-radius: 2px 0 0 50px;
+  font-size: 1.9vw;
+  transition-duration: 0.3s;
+}
+.nav-btns1 a:hover{
+  font-size: 2.1vw;
+  transition-duration: 0.3s;
+
+}
+
+#chatsbtn{
+ a{
+  color: gold;
+  text-shadow: 2px 0.5px white;
+  font-weight: 800;
+
+ }
+  /* animation: chatsbtn 3s  infinite  ease; */
+}
+
+
+@keyframes chatsbtn {
+  0%{
+    transform: scale(1.06);
+
+  }
+  50%{
+    transform: scale(1);
+  }
+  100%{
+    transform: scale(1.06);
+  }
+}
+
+
+
+ /* color: #9e21a4; */
+  /* .navbtn a:hover{
+   
+    z-index: 2;
+
+    color: #fff;
+    transition-duration: 0.2s;
+    width: 86%;
+    
+    box-shadow: 0 0 4px black;
+   
+   } */
+
+   @media screen and (min-width:200px) {
+     @media screen and (max-width:360px) {
+       .nav-btns1{
+        top: 96vh;
+       }
+     }
+   }
+
+   @media screen and (min-width:360px) {
+     @media screen and (max-width:420px) {
+       .nav-btns1{
+        top: 95.5vh;
+       }
+     }
+   }
+
+   @media screen and (min-width:421px) {
+    @media screen and (max-width:600px) {
+      .nav-btns1{
+        top: 95.5vh;
+      }
+    }
+   }
+   
+   @media screen and (min-width:300px) {
+    @media screen and (max-width:600px) {
+
+      .profileinfo{
+        display: none;
+      }
+      .nav-btns1{
+        position: fixed;
+        width: 100vw;
+        height: 11vw;
+        left: 0vw;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-evenly;
+        z-index: 3;
+        box-shadow: 0px 1px 7px black;
+       
+        /* top: 94.5vh; */
+      }
+
+      .nav-btns1 button{
+        height: 100%;
+        left: 0;
+        border-radius: 0;
+    background-color: #fff;
+    box-sizing: border-box;
+    font-size: 2.2vw;
+    font-optical-sizing: auto;
+    text-align: center;
+    color: black;
+
+    a{
+    color: black;
+      font-size: 4vw;
+      padding: 0;
+    }
+      }
+
+
+      #chatsbtn{
+        animation: none;
+        a{
+          color: black;
+        }
+      }
+
+
+
+    }}
+
+    @media screen and (min-width:1025px) {
+      @media screen and (max-width:1439px) {
+        .nav-btns1 a{
+          font-size: 2.4vw;
+          padding: 10px 20px;
+        }
+      
+      }}
+
+      @media screen and (min-width:760px) {
+        @media screen and (max-width:1024px) {
+            .profileinfo{
+              display: none;
+            }
+            .nav-btns1{
+              width: 100vw;
+              height: 5%;
+              top: 95vh;
+              background-color: #fff;
+              left: 0;
+              z-index: 4;
+              flex-direction: row;
+              box-shadow: 0 -1px 5px black;
+
+            }
+            .nav-btns1 button{
+              text-align: center;
+              height: 100%;
+              
+            }
+            .nav-btns1 a{
+              padding: 0;
+              font-size: 3vw;
+              color: black;
+            }
+        }
+    }

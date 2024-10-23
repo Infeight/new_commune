@@ -1,0 +1,159 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+
+.cont {
+    display: flex;
+    flex-direction: column;
+    padding: 3vw;
+    width: 100vw;
+    height: 100vh;
+    background-color: #fff;
+    position: absolute;
+    box-sizing: border-box;
+    align-items: center;
+    justify-content: center;
+}
+.logo{
+    height: 8vw;
+    font-size: 4vw;
+    color: purple;
+    font-family: nunito;
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    display: flex;
+    align-items: center;
+    position: relative;
+    top: 4vw;
+}
+.input-cont{
+    width: 65vw;
+    height: 30vw;
+    margin: 10vw auto;
+    /* background-color: purple; */
+    box-shadow: 1px 1px 4px black;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+
+
+}
+
+.logincont{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 70%;
+    align-items: center;
+    justify-content: space-evenly;
+    transition-duration: 1s;
+
+}
+
+.signupcont{
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    height: 70%;
+    align-items: center;
+    justify-content: space-evenly;
+    display: none;
+    transition-duration: 1s;
+    
+}
+
+input{
+    width: 85%;
+    height: 2.5vw;
+    font-size: 1.8vw;
+    box-sizing: border-box;
+    padding: 0px 10px;
+    outline: none;
+    border: none;
+    box-shadow: 0 0 3px black;
+    border-radius: 8px;
+}
+
+.submit-btn{
+    
+    width: 40%;
+    height: 2.5vw;
+    border-radius: 5px;
+    box-shadow: 0 0 4px black;
+    font-size:1.5vw ;
+    outline: none;
+    border: none;
+    background-color: purple;
+    color: #fff;
+    font-family: nunito;
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+
+}
+
+.cover{
+    box-sizing: border-box;
+    position: relative;
+    width: 50%;
+    height: 100%;
+    background-color: purple;
+    color: #fff;
+    z-index: 0;
+    left: 0%;
+    transition-duration: 1s;
+    border-radius: 0px 5px 5px 0px;
+    font-family: nunito;
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-size: 4vw;
+    padding: 30px;
+}
+.cover p{
+    margin: 0;
+}
+.signbtn-holder{
+    display: flex;
+    width: 100%;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
+@media screen and (min-width:300px) {
+    @media screen and (max-width:600px) {
+        .logo{
+            top: -20vw;
+            font-size: 10vw;
+        }
+        .input-cont{
+            /* flex-direction: column-reverse; */
+            width: 90vw;
+            height: 60vw;
+        }
+        .logincont{
+            width: 65%;
+        }
+       .cover{
+        font-size: 6vw;
+        padding: 5px;
+        width: 35%;
+        
+       }
+       input{
+        width: 95%;
+        font-size: 4.2vw;
+        height: 9vw;
+       }
+       .submit-btn{
+        height: 7.5vw;
+        font-size: 4.5vw;
+       }
+       .signupcont{
+        width: 65%;
+       }
+    }
+}

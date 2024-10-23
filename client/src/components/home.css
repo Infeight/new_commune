@@ -1,0 +1,945 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Saira+Stencil+One');
+
+body{
+    background-color: purple;
+}
+body::-webkit-scrollbar{
+    display: none;
+}
+
+.home{
+    position: absolute;
+    width: 80vw;
+    height: 100vh;
+    background-color: #fff;
+    min-height: 100vh;
+    overflow-y: scroll;
+    animation: home 0.5s 0s 1 ease;
+    z-index: 1;
+}
+
+.home::-webkit-scrollbar{
+    display: none;
+}
+
+@keyframes home {
+    from{
+        border-radius:0 0 50vw 0 ;
+
+    }
+    to{
+        border-radius: 0 0 0 0;
+    }
+}
+
+.post-btn {
+    box-shadow: 1px 1px 5px black;
+    border-radius: 1vw;
+    display: flex;
+    position: fixed;
+    width: 8vw;
+    top: 85vh;
+    left: 36vw;
+    height: 3vw;
+    background-color: purple;
+    color: white;
+    font-family: nunito;
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    font-size: 1.5vw;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    z-index: 2;
+}
+a{
+    text-decoration: none;
+}
+
+.post-img-cap{
+    width: 100%;
+    height: auto;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    box-sizing: border-box;
+    /* overflow-y: scroll; */
+    max-height: 40vw;
+}
+
+.postimg{
+   width: 60%;
+   height: 100%;
+   border-radius: 10px;
+}
+.date{
+    font-family: nunito;
+}
+.postcomment {
+    width: 40%;
+    font-size: 1.5vw;
+    height: 100%;
+    word-wrap: break-word;
+    font-family: nunito;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    box-sizing: border-box;
+    padding: 10px;
+}
+.postcomment_hold{
+    /* height: auto; */
+   height: calc(100% - 140px);
+  
+   overflow-y: scroll;
+   width: 100%;
+
+
+}
+.postcomment_hold.click{
+    height: calc(100% - 250px);
+}
+.postcomment_hold::-webkit-scrollbar{width: 0.3vw;}
+.postcomment_hold::-webkit-scrollbar-track{
+    background-color: #fff;
+}
+.postcomment_hold::-webkit-scrollbar-thumb{
+    background-color: purple;
+    border-radius: 2vw;
+}
+
+.postcomments_user{
+    grid-column: 1 / span3;
+    width: 97%;
+    border-radius: 8px;
+    height: 65px;
+    outline: none;
+    font-size: 1.3vw;
+    color: purple;
+    box-sizing: border-box;
+    padding: 5px;
+    transition-duration: 0.5s;
+
+}
+.postcomments_user.click{
+    grid-column: 1 / span3;
+    height: 121px;
+    transition-duration: 0.5s;
+}
+
+.postcomments_user::-webkit-scrollbar{width: 0.3vw;}
+.postcomments_user::-webkit-scrollbar-track{
+    background-color: #fff;
+}
+.postcomments_user::-webkit-scrollbar-thumb{
+    background-color: purple;
+    border-radius: 2vw;
+}
+
+.postid{
+    display: none;
+}
+
+.postowner{
+    width: 100%;
+    height: 140px;
+    background-color: purple;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 0 5px 1.5px black;
+    box-sizing: border-box;
+    /* padding: 5px; */
+    display: grid;
+    justify-items: center;
+    align-items: center;
+    grid-template-rows: 40% 60%;
+    grid-template-columns: 34% 33% 33%;
+    transition-duration: 0.5s;
+
+}
+.postowner.click{
+    height: 260px;
+    transition-duration: 0.5s;
+    grid-template-rows: 25% 50% 25%;
+
+}
+.postownname {
+    display: flex;
+    width: 100%;
+    font-size: 2.2vw;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    background-color: purple;
+    color: #fff;
+    box-sizing: border-box;
+    padding: 2px;
+    padding-left: 5px;
+    border-radius: 10px 10px 0 0;
+    box-shadow: 0 0 4px 1px black;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+}
+.profilepichold{
+    
+    width: 2.6vw;
+    height: 2.6vw;
+    background-color: white;
+    border-radius: 35%;
+  
+    position: absolute;
+    right: 5.5vw;
+    transition-duration: 0.2s;
+}
+.profilepichold:hover{
+    width: 6.6vw;
+    height: 6.6vw;
+    transition-duration: 0.2s;
+
+}
+.postownname::-webkit-scrollbar{height: 0.2vw;}
+.postownname::-webkit-scrollbar-track{
+    background-color: purple;
+    border-radius: 3vw;
+}
+.postownname::-webkit-scrollbar-thumb{
+    background-color: #f4f4f4;
+    border-radius: 3vw;
+}
+
+.postownpass{
+    display: none;
+}
+.postfollow{
+    position: relative;
+    /* left: -0.4vw; */
+    width: 100%;
+    height:85%;
+    box-sizing: border-box;
+    padding: 5px;
+    font-size: 1.5vw;
+    box-shadow: 0 0 3px 0.2px black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0 10px 0 0;
+    cursor: pointer;
+    background-color: #780078;
+}
+
+#postfollow1{
+    background-color: transparent;
+    box-shadow: 0 0 0 ;
+    font-size: 1.5vw;
+    left: -1vw;
+    transition-duration: 0.1s;
+    border-radius: 0;
+    width: fit-content;
+
+}
+#postfollow1:hover{
+    color: #fff;
+    font-size: 1.6vw;
+    transition-duration: 0.1s;
+
+}
+
+.postlike{
+    width: 100%;
+    height:85%;
+    box-sizing: border-box;
+    padding: 5px;
+    font-size: 1.5vw;
+    box-shadow: 0 0 3px 0.2px black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 0px;
+    cursor: pointer;
+    background-color: #780078;
+
+}
+.showcomment{
+    width: 100%;
+    height:85%;
+    box-sizing: border-box;
+    padding: 2px;
+    font-size: 1.5vw;
+    box-shadow: 0 0 3px 0.2px black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px 0 0 0;
+    cursor: pointer;
+    background-color: #780078;
+
+}
+.postlike:hover{
+    background-color: #fff;
+    color: red;  
+}
+.postfollow:hover{
+    background-color: #fff;
+    color: purple; 
+}
+.showcomment:hover{
+    background-color: #fff;
+    color: purple;
+}
+.likenum{
+    padding-top: 0.2vw;
+}
+.likesym{
+    /* font-size: 2.2vw; */
+    font-weight: 200;
+    margin-left: 0.1vw;
+}
+
+
+.followsym:hover{
+    animation: likesym 0.5s infinite ease;
+}
+
+.commentsym.hover{
+    animation: likesym 0.5s infinite ease;
+}
+
+@keyframes likesym {
+    0%{
+        transform: scale(1);
+    }
+    50%{
+    transform:scale(1.1);
+    }
+
+    100%{
+        transform:scale(1);
+        }
+}
+
+@keyframes liked{
+    100%{
+        transform: rotateY(720);
+    }
+}
+
+.sendcomment-btn{
+    /* top: -1vw; */
+    left: 17.2vw;
+    position: relative;
+    width: 9.5vw;
+    height: 2.5vw;
+    box-sizing: border-box;
+    padding: 2px;
+    font-size: 1.5vw;
+    box-shadow: 0 0 3px 0.2px black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    display: none;
+    cursor: pointer;
+    background-color: #780078;
+
+}
+.sendcomment-btn.click{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.sendcomment-btn:hover{
+    background-color: #fff;
+    color: purple;
+
+
+}
+.allcommentshold{
+    height: auto;
+    width: 100%;
+    max-height: 10vw;
+    box-sizing: border-box;
+    padding: 5px;
+    list-style: none;
+    font-size: 1.5vw;
+    font-family: nunito;
+    overflow-y: scroll;
+    transition-duration: 0.5s;
+    display: none;
+}
+
+.allcommentshold.show{
+    /* height: auto; */
+    display: initial;
+    transition-duration: 0.5s;
+}
+
+.allcommentshold::-webkit-scrollbar{width: 0.2vw;}
+.allcommentshold::-webkit-scrollbar-track{
+    background-color: #fff;
+    border-radius: 3vw;
+}
+.allcommentshold::-webkit-scrollbar-thumb{
+    background-color: purple;
+    border-radius: 3vw;
+}
+
+.commentli{
+    box-sizing: border-box;
+    padding: 1px;
+    color: purple;
+    margin: 6px;
+    border: none;
+    outline: none;
+    transition-duration: 0.1s;
+    border-bottom: 1px solid purple;
+    border-right: 0;
+    border-left: 0;
+    padding-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+}
+.commentli:hover{
+box-shadow: 0 0 2px black;
+transition-duration: 0.1s;
+
+}
+.communeload{
+    position: absolute;
+    width: 80vw;
+    height: 13vw;
+    font-size: 5vw;
+    font-family: "Saira Stencil One", cursive !important;
+    color: purple;
+    font-weight: 700;
+    top: 35%;
+    /* margin: 20%; */
+    left: 0%;
+    padding: 1vw;
+    /* z-index: 2; */
+    box-sizing: border-box;
+}
+
+video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  .loadh2 {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    font-weight: 400!important;
+    font-size: 14vw!important;
+    text-transform: uppercase;
+    background-color: #fff !important;
+    mix-blend-mode: screen;
+  }
+
+@keyframes communeload {
+    from{
+        left: 1%;
+    }
+
+    50%{
+        left: 64%;
+    }
+   
+    to{
+        left: 1%;
+
+
+    }
+}
+
+.postdisp{
+    padding: 0.5vw;
+    width: 90%;
+    margin: 2vw auto;
+    height: auto;
+    max-height: 50vw;
+    display: grid;
+    box-shadow: 1px 1px 5px;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.otheraccount{
+    display: none;
+    background-color: #ffffff;
+    width: 80vw;
+    height: 100vh;
+    z-index: 4;
+    position: fixed;
+    /* left: 10vw;
+    top: 3vw; */
+    box-shadow: 0 0 10px black;
+    /* border-radius: 0.5vw; */
+}
+#close{
+    height: 2vw;
+    width: 2vw;
+    background-color: red;
+    border: 0;
+    outline: 0;
+    box-shadow: 0 0 3px;
+    margin-left: auto;
+    position: relative;
+    border-radius: 0 0.5vw 0 0;
+    font-size: 1.3vw;
+    font-family: nunito;
+    font-weight: 900;
+    cursor: pointer;
+}
+.accthold{
+    width: 95%;
+    height: 95%;
+    /* background-color: beige; */
+    margin: auto auto;
+    display: grid;
+    grid-template-rows: 30% 70%;
+}
+
+.acctdet{
+    display: grid;
+    grid-template-rows: 20% 80%;
+    grid-template-columns: 34% 33% 33%;
+}
+.acctname{
+    display: grid;
+    grid-column-start: 1;
+    grid-column-end: span 3;
+    font-size: 2.5vw;
+    font-family: nunito;
+    font-weight: 700;
+    box-sizing: border-box;
+    padding-left: 3vw;
+    display: flex;
+    align-items: center;
+    /* background-color: purple;
+    color: white;
+    border-radius: 10px; */
+}
+.profilepicdisp{
+    width: 8vw;
+    height: 8vw;
+    background-color: aliceblue;
+    margin: auto;
+    border-radius: 50%;
+}
+.followercount{
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    font-size: 1.5vw;
+    font-family: nunito;
+    font-weight: 700;
+    justify-content: center;
+    text-align: center;
+}
+
+.acctposts{
+    overflow: scroll;
+
+}
+.acctposts::-webkit-scrollbar{
+    display: none;
+}
+.showcomment1{
+    width: 100%;
+    height: 85%;
+    box-sizing: border-box;
+    padding: 2px;
+    font-size: 1.5vw;
+    box-shadow: 0 0 3px 0.2px black;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px 0 0 0;
+    cursor: pointer;
+    background-color: #780078;
+}
+#postowneracct{
+    grid-template-columns: 50% 50%;
+}
+#postlikeacct{
+    width: 100%;
+    border-radius: 0 10px 0 0;
+
+}
+#sendcomment{
+    left: 16.2vw;
+}
+
+#followerlist1{
+    margin-left: 2vw;
+}
+
+#followerlist{
+    list-style: none;
+    width: 10vw;
+    background-color: transparent;
+    /* top: 1vw; */
+    position: relative;
+    height: 10vw;
+    overflow-y: scroll;
+    overflow-x: hidden;
+    margin-left: 2vw;
+    /* display: none; */
+}
+.followerlist{
+    display: none;
+}
+.followerlist.clicked{
+    display: initial;
+}
+
+#followerlist::-webkit-scrollbar{
+    width: 0.2vw;
+}
+#followerlist::-webkit-scrollbar-track{
+    width: 0.2vw;
+    border-radius: 10px;
+}
+
+#followerlist::-webkit-scrollbar-thumb{
+    background-color: #780078;
+    border-radius: 10px;
+    width: 0.2vw;
+}
+
+.followername{
+    text-align: justify;
+    transition-duration: 0.5s;
+
+
+}
+.followername:hover{
+    transition-duration: 0.5s;
+    text-align: center;
+    background-color: #fdf0ff;
+    color: purple;
+    
+}
+
+
+
+
+@media screen and (min-width: 300px) {
+    @media screen and (max-width: 600px) {
+        #home {
+            position: absolute;
+            width: 100vw;
+            height: 96vh;
+            min-height: 96vh;
+        }
+        .communeload{
+            width: 100vw;
+            /* font-size: 10vw; */
+        }
+        .loadh2{
+            font-size: 18vw !important;
+        }
+        .postdisp {
+            width: 100%;
+            height: auto;
+            max-height: 100vh;
+            display: flex;
+            box-sizing: border-box;
+            flex-direction: column;
+            box-shadow: 0px 0px 3px;
+            border-radius: 4px;
+        }
+        #post-btn{
+            font-size: 4.5vw;
+            width: fit-content;
+            height: 10vw;
+            box-sizing: border-box;
+            padding: 10px;
+            border-radius: 8px;
+            top: 88vh;
+            left: 80vw;
+        }
+        .post-img-cap {
+            width: 100%;
+            height: auto;
+            display: flex;
+            align-items:center;
+            justify-content: center;
+            max-height: 100vh;
+            flex-direction: column;
+        }
+        .postimg{
+            width: 100%;
+        }
+        .postcomment{
+            width: 100%;
+            padding: 8px;
+        }
+        .postowner{
+            height: 65px;
+            transition-duration: 0.2s;
+            box-shadow: 0 0 3px 0 black;
+        }
+        .postowner.click{
+            transition-duration: 0.2s;
+            max-height: 30vw;
+        }
+        .postownname{
+            font-size: 5.5vw;
+        }
+        .profilepichold{
+            width: 8.5vw;
+            height: 8.5vw;
+        }
+        .profilepichold:hover{
+            width: 20vw;
+            height: 20vw;
+        }
+        .postowner.click{
+            height: 170px;
+            transition-duration: 0.5s;
+            grid-template-rows: 15% 70% 15%;
+        }
+        .postcomments_user{
+            height: 100%;
+            font-size: 4vw;
+            width: 100%;
+            border-radius: 0 0 10px 10px;
+        }
+        .postcomments_user.click{
+            height: 70px;
+        }
+        .showcomment{
+            font-size: 4vw;
+            height: 5.5vw;
+            width: 100%;
+            border-radius: 10px 0px 0 0
+        }
+        .showcomment:hover{
+            background-color: #780078;
+            color: #fff;
+        }
+        .postlike{
+            font-size: 4vw;
+            height: 5.5vw;
+            width: 100%;
+            border-radius: 0 0px 0 0
+        }
+        .postlike:hover{
+            background-color: #780078;
+            color: #fff;
+        }
+        .postfollow{
+            font-size: 4vw;
+            height: 5.5vw;
+            width: 100%;
+            border-radius: 0 10px 0 0
+        }
+        .sendcomment-btn{
+            left: 0;
+    width: 100%;
+    grid-column: 1 / span3;
+    height: 6.5vw;
+    font-size: 5vw;
+    border-radius: 0 0 10px 10px;
+        }
+
+        .postcomment_hold{
+           max-height:30vh;
+            font-size: 4.5vw;
+            overflow-y: scroll;
+            min-height: 4vh;
+        }
+        .postcomment_hold.click{
+           /* max-height: calc(100% - 170px); */
+           max-height: 18vh;
+        }
+        .date{
+            font-size: 3vw;
+            margin-top: -1vw;
+            margin-left: 3vw;
+        }
+        .otheraccount{
+            width: 100vw;
+        }
+        #close{
+            font-size: 5.3vw;
+            width: 7vw;
+            height: 7vw;
+        }
+        .acctname{
+            padding-left: 0;
+
+        }
+        #postfollow1{
+            font-size: 4vw;
+            left:0vw;
+        }
+        .profilepicdisp{
+            width: 25vw;
+            height: 25vw;
+        }
+        .followercount{
+            font-size: 4.5vw;
+        }
+        #sendcomment{
+            left: 0;
+        }
+        .showcomment1{
+            width: 100%;
+            font-size: 4vw;
+            height: 5.5vw;
+            border-radius: 10px  0 0 0 ;
+        }
+        .allcommentshold.show{
+            max-height: 40vw;
+        }
+        .commentli{
+            font-size: 4.5vw;
+            background-color: #fff7ff;
+            border-bottom: 0;
+        }
+    }
+}
+
+@media screen and (min-width:1025px) {
+    @media screen and (max-width:1439px) {
+        .post-btn{
+            top: 70vw;
+            font-size: 2vw;
+        }
+        .profilepichold{
+            right: 6.5vw;
+        }
+    }}
+
+
+    @media screen and (min-width:760px) {
+        @media screen and (max-width:1024px) {
+            #home{
+                width: 100vw;
+                height: 95vh;
+            }
+            .communeload{
+                width: 100vw;
+            }
+            .postdisp{
+                max-height: 70vh;
+                width: 95%;
+            }
+            .post-img-cap{
+                max-height: 55vh;
+            }
+            .postownname{
+                font-size: 3vw;
+            }
+            .profilepichold{
+                right: 5vw;
+                z-index: 2;
+                width: 4.2vw;
+                height: 4.2vw;
+            }
+            .profilepichold:hover{
+                width: 10vw;
+                height: 10vw;
+            }
+            
+            .postcomment{
+                font-size: 2.5vw;
+            }
+
+            .postowner{
+                grid-template-rows: 30% 70%;
+            }
+            .postowner.click{
+                grid-template-rows: 15% 70% 15%;
+            }
+            .showcomment{
+                font-size: 2vw;
+                height: 95%;
+            }
+          
+            .postlike{
+                font-size: 2vw;
+                height: 95%;
+            }
+            .postfollow{
+                font-size: 2vw;
+                height: 95%;
+            }
+            /* .postcomment:hover{
+                background-color: #780078;
+                color: #fff;
+            } */
+            .postcomments_user{
+                font-size: 2.3vw;
+            }
+            .postcomments_user.click{
+                height: 150px;
+            }
+            .sendcomment-btn{
+                width: 95%;
+                height: 80%;
+                grid-column: 1 / span3;
+                font-size: 2.5vw;
+                left: 0;
+                border-radius: 5px;
+            }
+            .commentli{
+                font-size: 2.2vw;
+            }
+            #post-btn{
+                font-size: 3vw;
+                width: 12vw;
+                height: 4vw;
+                top: 90vh;
+                left: 3vw;
+            }
+            .otheraccount{
+                width: 100vw;
+                height: 96vh;
+            }
+            #postfollow1{
+                font-size: 2.2vw;
+            }
+            .followercount{
+                font-size: 2vw;
+            }
+            .profilepicdisp{
+                width: 12vw;
+                height: 12vw;
+            }
+            .showcomment1{
+                height: 95%;
+                width: 100%;
+                font-size: 2vw;
+                border-radius: 10px 0 0 0 ;
+            }
+            #sendcomment{
+                left: 0;
+            }
+            #close{
+                width: 4vw;
+                height: 4vw;
+                font-size: 2.3vw;
+            }
+            
+        }
+    }

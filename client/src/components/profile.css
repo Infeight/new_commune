@@ -1,0 +1,667 @@
+@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+
+body{
+    margin: 0;
+    padding: 0;
+    background-color: purple;
+}
+
+.profile{
+    background-color: #fff;
+    border-radius: 0 0 50vw 0;
+    width: 80vw;
+    height: 100vh;
+    display: grid;
+    align-items: center;
+    justify-items: center;
+    z-index: 1;
+    position: absolute;
+    box-shadow: 0 0 10px black;
+    grid-template-rows: 20% 60%;
+    grid-template-columns: 50% 50%;
+    animation: profile 0.5s 1 ease;
+}
+@keyframes profile {
+    from{
+        border-radius:0 0 0vw 0 ;
+
+    }
+    to{
+        border-radius: 0 0 50vw 0;
+    }
+}
+.logo-name{
+    grid-column-start: 1;
+    grid-column-end: 3;
+    font-family: nunito;
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 800;
+    font-style: normal;
+    color: purple;
+    font-size: 3.5vw;
+    
+}
+.profilepic{
+    width: 21vw;
+    height: 21vw;
+    position: relative;
+    left: -5vw;
+    border-radius: 50vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: purple;
+    animation: profilepic 8s infinite  ease;
+  box-shadow: inset 0vw 0vw 1vw black;
+}
+.profilepic1{
+    width: 20.5vw;
+    height: 20.5vw;
+    border-radius: 50vw;
+    background-color: #9e21a4;
+    animation: profilepic  7s 0.2s infinite  ease;
+  
+  box-shadow: inset 0vw 0vw 1vw black;
+}
+
+
+@keyframes profilepic {
+    0%{
+        border-radius: 74vw 108vw 85vw 110vw;
+    }
+    15%{
+        border-radius: 73vw 100vw 77vw 102vw;
+    }
+    25%{
+        border-radius: 70vw 95vw 83vw 108vw;
+    }
+    40%{
+        border-radius: 68vw 85vw 95vw 98vw;
+    }
+    50%{
+        border-radius: 78vw 75vw 88vw 90vw;
+    }
+    60%{
+        border-radius: 83vw 79vw 78vw 96vw;
+    }
+    75%{
+        border-radius: 91vw 70vw 89vw 102vw;
+    }
+
+    88%{
+        border-radius: 85vw 89vw 82vw 108vw;
+    }
+
+    100%{
+        border-radius: 74vw 108vw 85vw 110vw;
+    }
+}
+
+
+@keyframes profilepic1 {
+    0%{
+        border-radius: 73vw 100vw 77vw 102vw;
+    }
+    15%{
+       
+        border-radius: 69vw 98vw 85vw 110vw;
+    }
+    25%{
+        border-radius: 68vw 85vw 95vw 98vw;
+       
+    }
+    40%{
+        border-radius: 70vw 88vw 83vw 108vw;
+    }
+    50%{
+        border-radius: 83vw 75vw 78vw 96vw;
+    }
+    60%{
+        
+        border-radius: 78vw 70vw 88vw 90vw;
+    }
+    75%{
+        border-radius: 85vw 89vw 82vw 108vw;
+    }
+
+    88%{
+       
+        border-radius: 91vw 85vw 89vw 102vw;
+    }
+
+    100%{
+        border-radius: 73vw 100vw 77vw 102vw;
+    }
+}
+
+.profile-det {
+    width: 90%;
+    height: 65%;
+    position: relative;
+    left: -11vw;
+    list-style: none;
+    font-size: 2.5vw;
+    letter-spacing: 0.1vw;
+    font-family: nunito;
+    display: grid;
+    flex-direction: column;
+    align-items: flex-start;
+    grid-template-rows: max-content 65%;
+    justify-content: space-evenly;
+    grid-template-columns: 50% 50%;
+}
+
+
+.profile-det li {
+    list-style: none;
+}
+.username{
+    list-style: none;
+    font-size: 3vw;
+    letter-spacing: 0.1vw;
+    font-family: nunito;
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+    color: purple;
+    grid-column: span 1 / 3;
+    grid-column-start: 1;
+    margin-bottom: 1vw;
+}
+
+#nav-btns{
+    position: absolute;
+    width: 30vw;
+    height: 65%;
+    left: 70vw;
+    display: flex;
+    flex-direction: column;
+    /* align-items: center; */
+    justify-content: space-evenly;
+}
+
+#nav-btns button{
+    width: 95%;
+    height: 4vw;
+    box-shadow: 0 0 0px black;
+    background-color: transparent;
+    border-radius: 10vw 2vw 10vw 2vw;
+    box-sizing: border-box;
+    padding: 4px;
+    cursor: pointer;
+    transition-duration: 0.2s;
+  position: relative;
+  left: 0;
+  border: none;
+  outline: none;
+  font-family: "Nunito", sans-serif;
+  font-size: 2.5vw;
+  font-optical-sizing: auto;
+  font-weight: 600;
+  text-align: end;
+  padding-right: 4vw;
+  color: purple;
+}
+#nav-btns a {
+    color: #fff;
+    text-decoration: none;
+    cursor: pointer;
+    padding: 10px 40px;
+    box-sizing: border-box;
+    border-radius: 2px 0 0 50px;
+    font-size: 1.9vw;
+    transition-duration: 0.3s;
+}
+
+
+#nav-btns a:hover{
+   font-size: 2.1vw;
+    transition-duration: 0.3s;
+
+}
+
+#chatsbtn{
+    a{
+     color: gold;
+     text-shadow: 2px 0.5px white;
+     font-weight: 800;
+   
+    }
+     animation: chatsbtn 3s  infinite  ease;
+   }
+   
+   
+   @keyframes chatsbtn {
+     0%{
+       transform: scale(1.02);
+   
+     }
+     50%{
+       transform: scale(1);
+     }
+     100%{
+       transform: scale(1.02);
+     }
+   }
+
+.followers{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    background-color: transparent;
+    box-sizing: border-box;
+    padding: 2px;
+    h6{
+        margin: 0;
+        font-size: 2.1vw;
+        position: sticky;
+        top: -0.3vw;
+        background-color: #fff;
+        z-index: 1;
+    }
+}
+.following{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow-y: scroll;
+    background-color: transparent;
+    box-sizing: border-box;
+    padding: 5px;
+    h6{
+        margin: 0;
+        font-size: 2.1vw;
+        position: sticky;
+        top: -0.4vw;
+        background-color: #fff;
+        z-index: 1;
+    }
+}
+
+.followers::-webkit-scrollbar{width: 0.2vw;}
+.followers::-webkit-scrollbar-track{
+    background-color: #fff;
+}
+.followers::-webkit-scrollbar-thumb{
+    background-color: purple;
+    border-radius: 2vw;
+}
+.following::-webkit-scrollbar{width: 0.2vw;}
+.following::-webkit-scrollbar-track{
+    background-color: #fff;
+}
+.following::-webkit-scrollbar-thumb{
+    background-color: purple;
+    border-radius: 2vw;
+}
+
+.followerli{
+    font-size: 1.9vw;
+    box-sizing: border-box;
+    padding: 2px;
+    overflow-x: scroll;
+}
+.followerli::-webkit-scrollbar{
+    display: none;
+}
+.followerli:hover{
+    color: purple;
+    background-color: #fdf0ff;
+    transform: scale(1.02);
+}
+
+.updatehold{
+    display: none;
+    align-items: center;
+    justify-content: center;
+}
+
+.prof-update-btn{
+    width: 20%;
+    height: 2.5vw;
+    border-radius: 10px;
+    border: 0;
+    background-color: purple;
+    color: white;
+    font-size: 1.5vw;
+    font-family: 'Nunito';
+    letter-spacing: 1px;
+    margin: 10px 10px;
+    box-shadow: 0 0 3px black;
+}
+
+#username-update-hold{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+#update-btn{
+    width: 0vw;
+    height: 0vw;
+    background-color: transparent;
+    border-radius: 50vw;
+    margin-left: 2vw;
+    z-index: 1;
+    display: none;
+}
+#update-btn svg{
+    font-size: 0;
+    cursor: pointer;
+    z-index: 1;
+}
+
+#update-options{
+    position: relative;
+    left: -5vw;
+    opacity: 0;
+    visibility: hidden;
+    display: initial;
+    transition-duration: 0.4s;
+    display: none;
+}
+
+#update-options div{
+    font-size: 1.5vw;
+    border-bottom: 1px solid purple;
+    font-family: nunito;
+    border-radius: 2px;
+    box-sizing: border-box;
+    padding: 1px 10px;
+    transition-duration: 0.2s;
+}
+
+#update-options div:hover{
+  background-color: purple;
+  color: #fff;
+  transition-duration: 0.2s;
+
+}
+#update-input{
+ font-size: 1.5vw;
+ font-family: nunito;
+}
+
+#update-cancel{
+    width: 20%;
+    height: 2vw;
+    border-radius: 10px;
+    border: 0;
+    background-color: purple;
+    color: white;
+    font-size: 1.2vw;
+    font-family: 'Nunito';
+    letter-spacing: 1px;
+    margin: 10px 2vw;
+    box-shadow: 0 0 3px black;
+    display: none;
+}
+#newprofilepic{
+    position: relative;
+    width: 15vw;
+    height: 3vw;
+    background-color: purple;
+    left: 0vw;
+    top: 0vw;
+
+    font-size: 1.2vw;
+}
+.profilepicture{
+    width: 100%;
+    height: 100%;
+    animation: profilepic 8s infinite  ease;
+    position: absolute;
+    cursor: pointer;
+}
+
+
+#post-btn1{
+    position: absolute;
+    top: 11vw;
+    height: 2vw;
+    border-radius: 0.4vw;
+    left: 6.5vw;
+   display: none;
+}
+#cancelpic{
+    position: relative;
+    left: 0vw;
+    top: 4vw;
+    height: 2vw;
+    border-radius: 0.4vw;
+    background-color: rgba(253, 40, 40, 0.43);
+}
+#cancelpic:hover{
+    background-color: red;
+}
+.selectimg{
+    position: absolute;
+    left: 0vw;
+    top: 5vw;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5vw;
+    font-family: nunito;
+    font-weight: 700;
+    color: #fff;
+    cursor: pointer;
+    z-index: 4;
+    display: none;
+}
+.picupdateform{
+    width: 20vw;
+    height: 19vw;
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    display: none;
+}
+
+
+@media screen and (min-width:300px) {
+    @media screen and (max-width:600px) {
+
+        .profile{
+            width: 100vw;
+            border-radius: 0;
+           display: flex;
+           flex-direction: column;
+           justify-content: space-around;
+           align-items: center;
+        }
+
+        #nav-btns{
+            width: 100vw;
+            height: 5%;
+            flex-direction: row;
+            left: 0;
+            margin-top: 95vh;
+            margin-bottom: 0;
+          box-shadow: 0px 1px 7px black;
+            z-index: 3;
+        }
+
+        #nav-btns button{
+            width: 20%;
+            height: 100%;
+            padding: 0;
+            padding-right: 0;
+            text-align: center;
+            border-radius: 0;
+            /* background-color: aqua; */
+
+            a{
+                color: black;
+                padding: 0;
+                font-size: 4vw;
+
+            }
+        }
+
+        .logo-name{
+            font-size: 8vw;
+            margin-top: 5vw;
+        }
+        .profilepic{
+            width: 50vw;
+            height: 50vw;
+            left: 0;
+        }
+        .profilepic1{
+            width: 50vw;
+            height: 50vw;
+        }
+        .profile-det{
+            left: 0;
+            height: 50%;
+            top: -5vw;
+
+        }
+        .username{
+            font-size: 8vw;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        .followers h6{
+            font-size: 5.5vw;
+        }
+        .following{
+            padding-left: 30px;
+
+            h6{
+                font-size: 5.5vw;
+            }
+            
+        }
+        .followerli{
+            font-size: 4.5vw;
+        }
+        .selectimg{
+            font-size: 5.5vw
+        }
+        #post-btn1{
+            top: 28vw;
+            height: 6vw;
+            border-radius: 0.4vw;
+            left: 15.5vw;
+            width: 20vw;
+            font-size: 4.5vw;
+
+        }
+        #cancelpic{
+            left: 0vw;
+            top: 13vw;
+            height: 6vw;
+            width: 20vw;
+            font-size: 4.5vw;
+
+        }
+
+
+    }
+}
+
+
+@media screen and (min-width:1025px) {
+    @media screen and (max-width:1439px) {
+        #nav-btns{
+            left: 75vw;
+            width: 25vw;
+        }
+        #nav-btns button{
+            width: 100%;
+
+        }
+        #nav-btns a{
+            font-size: 2.3vw;
+            padding: 10px 20px;
+        }
+    }
+}
+
+@media screen and (min-width:760px) {
+    @media screen and (max-width:1024px) {
+
+        #nav-btns{
+            width: 100vw;
+            height: 5%;
+            flex-direction: row;
+            left: 0;
+            margin-top: 95vh;
+            margin-bottom: 0;
+          box-shadow: 0px 1px 7px black;
+            z-index: 3;
+            background-color: #fff;
+        }
+
+        #nav-btns button{
+            width: 20%;
+            height: 100%;
+            padding: 0;
+            padding-right: 0;
+            text-align: center;
+            border-radius: 0;
+            /* background-color: aqua; */
+
+            a{
+                color: black;
+                padding: 0;
+                font-size: 3vw;
+
+            }
+        }
+
+        .profile{
+            width: 100vw;
+            border-radius: 0;
+        }
+        .logo-name{
+            font-size: 5.5vw;
+        }
+        .username{
+            font-size: 4.5vw;
+        }
+        .profilepic{
+            width: 25vw;
+            height: 25vw;
+        }
+        .profilepic1{
+            width: 25vw;
+            height: 25vw;
+        }
+        .followers h6{
+            font-size: 3vw;
+        }
+        .following h6{
+            font-size: 3vw;
+        }
+        .followerli{
+            font-size: 3vw;
+        }
+        .selectimg{
+            font-size: 2.5vw;
+        }
+        #post-btn1{
+            font-size: 2.5vw;
+            width: 12vw;
+            height: 4vw;
+            top: 14vw;
+            left: 6.5vw;
+        }
+        #cancelpic{
+            font-size: 2.5vw;
+            width: 12vw;
+            height: 4vw;
+            top: 8vw;
+            left: 0vw;
+         
+        }
+    }}
