@@ -94,11 +94,11 @@ const Login = () => {
     }
  
 
-  const userstat = async ()=>{
-    let q= await  fetch('https://commune1.onrender.com/logins')
-    let userstate = await  q.json()
-    console.log(userstate)
-  }
+  // const userstat = async ()=>{
+  //   let q= await fetch('https://commune1.onrender.com/logins')
+  //   let userstate = await  q.json()
+  //   console.log(userstate)
+  // }
 
   // console.log(logins)
 
