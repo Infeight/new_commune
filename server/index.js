@@ -12,6 +12,18 @@ const socket = require('socket.io')
 const openurl = require ('openurl')
 
 
+const allowed = ['https://communepeople.vercel.app/','https://communepeople.vercel.app/logins','https://communepeople.vercel.app/profile','https://nss2server.vercel.app/events']
+
+app.use(cors({origin:(origin,callback)=>{
+          if(!origin || allowed.includes(origin)){
+            callback(null,true)
+          }
+          else{
+            callback(new Error('no cors'))
+          }
+}
+, credentials:true
+}))
 
 if (typeof localStorage === "undefined" || localStorage === null) {
   var LocalStorage = require('node-localstorage').LocalStorage;
