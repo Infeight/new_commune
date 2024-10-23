@@ -67,7 +67,7 @@ let newprofilepic;
           user_id:localStorage.getItem('user_Id')
       })
       newprofilepic.save()
-      .then(()=>{res.redirect('http://localhost:5173/profile')})
+      .then(()=>{res.redirect('https://communepeople.vercel.app/profile')})
       .catch(err=>{console.log(err)})
     }
   })
@@ -97,7 +97,7 @@ let newprofilepic;
         
         // localStorage.setItem('postdata',JSON.stringify(newpost1))
         newPost.save()
-        .then(()=>{res.redirect('http://localhost:5173/Home')})
+        .then(()=>{res.redirect('https://communepeople.vercel.app/Home')})
         .catch(err=>{console.log(err)})
 
             
@@ -144,7 +144,7 @@ app.post('/logins', async(req,res)=>{
 
 
 
-  const address = 'http://localhost:5173/profile'
+  const address = 'https://communepeople.vercel.app/profile'
   
   const usercheck  = await login.login.findOne({username: logindata.username})
   const userdatacheck = await userdata.userdata.findOne({username: logindata.username})
@@ -208,7 +208,7 @@ app.post('/signup', async(req,res)=>{
   await login.login.insertMany(signupdata)
 
 
-  openurl.open('http://localhost:5173/profile')
+  openurl.open('https://communepeople.vercel.app/profile')
 
   })
 
@@ -504,7 +504,7 @@ res.json({
 
   const io = socket(server,{
     cors:{
-      origin:'http://localhost:5173',
+      origin:'https://communepeople.vercel.app',
       Credential:true
     }
   })
