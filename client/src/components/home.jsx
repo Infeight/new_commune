@@ -54,7 +54,7 @@ const handlecommentsend = async(e)=>{
   }
 
   if(comment!=""){
-    fetch('http://localhost:5004/comment', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(commentinfo) })
+    fetch('https://commune1.onrender.com/comment', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(commentinfo) })
 
   }
 
@@ -81,7 +81,7 @@ e.target.closest('.postowner').querySelector('.postlike').querySelector('.likesy
    postid:postid
  }
 
-fetch('http://localhost:5004/likes', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(likeinfo) })
+fetch('https://commune1.onrender.com/likes', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(likeinfo) })
  e.target.closest(".postowner").querySelector(".postlike").querySelector(".likenum").innerHTML = `${curlikes}`
 }
 
@@ -103,7 +103,7 @@ const handleremovelikes = async(e)=>{
  }
  e.target.closest(".postowner").querySelector(".postlike").querySelector(".likenum").innerHTML = `${curlikes}`
 
-fetch('http://localhost:5004/removelikes', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(likeinfo) })
+fetch('https://commune1.onrender.com/removelikes', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(likeinfo) })
 }
 
 const handlefollow=async(e)=>{
@@ -120,7 +120,7 @@ const handlefollow=async(e)=>{
 
  }
 
- fetch('http://localhost:5004/follow',{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify(followdetails)})
+ fetch('https://commune1.onrender.com/follow',{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify(followdetails)})
  
    setTimeout(()=>{
      e.target.closest('.postowner').querySelector('.postfollow').innerText = "Following"
@@ -145,7 +145,7 @@ const handleaccountfollow = (e)=>{
 
  }
 
- fetch('http://localhost:5004/follow',{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify(followdetails)})
+ fetch('https://commune1.onrender.com/follow',{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify(followdetails)})
  
    setTimeout(()=>{
      e.target.innerText = "Following"
@@ -174,7 +174,7 @@ const handleunfollow=async(e)=>{
 
  }
 
- fetch('http://localhost:5004/unfollow',{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify(followdetails)})
+ fetch('https://commune1.onrender.com/unfollow',{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify(followdetails)})
 
  setTimeout(()=>{
   e.target.closest('.postowner').querySelector('.postfollow').innerText = "Follow 📌"
@@ -200,7 +200,7 @@ const handleacctunfollow = (e)=>{
   curuserpass: curuserpass
  }
 
- fetch('http://localhost:5004/unfollow',{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify(followdetails)})
+ fetch('https://commune1.onrender.com/unfollow',{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify(followdetails)})
 
  setTimeout(()=>{
   e.target.innerText = "Follow"
@@ -234,7 +234,7 @@ localStorage.setItem('postownerid',ownerid)
     ownername:ownername
   }
 
- const details =  fetch('http://localhost:5004/searchusers',{method:'post',headers:{'Content-Type':'application/json'},body: JSON.stringify(searchdet)});
+ const details =  fetch('https://commune1.onrender.com/searchusers',{method:'post',headers:{'Content-Type':'application/json'},body: JSON.stringify(searchdet)});
   details.then(response => response.json())
   .then(data => {setFounduser({username:data.founduser.username,user_id:data.founduser._id,followerno:data.founduser.followers.length,followingno:data.founduser.following.length})
 
@@ -431,10 +431,11 @@ const showfollowers = ()=>{
 
   const posts = async()=>{
   
-    const allPosts = await fetch('http://localhost:5004/newPost');
-    const profilepics = await fetch('http://localhost:5004/profilepics')
-    const likedposts = await fetch('http://localhost:5004/likedposts')
-    const user_id = await fetch('http://localhost:5004/user_id')
+    Promise.all()
+    const allPosts = await fetch('https://commune1.onrender.com/newPost');
+    const profilepics = await fetch('https://commune1.onrender.com/profilepics')
+    const likedposts = await fetch('https://commune1.onrender.com/likedposts')
+    const user_id = await fetch('https://commune1.onrender.com/user_id')
     
     const allPosts1 = await allPosts.json()
     const profilepics1 = await profilepics.json()

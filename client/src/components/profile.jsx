@@ -83,9 +83,9 @@ const cancelpicupdate = ()=>{
 
   const allusers = async()=>{
     let followers=[]
-    let allusers1 = await fetch('http://localhost:5004/login')
-    let profilepic = await fetch('http://localhost:5004/profilepic')
-    const user_id = await fetch('http://localhost:5004/user_id')
+    let allusers1 = await fetch('https://commune1.onrender.com/login')
+    let profilepic = await fetch('https://commune1.onrender.com/profilepic')
+    const user_id = await fetch('https://commune1.onrender.com/user_id')
 
     let allusers11 = await allusers1.json()
     let profilepic1
@@ -191,7 +191,7 @@ document.querySelectorAll('.update-options-btns').forEach(btn=>{
       <div className='selectimg' style={{position:'absolute'}}>Select Picture</div>
     </label>
 
-    <form style={{position:'absolute'}} id='picupdateform' className='picupdateform' action="http://localhost:5004/profilepic" method='post' encType='multipart/form-data'>
+    <form style={{position:'absolute'}} id='picupdateform' className='picupdateform' action="https://commune1.onrender.com/profilepic" method='post' encType='multipart/form-data'>
           <input type="file" style={{display:'none'}} onChange={handleimage} name="newprofilepic" id='newprofilepic' />
           
           <div className="post-btn" id='cancelpic' onClick={cancelpicupdate}>Cancel</div>
