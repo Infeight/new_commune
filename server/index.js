@@ -25,6 +25,9 @@ if (typeof localStorage === "undefined" || localStorage === null) {
 const port = 5004;
 
 app.use(cors())
+app.use(cors({
+  origin: 'https://commune1.netlify.app'
+}));
 app.use(bodyParser.json())
 
 
@@ -74,7 +77,7 @@ let newprofilepic;
           user_id:localStorage.getItem('user_Id')
       })
       newprofilepic.save()
-      .then(()=>{res.redirect('http://localhost:5173/profile')})
+      .then(()=>{res.redirect('https://commune1.netlify.app/profile')})
       .catch(err=>{console.log(err)})
     }
   })
@@ -104,7 +107,7 @@ let newprofilepic;
         
         // localStorage.setItem('postdata',JSON.stringify(newpost1))
         newPost.save()
-        .then(()=>{res.redirect('http://localhost:5173/Home')})
+        .then(()=>{res.redirect('https://commune1.netlify.app/Home')})
         .catch(err=>{console.log(err)})
 
             
@@ -151,7 +154,7 @@ app.post('/logins', async(req,res)=>{
 
 
 
-  const address = 'http://localhost:5173/profile'
+  const address = 'https://commune1.netlify.app/profile'
   
   const usercheck  = await login.login.findOne({username: logindata.username})
   const userdatacheck = await userdata.userdata.findOne({username: logindata.username})
@@ -215,7 +218,7 @@ app.post('/signup', async(req,res)=>{
   await login.login.insertMany(signupdata)
 
 
-  openurl.open('http://localhost:5173/profile')
+  openurl.open('https://commune1.netlify.app/profile')
 
   })
 
@@ -511,7 +514,7 @@ res.json({
 
   const io = socket(server,{
     cors:{
-      origin:'http://localhost:5173',
+      origin:'https://commune1.netlify.app',
       Credential:true
     }
   })
