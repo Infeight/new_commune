@@ -10,7 +10,7 @@ const multer = require ('multer');
 const profilepic = require('./mongoose')
 const socket = require('socket.io')
 const openurl = require ('openurl')
-const path = require('path')
+
 
 
 // const allowed = ['https://communepeople.vercel.app/','https://communepeople.vercel.app/logins','https://communepeople.vercel.app/profile','https://nss2server.vercel.app/events']
@@ -26,10 +26,9 @@ const port = 5004;
 
 app.use(cors())
 app.use(bodyParser.json())
-app.use(express.static(path.join(__dirname,'/client/dist')))
 
 
-app.get('*',(req,res)=>res.sendFile(path.join(__dirname,'/client/dist/index.html')))
+
 const server = app.listen(port,() =>{
     console.log(`listening on port ${port}`)
 })
