@@ -130,7 +130,7 @@ const handleto_id = (e)=>{
 console.log(to_id.to_id)
 
     const logins = async()=>{
-        let allusers1 = await fetch('http://localhost:5004/login')
+        let allusers1 = await fetch('http://localhost:5004/login',{headers:{accept:'application/json'}})
         let allusers = await allusers1.json()
     
         allusers.map(Element=>{

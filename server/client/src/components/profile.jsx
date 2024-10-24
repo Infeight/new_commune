@@ -83,9 +83,9 @@ const cancelpicupdate = ()=>{
 
   const allusers = async()=>{
     let followers=[]
-    let allusers1 = await fetch('http://localhost:5004/login')
-    let profilepic = await fetch('http://localhost:5004/profilepic')
-    const user_id = await fetch('http://localhost:5004/user_id')
+    let allusers1 = await fetch('http://localhost:5004/login',{headers:{accept:'application/json'}})
+    let profilepic = await fetch('http://localhost:5004/profilepic',{headers:{accept:'application/json'}})
+    const user_id = await fetch('http://localhost:5004/user_id',{headers:{accept:'application/json'}})
 
     let allusers11 = await allusers1.json()
     let profilepic1

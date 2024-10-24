@@ -55,7 +55,7 @@ const Login = () => {
 
 
   let getlogin = async()=>{
-   let alllogin = await fetch ('https://localhost:5004/login')
+   let alllogin = await fetch ('http://localhost:5004/login',{headers:{accept:'application/json'}})
    let alllogin1 = await alllogin.json()
 
    setLogins(alllogin1)
@@ -70,7 +70,7 @@ const Login = () => {
       // localStorage.setItem('current-users-following', user.)
     localStorage.setItem('followinglist1',JSON.stringify(followinglist2))
 
-       fetch('https://localhost:5004/logins', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(user) })
+       fetch('http://localhost:5004/logins', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(user) })
       
     }
    
@@ -89,7 +89,7 @@ const Login = () => {
     localStorage.setItem('current-users-pass',signup.password)
     localStorage.setItem('followinglist1',JSON.stringify(followinglist2))
 
-    await  fetch('https://localhost:5004/signup', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(signup) })
+    await  fetch('http://localhost:5004/signup', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(signup) })
   
     }
  

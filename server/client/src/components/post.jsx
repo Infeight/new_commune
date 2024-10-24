@@ -48,7 +48,7 @@ const Post = () => {
   }
 
   const handleuser_id = async()=>{
-    fetch('http://localhost:5004/user_id').then(res=>{})
+    fetch('http://localhost:5004/user_id',{headers:{accept:'application/json'}}).then(res=>{})
     .then(data=>{
       setUser_id(data)
       console.log(data)

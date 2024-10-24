@@ -432,10 +432,10 @@ const showfollowers = ()=>{
   const posts = async()=>{
   
     Promise.all()
-    const allPosts = await fetch('http://localhost:5004/newPost');
-    const profilepics = await fetch('http://localhost:5004/profilepics')
-    const likedposts = await fetch('http://localhost:5004/likedposts')
-    const user_id = await fetch('http://localhost:5004/user_id')
+    const allPosts = await fetch('http://localhost:5004/newPost',{headers:{accept:'application/json'}});
+    const profilepics = await fetch('http://localhost:5004/profilepics',{headers:{accept:'application/json'}})
+    const likedposts = await fetch('http://localhost:5004/likedposts',{headers:{accept:'application/json'}})
+    const user_id = await fetch('http://localhost:5004/user_id',{headers:{accept:'application/json'}})
     
     const allPosts1 = await allPosts.json()
     const profilepics1 = await profilepics.json()
