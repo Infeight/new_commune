@@ -26,7 +26,7 @@ const port = 5004;
 
 // app.use(cors())
 app.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', 'https://commune1.netlify.app/');  // or '*'
+  res.header('Access-Control-Allow-Origin', 'https://commune-it.vercel.app/');  // or '*'
   res.header('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
   res.header('Access-Control-Allow-Headers', 'Content-Type, Authorization');
   next();
@@ -80,7 +80,7 @@ let newprofilepic;
           user_id:localStorage.getItem('user_Id')
       })
       newprofilepic.save()
-      .then(()=>{res.redirect('https://commune1.netlify.app/profile')})
+      .then(()=>{res.redirect('https://commune-it.vercel.app/profile')})
       .catch(err=>{console.log(err)})
     }
   })
@@ -110,7 +110,7 @@ let newprofilepic;
         
         // localStorage.setItem('postdata',JSON.stringify(newpost1))
         newPost.save()
-        .then(()=>{res.redirect('https://commune1.netlify.app/Home')})
+        .then(()=>{res.redirect('https://commune-it.vercel.app/Home')})
         .catch(err=>{console.log(err)})
 
             
@@ -157,7 +157,7 @@ app.post('/logins', async(req,res)=>{
 
 
 
-  const address = 'https://commune1.netlify.app/profile'
+  const address = 'https://commune-it.vercel.app/profile'
   
   const usercheck  = await login.login.findOne({username: logindata.username})
   const userdatacheck = await userdata.userdata.findOne({username: logindata.username})
@@ -221,7 +221,7 @@ app.post('/signup', async(req,res)=>{
   await login.login.insertMany(signupdata)
 
 
-  openurl.open('https://commune1.netlify.app/profile')
+  openurl.open('https://commune-it.vercel.app/profile')
 
   })
 
@@ -517,7 +517,7 @@ res.json({
 
   const io = socket(server,{
     cors:{
-      origin:'https://commune1.netlify.app',
+      origin:'https://commune-it.vercel.app',
       Credential:true
     }
   })
