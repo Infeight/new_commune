@@ -25,18 +25,10 @@ if (typeof localStorage === "undefined" || localStorage === null) {
 const port = 5004;
 
 // app.use(cors())
-const allowed = ['https://commune1-1.onrender.com/','https://commune1-1.onrender.com']
-
-app.use(cors({origin:(origin,callback)=>{
-          if(!origin || allowed.includes(origin)){
-            callback(null,true)
-          }
-          else{
-            callback(new Error('no cors'))
-          }
-}
-, credentials:true
-}))
+app.use(cors({
+  origin: 'https://commune1-1.onrender.com/',
+  credentials: true
+}));
 
 app.use(bodyParser.json())
 
