@@ -48,7 +48,7 @@ const Post = () => {
   }
 
   const handleuser_id = async()=>{
-    fetch('https://commune1.onrender.com/user_id',{headers:{accept:'application/json'}}).then(res=>{})
+    fetch('http://localhost:5004/user_id',{headers:{accept:'application/json'}}).then(res=>{})
     .then(data=>{
       setUser_id(data)
       console.log(data)
@@ -189,7 +189,7 @@ const Post = () => {
         </div>
 
 
-        <form action="https://commune1.onrender.com/newPost" method='post' encType='multipart/form-data'>
+        <form action="http://localhost:5004/newPost" method='post' encType='multipart/form-data'>
         {/* {image.url!=""? document.getElementById('selectlabel').style.display = 'none': document.getElementById('selectlabel').style.display = 'flex'} */}
         {/* <label id='selectlabel' className='selectlabel' htmlFor="newPost">Select Image  <IoMdImages style={{marginLeft:'0.5vw'}}/>
         </label> */}
