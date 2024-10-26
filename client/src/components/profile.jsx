@@ -83,9 +83,9 @@ const cancelpicupdate = ()=>{
 
   const allusers = async()=>{
     let followers=[]
-    let allusers1 = await fetch('http://localhost:5004/login',{headers:{accept:'application/json'}})
-    let profilepic = await fetch('http://localhost:5004/profilepic',{headers:{accept:'application/json'}})
-    const user_id = await fetch('http://localhost:5004/user_id',{headers:{accept:'application/json'}})
+    let allusers1 = await fetch('https://new-commune.onrender.com/login',{headers:{accept:'application/json'}})
+    let profilepic = await fetch('https://new-commune.onrender.com/profilepic',{headers:{accept:'application/json'}})
+    const user_id = await fetch('https://new-commune.onrender.com/user_id',{headers:{accept:'application/json'}})
 
     let allusers11 = await allusers1.json()
     let profilepic1
@@ -191,7 +191,7 @@ document.querySelectorAll('.update-options-btns').forEach(btn=>{
       <div className='selectimg' style={{position:'absolute'}}>Select Picture</div>
     </label>
 
-    <form style={{position:'absolute'}} id='picupdateform' className='picupdateform' action="hhttp://localhost:5004/profilepic" method='post' encType='multipart/form-data'>
+    <form style={{position:'absolute'}} id='picupdateform' className='picupdateform' action="https://new-commune.onrender.com/profilepic" method='post' encType='multipart/form-data'>
           <input type="file" style={{display:'none'}} onChange={handleimage} name="newprofilepic" id='newprofilepic' />
           
           <div className="post-btn" id='cancelpic' onClick={cancelpicupdate}>Cancel</div>

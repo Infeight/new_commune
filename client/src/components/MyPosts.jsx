@@ -36,7 +36,7 @@ const MyPosts = () => {
     }
       document.getElementById('confirmdel').style.display = 'none'
    document.getElementById('home').style.opacity = '100%'
-      await fetch('http://localhost:5004/delpost',{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify(del_id_det)})
+      await fetch('https://new-commune.onrender.com/delpost',{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify(del_id_det)})
    })
 
    document.getElementById('cancdel').addEventListener('click', async()=>{
@@ -66,7 +66,7 @@ const curuserdata = async()=>{
 
   const posts = async()=>{
 
-    const allPosts = await fetch('http://localhost:5004/myPost',{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify(curuser)})
+    const allPosts = await fetch('https://new-commune.onrender.com/myPost',{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify(curuser)})
     
     const allPosts1 = await allPosts.json()
  

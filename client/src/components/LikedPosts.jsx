@@ -52,7 +52,7 @@ const handlecommentsend = async(e)=>{
     postid:postid
   }
 
-fetch('http://localhost:5004/comment', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(commentinfo) })
+fetch('https://new-commune.onrender.com/comment', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(commentinfo) })
 
 e.target.closest(".postowner").querySelector(".postcomments_user").value = ""
 // setNewComment({...newComment, comment:commentinfo.comment, postid: commentinfo.postid})
@@ -80,7 +80,7 @@ const handlelikes = async(e)=>{
  }
 
 
-fetch('http://localhost:5004/likes', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(likeinfo) })
+fetch('https://new-commune.onrender.com/likes', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(likeinfo) })
 // e.target.closest(".postowner").querySelector(".postlike").querySelector(".likesym").innerHTML = ""
 
  e.target.closest(".postowner").querySelector(".postlike").querySelector(".likenum").innerHTML = `${curlikes}`
@@ -107,7 +107,7 @@ const handleremovelikes = async(e)=>{
  e.target.closest(".postowner").querySelector(".postlike").querySelector(".likenum").innerHTML = `${curlikes}`
 
 
-fetch('http://localhost:5004/removelikes', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(likeinfo) })
+fetch('https://new-commune.onrender.com/removelikes', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(likeinfo) })
 // e.target.closest(".postowner").querySelector(".postlike").querySelector(".likesym").innerHTML = ""
 
 
@@ -129,7 +129,7 @@ const handlefollow=async(e)=>{
  }
 
 
- fetch('http://localhost:5004/follow',{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify(followdetails)})
+ fetch('https://new-commune.onrender.com/follow',{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify(followdetails)})
  e.target.closest('.postowner').querySelector('.postfollow').innerText = "Following"
 
  e.target.removeEventListener("click",handlefollow)
@@ -143,9 +143,9 @@ function removeDuplicates(arr) {
 
   const posts = async()=>{
     
-    const allPosts = await fetch('http://localhost:5004/newPost',{headers:{accept:'application/json'}})
-    const profilepics = await fetch('http://localhost:5004/hprofilepics',{headers:{accept:'application/json'}})
-    const likedposts = await fetch('http://localhost:5004/likedposts',{headers:{accept:'application/json'}})
+    const allPosts = await fetch('https://new-commune.onrender.com/newPost',{headers:{accept:'application/json'}})
+    const profilepics = await fetch('https://new-commune.onrender.com/hprofilepics',{headers:{accept:'application/json'}})
+    const likedposts = await fetch('https://new-commune.onrender.com/likedposts',{headers:{accept:'application/json'}})
     
     const profilepics1 = await profilepics.json()
     const allPosts1 = await allPosts.json()
