@@ -25,11 +25,9 @@ if (typeof localStorage === "undefined" || localStorage === null) {
 const port = 5004;
 
 // app.use(cors())
+// const cors = require('cors');
 app.use(cors({
-  origin: 'https://peoplecommune.onrender.com', 
-  methods: ['GET', 'POST', 'PUT', 'DELETE'],
-  allowedHeaders: ['Content-Type', 'Authorization'], 
-  credentials: true // Set to true if cookies are required
+  origin: 'https://peoplecommune.onrender.com'
 }));
 
 app.use(bodyParser.json())
