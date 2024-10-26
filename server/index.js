@@ -26,7 +26,7 @@ const port = 5004;
 
 // app.use(cors())
 app.use(cors({
-  origin: 'https://commune1-1.onrender.com/',
+  origin: 'https://commune1-1.onrender.com',
   credentials: true
 }));
 
