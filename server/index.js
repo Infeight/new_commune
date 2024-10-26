@@ -24,13 +24,13 @@ if (typeof localStorage === "undefined" || localStorage === null) {
 }
 const port = 5004;
 
-app.use(cors())
-// app.use(cors({
-//   origin: 'https://commune1-1.onrender.com', 
-//   methods: ['GET', 'POST', 'PUT', 'DELETE'],
-//   allowedHeaders: ['Content-Type', 'Authorization'], 
-//   credentials: true // Set to true if cookies are required
-// }));
+// app.use(cors())
+app.use(cors({
+  origin: 'https://peoplecommune.onrender.com', 
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'], 
+  credentials: true // Set to true if cookies are required
+}));
 
 app.use(bodyParser.json())
 
@@ -81,7 +81,7 @@ let newprofilepic;
           user_id:localStorage.getItem('user_Id')
       })
       newprofilepic.save()
-      .then(()=>{res.redirect('http://localhost:8000/profile')})
+      .then(()=>{res.redirect('https://peoplecommune.onrender.com/profile')})
       .catch(err=>{console.log(err)})
     }
   })
@@ -111,7 +111,7 @@ let newprofilepic;
         
         // localStorage.setItem('postdata',JSON.stringify(newpost1))
         newPost.save()
-        .then(()=>{res.redirect('http://localhost:8000/Home')})
+        .then(()=>{res.redirect('https://peoplecommune.onrender.com/Home')})
         .catch(err=>{console.log(err)})
 
             
@@ -158,7 +158,7 @@ app.post('/logins', async(req,res)=>{
 
 
 
-  const address = 'http://localhost:8000/profile'
+  const address = 'https://peoplecommune.onrender.com/profile'
   
   const usercheck  = await login.login.findOne({username: logindata.username})
   const userdatacheck = await userdata.userdata.findOne({username: logindata.username})
@@ -222,7 +222,7 @@ app.post('/signup', async(req,res)=>{
   await login.login.insertMany(signupdata)
 
 
-  openurl.open('http://localhost:8000/profile')
+  openurl.open('https://peoplecommune.onrender.com/profile')
 
   })
 
@@ -518,7 +518,7 @@ res.json({
 
   const io = socket(server,{
     cors:{
-      origin:'http://localhost:8000',
+      origin:'https://peoplecommune.onrender.com',
       Credential:true
     }
   })
