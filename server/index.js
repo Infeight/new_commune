@@ -26,8 +26,10 @@ const port = 5004;
 
 // app.use(cors())
 app.use(cors({
-  origin: 'https://commune1-1.onrender.com',
-  credentials: true
+  origin: 'https://commune1-1.onrender.com', 
+  methods: ['GET', 'POST', 'PUT', 'DELETE'],
+  allowedHeaders: ['Content-Type', 'Authorization'], 
+  credentials: true // Set to true if cookies are required
 }));
 
 app.use(bodyParser.json())
