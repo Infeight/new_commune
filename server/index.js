@@ -10,9 +10,13 @@ const multer = require ('multer');
 const profilepic = require('./mongoose')
 // const socket = require('socket.io')
 const openurl = require ('openurl')
+const open = require('open');
 
 
 
+(async () => {
+    await open('https://peoplecommune.onrender.com/profile');
+})();
 // const allowed = ['https://communepeople.vercel.app/','https://communepeople.vercel.app/logins','https://communepeople.vercel.app/profile','https://nss2server.vercel.app/events']
 
 
@@ -79,7 +83,7 @@ let newprofilepic;
           user_id:localStorage.getItem('user_Id')
       })
       newprofilepic.save()
-      .then(()=>{res.redirect('https://peoplecommune.onrender.com/profile')})
+      .then(()=>{ res.redirect('https://peoplecommune.onrender.com/profile')})
       .catch(err=>{console.log(err)})
     }
   })
@@ -173,7 +177,7 @@ else{
     if(usercheck.username == logindata.username && usercheck.password == logindata.password){
       localStorage.setItem("currentuser-name", req.body.username)
 
-      openurl.open(address)
+      await open('https://peoplecommune.onrender.com/profile');
 
      localStorage.setItem('loggedin',"existing-user")
     }
@@ -220,7 +224,7 @@ app.post('/signup', async(req,res)=>{
   await login.login.insertMany(signupdata)
 
 
-  openurl.open('https://peoplecommune.onrender.com/profile')
+  await open('https://peoplecommune.onrender.com/profile');
 
   })
 
