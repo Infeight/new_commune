@@ -234,7 +234,7 @@ localStorage.setItem('postownerid',ownerid)
     ownername:ownername
   }
 
- const details =  fetch('http://localhost:5004/searchusers',{method:'post',headers:{'Content-Type':'application/json'},body: JSON.stringify(searchdet)});
+ const details =  fetch('https://new-commune.onrender.com/searchusers',{method:'post',headers:{'Content-Type':'application/json'},body: JSON.stringify(searchdet)});
   details.then(response => response.json())
   .then(data => {setFounduser({username:data.founduser.username,user_id:data.founduser._id,followerno:data.founduser.followers.length,followingno:data.founduser.following.length})
 
