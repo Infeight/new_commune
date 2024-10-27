@@ -144,7 +144,7 @@ function removeDuplicates(arr) {
   const posts = async()=>{
     
     const allPosts = await fetch('https://new-commune.onrender.com/newPost',{headers:{accept:'application/json'}})
-    const profilepics = await fetch('https://new-commune.onrender.com/hprofilepics',{headers:{accept:'application/json'}})
+    const profilepics = await fetch('https://new-commune.onrender.com/profilepics',{headers:{accept:'application/json'}})
     const likedposts = await fetch('https://new-commune.onrender.com/likedposts',{headers:{accept:'application/json'}})
     
     const profilepics1 = await profilepics.json()

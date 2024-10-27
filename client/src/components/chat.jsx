@@ -34,12 +34,12 @@ const Chat = () => {
         })
       }
    
- useEffect(()=>{
-   if(curuserid){
-    socket.current = io('https://new-commune.onrender.com')
-    socket.current.emit('add-user',curuserid)
-   }
- },[curuserid])     
+//  useEffect(()=>{
+//    if(curuserid){
+//     socket.current = io('https://new-commune.onrender.com')
+//     socket.current.emit('add-user',curuserid)
+//    }
+//  },[curuserid])     
 
 useEffect(()=>{
     logins()
@@ -63,11 +63,11 @@ setCurrentmsg({message:msg.caption})
 document.querySelector('.react-input-emoji--input').innerText="";
 
 
-socket.current.emit('sendmsg',{
-  to: to_id.to_id,
-  from: curuserid,
-  message:msg.caption
-})
+// socket.current.emit('sendmsg',{
+//   to: to_id.to_id,
+//   from: curuserid,
+//   message:msg.caption
+// })
 const msgs = [...allmsgs]
 msgs.push({fromself:true, message:msg.caption})
 setAllmsgs(msgs)
@@ -94,17 +94,17 @@ let obj;
   
 }
 
-useEffect(()=>{
-  if(socket.current){
-    socket.current.on('recievemsg',(msg)=>{
-        setArrivemsg({fromself:false, message:msg})
-    })
-  }
-},[])
+// useEffect(()=>{
+//   if(socket.current){
+//     socket.current.on('recievemsg',(msg)=>{
+//         setArrivemsg({fromself:false, message:msg})
+//     })
+//   }
+// },[])
 
-useEffect(()=>{
-  arrivemsg && setAllmsgs((prev)=>[...prev,arrivemsg])
-},[arrivemsg])
+// useEffect(()=>{
+//   arrivemsg && setAllmsgs((prev)=>[...prev,arrivemsg])
+// },[arrivemsg])
 
 useEffect(()=>{
    scrollref.current?.scrollIntoView({behaviour:'smooth'})
