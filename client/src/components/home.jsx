@@ -430,8 +430,7 @@ const showfollowers = ()=>{
 
 
   const posts = async()=>{
-  
-    Promise.all()
+ 
     const allPosts = await fetch('https://new-commune.onrender.com/newPost',{headers:{accept:'application/json'}});
     const profilepics = await fetch('https://new-commune.onrender.com/profilepics',{headers:{accept:'application/json'}})
     const likedposts = await fetch('https://new-commune.onrender.com/likedposts',{headers:{accept:'application/json'}})
