@@ -178,7 +178,13 @@ else{
     if(usercheck.username == logindata.username && usercheck.password == logindata.password){
       localStorage.setItem("currentuser-name", req.body.username)
 
-     openurl.open(address)
+
+      (async () => {
+        const open = (await import('open')).default;  // Use dynamic import
+        await open('https://peoplecommune.onrender.com/profile');
+    })();
+
+    
      localStorage.setItem('loggedin',"existing-user")
     }
     else{
@@ -223,8 +229,10 @@ app.post('/signup', async(req,res)=>{
 
   await login.login.insertMany(signupdata)
 
-openurl.open('https://peoplecommune.onrender.com/profile')
-
+  (async () => {
+    const open = (await import('open')).default;  // Use dynamic import
+    await open('https://peoplecommune.onrender.com/profile');
+})();
   })
 
   app.post('/myPost',async(req,res)=>{
