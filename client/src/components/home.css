@@ -659,7 +659,7 @@ video {
         .postdisp {
             width: 100%;
             height: auto;
-            max-height: 100vh;
+            max-height: 110vh;
             display: flex;
             box-sizing: border-box;
             flex-direction: column;
@@ -809,7 +809,7 @@ video {
             border-radius: 10px  0 0 0 ;
         }
         .allcommentshold.show{
-            max-height: 40vw;
+            max-height: 40vh;
         }
         .commentli{
             font-size: 4.5vw;
