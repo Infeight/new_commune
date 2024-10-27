@@ -171,7 +171,7 @@ if(usercheck==null){
 //  openurl.open(address)
 // console.log ("new user taken")
 // res.send({user: "new-user"})
-localStorage.setItem('loggedin',"new-user")
+// localStorage.setItem('loggedin',"new-user")
 }
 else{
   try{
