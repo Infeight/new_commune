@@ -14,9 +14,9 @@ const open = require('open');
 
 
 
-(async () => {
-    await open('https://peoplecommune.onrender.com/profile');
-})();
+// (async () => {
+//     await open('https://peoplecommune.onrender.com/profile');
+// })();
 // const allowed = ['https://communepeople.vercel.app/','https://communepeople.vercel.app/logins','https://communepeople.vercel.app/profile','https://nss2server.vercel.app/events']
 
 
