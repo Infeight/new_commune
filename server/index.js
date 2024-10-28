@@ -23,10 +23,10 @@ const openurl = require ('openurl')
 
 
 
-if (typeof sessionStorage === "undefined" || sessionStorage === null) {
-  var sessionStorage = require('node-sessionStorage').sessionStorage;
-  sessionStorage = new sessionStorage('./scratch');
-}
+// if (typeof sessionStorage === "undefined" || sessionStorage === null) {
+//   var sessionStorage = require('node-sessionStorage').sessionStorage;
+//   sessionStorage = new sessionStorage('./scratch');
+// }
 const port = 5004;
 
 // app.use(cors())
