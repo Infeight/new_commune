@@ -91,7 +91,7 @@ const cancelpicupdate = ()=>{
     const user_id = await fetch('https://new-commune.onrender.com/user_id',{method:'post',headers:{accept:'application/json'},body:JSON.stringify(userdet)})
     let user_id1;
 
-    user_id.then(response=>response.json).
+    user_id.then(response=>response.json()).
     then(data=> user_id1 = data. user_id._id)
 
      setCurrentuser_id({'userId':user_id1.user_id})
