@@ -181,7 +181,7 @@ function removeDuplicates(arr) {
     // console.log(trendingposts)
 
     // const allpostsrev = allPosts1.reverse()
-    const likedposts1 = []
+    let likedposts1 = []
 
     likedposts.then(response=>response.json()).then
     (data=> likedposts1 = data.likedposts)
