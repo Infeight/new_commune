@@ -101,8 +101,9 @@ const cancelpicupdate = ()=>{
    try{
     profilepic.then(response=> response.json()).then(data=>{
              profilepic1 = data.profilepicture  
+             console.log(data)
      })
-     console.log(profilepic1)
+     
    }
   
    catch(err){
