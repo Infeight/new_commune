@@ -11,6 +11,10 @@ import { IoIosHeartEmpty } from "react-icons/io";
 const LikedPosts = () => {
   const location = useLocation()
 
+  let curuser = localStorage.getItem('current-users')
+  const curuserpass = localStorage.getItem('current-users-pass')
+  let curuserid = localStorage.getItem('curuserid')
+
   console.log(localStorage.getItem('current-users'))
   const followinglist = JSON.parse(localStorage.getItem('followinglist2'))
 
@@ -142,6 +146,9 @@ function removeDuplicates(arr) {
 }
 
   const posts = async()=>{
+    let userdet = {
+      userid:curuserid
+    }
     
     const allPosts = await fetch('https://new-commune.onrender.com/newPost',{headers:{accept:'application/json'}})
     const profilepics = await fetch('https://new-commune.onrender.com/profilepics',{headers:{accept:'application/json'}})
