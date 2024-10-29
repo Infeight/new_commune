@@ -75,7 +75,7 @@ let newprofilepic;
 
       newprofilepic = new profilepic.profilepic({
         profile:{
-          data: req.file.buffer,
+          data: req.file.buffer?req.file.buffer:'',
           contentType:'image/png'
 
         },
