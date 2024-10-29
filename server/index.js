@@ -452,7 +452,7 @@ else{
   
   //  sessionStorage.setItem('user_Id',logins._id)
     res.json({
-      user_id:logins._id
+      user_id:logins
     })
   })
 
