@@ -6,8 +6,11 @@ import { IoMdImages } from "react-icons/io";
 import InputEmoji from "react-input-emoji";
 
 const Post = () => {
+ 
+  let curuser = localStorage.getItem('current-users')
+  const curuserpass = localStorage.getItem('current-users-pass')
+  let curuserid = localStorage.getItem('curuserid')
 
-  
   const [caption,setCaption] = useState({
     caption:""
   })
@@ -36,6 +39,7 @@ const Post = () => {
     caption:e
     })
   }
+
 
   const handleimage = (e)=>{
     if(e.target.files[0]){
@@ -193,6 +197,9 @@ const Post = () => {
         {/* {image.url!=""? document.getElementById('selectlabel').style.display = 'none': document.getElementById('selectlabel').style.display = 'flex'} */}
         {/* <label id='selectlabel' className='selectlabel' htmlFor="newPost">Select Image  <IoMdImages style={{marginLeft:'0.5vw'}}/>
         </label> */}
+         <textarea name="username" id="" style={{display:'none'}} value={curuser}></textarea>
+         <textarea name="userpass" id="" style={{display:'none'}} value={curuserpass}></textarea>
+         <textarea name="curuserid" id="" style={{display:'none'}} value={curuserid}></textarea>
           <input type="file" name="newPost" id='newPost' style={{display:'none'}} onChange={handleimage}/>
         <div id='cancelbtn'  className='post-btn' onClick={handleCancel}>Cancel</div>
            

@@ -11,8 +11,8 @@ const Profile = () => {
 
   const [followerno,setFollowerno] = useState('');
   const [followingno,setFollowingno] = useState('')
-  const [currentuser,setCurrentuser]= useState({
-    username:""
+  const [currentuser_id,setCurrentuser_id]= useState({
+    userId:""
   })
 
   let curuser = localStorage.getItem('current-users')
@@ -83,14 +83,25 @@ const cancelpicupdate = ()=>{
 
   const allusers = async()=>{
     let followers=[]
+    let userdet={
+      username:curuser,password:curuserpass
+    }
     let allusers1 = await fetch('https://new-commune.onrender.com/login',{headers:{accept:'application/json'}})
-    let profilepic = await fetch('https://new-commune.onrender.com/profilepic',{headers:{accept:'application/json'}})
-    const user_id = await fetch('https://new-commune.onrender.com/user_id',{headers:{accept:'application/json'}})
+    let profilepic = await fetch('https://new-commune.onrender.com/profilepic',{method:'post',headers:{accept:'application/json' },body: JSON.stringify(userdet)})
+    const user_id = await fetch('https://new-commune.onrender.com/user_id',{method:'post',headers:{accept:'application/json'},body:JSON.stringify(userdet)})
+    let user_id1;
 
+    user_id.then(response=>response.json).
+    then(data=> user_id1 = data. user_id)
+
+     setCurrentuser_id({'userId':user_id1.user_id})
+     localStorage.setItem('curuserid',currentuser_id.userId)
     let allusers11 = await allusers1.json()
     let profilepic1
    try{
-     profilepic1= await profilepic.json()
+    profilepic.then(response=> response.json()).then(data=>{
+             profilepic1 = data.profilepicture  
+     })
    }
    catch(err){
      profilepic1 = {
@@ -191,11 +202,13 @@ document.querySelectorAll('.update-options-btns').forEach(btn=>{
       <div className='selectimg' style={{position:'absolute'}}>Select Picture</div>
     </label>
 
-    <form style={{position:'absolute'}} id='picupdateform' className='picupdateform' action="https://new-commune.onrender.com/profilepic" method='post' encType='multipart/form-data'>
+    <form style={{position:'absolute'}} id='picupdateform' className='picupdateform' action="https://new-commune.onrender.com/profilepic" method='post'  encType='multipart/form-data'>
           <input type="file" style={{display:'none'}} onChange={handleimage} name="newprofilepic" id='newprofilepic' />
-          
+          <input type="text" value={curuser} name='username' style={{display:'none'}} />
+          <input type="text" value={curuserpass} name='userpass' style={{display:'none'}} />
+           <input type="text" value={currentuser_id.userId} name='userId' style={{display:'none'}} />
           <div className="post-btn" id='cancelpic' onClick={cancelpicupdate}>Cancel</div>
-
+    
 
         </form>
         <button id='post-btn1' className='post-btn' type='' onClick={updatepic}>Update</button>

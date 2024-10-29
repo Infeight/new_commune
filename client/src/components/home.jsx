@@ -10,6 +10,11 @@ import Post from './post'
 
 const Home = () => {
   
+
+  let curuser = localStorage.getItem('current-users')
+  const curuserpass = localStorage.getItem('current-users-pass')
+  let curuserid = localStorage.getItem('curuserid')
+
  const followinglist = JSON.parse(localStorage.getItem('followinglist2'))
   const [load,setLoad] = useState(true)
  const [followstat,setFollowstat] = useState(false)
@@ -50,7 +55,8 @@ const handlecommentsend = async(e)=>{
 
   let commentinfo = {
     comment: comment,
-    postid:postid
+    postid:postid,
+    username:curuser
   }
 
   if(comment!=""){
@@ -78,7 +84,10 @@ e.target.closest('.postowner').querySelector('.postlike').querySelector('.likesy
 
  let likeinfo = {
    likes: likes,
-   postid:postid
+   postid:postid,
+   username: curuser,
+   user_id:curuserid,
+   password:curuserpass
  }
 
 fetch('https://new-commune.onrender.com/likes', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(likeinfo) })
@@ -99,7 +108,10 @@ const handleremovelikes = async(e)=>{
 
  let likeinfo = {
    likes: likes,
-   postid:postid
+   postid:postid,
+   username: curuser,
+   user_id:curuserid,
+   password:curuserpass
  }
  e.target.closest(".postowner").querySelector(".postlike").querySelector(".likenum").innerHTML = `${curlikes}`
 
@@ -430,16 +442,23 @@ const showfollowers = ()=>{
 
 
   const posts = async()=>{
- 
+  
+    let userdet = {
+      userid:curuserid
+    }
+     
     const allPosts = await fetch('https://new-commune.onrender.com/newPost',{headers:{accept:'application/json'}});
     const profilepics = await fetch('https://new-commune.onrender.com/profilepics',{headers:{accept:'application/json'}})
-    const likedposts = await fetch('https://new-commune.onrender.com/likedposts',{headers:{accept:'application/json'}})
+    const likedposts = await fetch('https://new-commune.onrender.com/likedposts',{method:'post',headers:{accept:'application/json'},body: JSON.stringify(userdet)})
     const user_id = await fetch('https://new-commune.onrender.com/user_id',{headers:{accept:'application/json'}})
     
     const allPosts1 = await allPosts.json()
     const profilepics1 = await profilepics.json()
     const allpostsrev = allPosts1.reverse()
-    const likedposts1 = await likedposts.json()
+   let likedposts1;
+
+     likedposts.then(response=>response.json()).
+     then(data=>{likedposts1 = data.likedposts})
 
    allpostsrev.forEach(element => {
 

@@ -66,7 +66,7 @@ let newprofilepic;
  app.post('/profilepic',async(req,res)=>{
 
  
- await profilepic.profilepic.deleteOne({username: sessionStorage.getItem('currentuser-name'),password: sessionStorage.getItem('currentuser-pass')})
+ await profilepic.profilepic.deleteOne({user_id:req.body.userId})
   profilepicture(req,res,(err)=>{
     if(err){
       console.log(err)
@@ -79,9 +79,9 @@ let newprofilepic;
           contentType:'image/png'
 
         },
-        username: sessionStorage.getItem('currentuser-name'),
-          password:sessionStorage.getItem('currentuser-pass'),
-          user_id:sessionStorage.getItem('user_Id')
+        username: req.body.username,
+          password:req.body.username,
+          user_id:req.body.userId
       })
       newprofilepic.save()
       .then(()=>{ res.redirect('https://peoplecommune.onrender.com/profile')})
@@ -103,16 +103,16 @@ let newprofilepic;
             contentType:'image/png'
           },
           caption:req.body.caption?req.body.caption:"",
-          username: sessionStorage.getItem('currentuser-name'),
-          password:sessionStorage.getItem('currentuser-pass'),
+          username: req.body.username,
+          password: req.body.curuserpass,
           comments:[],
           likes:0,
           date:`${d.getDate()}-${d.getMonth()}-${d.getFullYear()}`,
-          user_id:sessionStorage.getItem('user_Id')
+          user_id:req.body.curuserid
      
         })
         
-        // sessionStorage.setItem('postdata',JSON.stringify(newpost1))
+      
         newPost.save()
         .then(()=>{res.redirect('https://peoplecommune.onrender.com/Home')})
         .catch(err=>{console.log(err)})
@@ -132,9 +132,15 @@ app.get('/newPost',async(req,res)=>{
   res.send(posts)
 })
 
-app.get('/profilepic',async(req,res)=>{
-  const profilepicture = await profilepic.profilepic.findOne({username: sessionStorage.getItem('currentuser-name'),password: sessionStorage.getItem('currentuser-pass')})
-  res.send(profilepicture)
+app.post('/profilepic',async(req,res)=>{
+    let userdet = {
+      username:req.body.username,
+      password:req.body.password
+    }
+  const profilepicture = await profilepic.profilepic.findOne({username: userdet.username,password: userdet.password})
+  res.json({
+    profilepicture:profilepicture
+  })
 })
 
 app.get('/profilepics',async(req,res)=>{
@@ -155,8 +161,8 @@ app.post('/logins', async(req,res)=>{
     password: req.body.password
   }
 
-  sessionStorage.setItem("currentuser-name", req.body.username)
-  sessionStorage.setItem("currentuser-pass", req.body.password)
+  // sessionStorage.setItem("currentuser-name", req.body.username)
+  // sessionStorage.setItem("currentuser-pass", req.body.password)
 
 
 
@@ -185,7 +191,7 @@ else{
     })();
 
     
-     sessionStorage.setItem('loggedin',"existing-user")
+    //  sessionStorage.setItem('loggedin',"existing-user")
     }
     else{
       // await login.login.insertMany(logindata)
@@ -201,16 +207,16 @@ else{
   }
 }
 
-app.get('/logins',(req,res)=>{
+// app.get('/logins',(req,res)=>{
 
-  if(sessionStorage.getItem("loggedin")== 'new-user'){
-   res.send({user:"new-user"})
-  }
-  else{
-    res.send({user:"existing-user"})
-  }
+//   if(sessionStorage.getItem("loggedin")== 'new-user'){
+//    res.send({user:"new-user"})
+//   }
+//   else{
+//     res.send({user:"existing-user"})
+//   }
 
-})
+// })
 
 
 })
@@ -223,8 +229,8 @@ app.post('/signup', async(req,res)=>{
      followers:[],
      following:[]
    }
-   sessionStorage.setItem("currentuser-name", req.body.username)
-   sessionStorage.setItem("currentuser-pass", req.body.password)
+  //  sessionStorage.setItem("currentuser-name", req.body.username)
+  //  sessionStorage.setItem("currentuser-pass", req.body.password)
   //  sessionStorage.setItem("currentuser-mail", req.body.mail)
 
   await login.login.insertMany(signupdata)
@@ -259,7 +265,7 @@ else{
     const newcomment = {
       comments: req.body.comment,
       postid: req.body.postid,
-      username: sessionStorage.getItem('currentuser-name')
+      username: req.body.username
 
     }
 
@@ -286,16 +292,21 @@ else{
   app.post('/likes',async(req,res)=>{
     const likes = {
       likes: req.body.likes,
-      postid: req.body.postid
+      postid: req.body.postid,
+      username:req.body.username,
+      user_id:req.body.user_id,
+      password:req.body.password
 
     }
 
-    let likepost = await login.login.findOne({"username":sessionStorage.getItem('currentuser-name'), "password":sessionStorage.getItem('currentuser-pass')})
+
+
+    let likepost = await login.login.findOne({"username":likes.username, "password":likes.password})
      likepost1 = likepost.liked
 
     likepost1.push(likes.postid)
 
-    login.login.updateOne({"username":sessionStorage.getItem('currentuser-name'), "password":sessionStorage.getItem('currentuser-pass')},{$set:{"liked":likepost1}}, {upsert: true}).then(()=>{
+    login.login.updateOne({"username":likes.username, "password":likes.password},{$set:{"liked":likepost1}}, {upsert: true}).then(()=>{
       likepost1 = []
      }).catch((err)=>{console.log(err)})
 
@@ -310,16 +321,18 @@ else{
   app.post('/removelikes',async(req,res)=>{
     const likes = {
       likes: req.body.likes,
-      postid: req.body.postid
-
+      postid: req.body.postid,
+      username:req.body.username,
+      user_id:req.body.user_id,
+      password:req.body.password
     }
 
-    let likepost = await login.login.findOne({"username":sessionStorage.getItem('currentuser-name'), "password":sessionStorage.getItem('currentuser-pass')})
+    let likepost = await login.login.findOne({"username":likes.username, "password":likes.password})
      removelikes = likepost.liked
 
     removelikes.pop(likes.postid)
 
-    login.login.updateOne({"username":sessionStorage.getItem('currentuser-name'), "password":sessionStorage.getItem('currentuser-pass')},{$set:{"liked":removelikes}}, {upsert: true}).then(()=>{
+    login.login.updateOne({"username":likes.username, "password":likes.password},{$set:{"liked":removelikes}}, {upsert: true}).then(()=>{
       removelikes = []
      }).catch((err)=>{console.log(err)})
 
@@ -330,9 +343,13 @@ else{
     
   })
 
-  app.get('/likedposts',async(req,res)=>{
-   const userliked = await login.login.findOne({"username":sessionStorage.getItem('currentuser-name'), "password":sessionStorage.getItem('currentuser-pass')})
-   res.send(userliked.liked)
+  app.post('/likedposts',async(req,res)=>{
+    let userdet = {
+      userid: req.body.userid
+    }
+   const userliked = await login.login.findOne({'_id':userdet.userid})
+   res.json({
+    likedposts:userliked.liked})
   })
 
 
@@ -374,14 +391,14 @@ else{
     
   })
 
-  app.get('/getlikedposts',async(req,res)=>{
-    let setlikedoposts = []
-   const currentuser =  await login.login.findOne({"username":sessionStorage.getItem('currentuser-name'), "password":sessionStorage.getItem('currentuser-pass')})
+  // app.get('/getlikedposts',async(req,res)=>{
+  //   let setlikedoposts = []
+  //  const currentuser =  await login.login.findOne({"username":sessionStorage.getItem('currentuser-name'), "password":sessionStorage.getItem('currentuser-pass')})
 
 
-   let reqposts =   allPosts.allPosts.findById('66cb08b90ce8cc66ad0fa949')
+  //  let reqposts =   allPosts.allPosts.findById('66cb08b90ce8cc66ad0fa949')
   
-  })
+  // })
 
 
   app.post('/unfollow',async(req,res)=>{
@@ -418,19 +435,23 @@ else{
   
     
   })
-let followinglist = []
-  app.get('/followinglist',async(req,res)=>{
-    const logins = await login.login.findOne({"username":sessionStorage.getItem('currentuser-name'), "password":sessionStorage.getItem('currentuser-pass')})
-   followinglist = logins.following
-   console.log(followinglist)
-    res.send(followinglist)
-  })
+// let followinglist = []
+//   app.get('/followinglist',async(req,res)=>{
+//     const logins = await login.login.findOne({"username":sessionStorage.getItem('currentuser-name'), "password":sessionStorage.getItem('currentuser-pass')})
+//    followinglist = logins.following
+//    console.log(followinglist)
+//     res.send(followinglist)
+//   })
 
-  app.get('/user_id',async(req,res)=>{
-    const logins = await login.login.findOne({"username":sessionStorage.getItem('currentuser-name'), "password":sessionStorage.getItem('currentuser-pass')})
+  app.post('/user_id',async(req,res)=>{
+    let userdet = {
+      username :req.body.username,
+      password:req.body.password
+    }
+    const logins = await login.login.findOne({"username":userdet.username, "password":userdet.password})
   
-   sessionStorage.setItem('user_Id',logins._id)
-    res.send({
+  //  sessionStorage.setItem('user_Id',logins._id)
+    res.json({
       user_id:logins._id
     })
   })
@@ -454,8 +475,8 @@ let followinglist = []
      password:req.body.password
     }
 
-    sessionStorage.removeItem('currentuser-name')
-    sessionStorage.setItem('currentuser-name',newnamedet.name)
+    // sessionStorage.removeItem('currentuser-name')
+    // sessionStorage.setItem('currentuser-name',newnamedet.name)
    await login.login.updateOne({"username":newnamedet.username,"password":newnamedet.password},{$set:{"username":newnamedet.name}})
 
   })
