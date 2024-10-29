@@ -182,7 +182,7 @@ if(usercheck==null){
 else{
   try{
     if(usercheck.username == logindata.username && usercheck.password == logindata.password){
-      sessionStorage.setItem("currentuser-name", req.body.username)
+      // sessionStorage.setItem("currentuser-name", req.body.username)
 
 
       (async () => {
