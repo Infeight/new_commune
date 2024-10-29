@@ -17,6 +17,7 @@ const Profile = () => {
 
   let curuser = localStorage.getItem('current-users')
   const curuser1 = localStorage.getItem('current-users')
+  console.log(curuser)
   const[image,setImage]  = useState({
     file:null,
     url :""
