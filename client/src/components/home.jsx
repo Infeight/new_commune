@@ -449,7 +449,7 @@ const showfollowers = ()=>{
      
     const allPosts = await fetch('https://new-commune.onrender.com/newPost',{headers:{accept:'application/json'}});
     const profilepics = await fetch('https://new-commune.onrender.com/profilepics',{headers:{accept:'application/json'}})
-    const likedposts = await fetch('https://new-commune.onrender.com/likedposts',{method:'post',headers:{accept:'application/json'},body: JSON.stringify(userdet)})
+    const likedposts =  fetch('https://new-commune.onrender.com/likedposts',{method:'post',headers:{accept:'application/json'},body: JSON.stringify(userdet)})
     const user_id = await fetch('https://new-commune.onrender.com/user_id',{headers:{accept:'application/json'}})
     
     const allPosts1 = await allPosts.json()

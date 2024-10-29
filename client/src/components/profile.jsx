@@ -92,9 +92,9 @@ const cancelpicupdate = ()=>{
     let user_id1;
 
     user_id.then(response=>response.json()).
-    then(data=> user_id1 = data. user_id._id)
+    then(data=> user_id1 = data._id)
 
-     setCurrentuser_id({'userId':user_id1.user_id})
+     setCurrentuser_id({'userId':user_id1})
      localStorage.setItem('curuserid',currentuser_id.userId)
     let allusers11 = await allusers1.json()
     let profilepic1
