@@ -450,12 +450,12 @@ const showfollowers = ()=>{
     const allPosts = await fetch('https://new-commune.onrender.com/newPost',{headers:{accept:'application/json'}});
     const profilepics = await fetch('https://new-commune.onrender.com/profilepics',{headers:{accept:'application/json'}})
     const likedposts =  fetch('https://new-commune.onrender.com/likedposts',{method:'post',headers:{'Content-Type':'application/json'},body: JSON.stringify(userdet)})
-    const user_id = await fetch('https://new-commune.onrender.com/user_id',{headers:{accept:'application/json'}})
+    // const user_id = await fetch('https://new-commune.onrender.com/user_id',{headers:{accept:'application/json'}})
     
     const allPosts1 = await allPosts.json()
     const profilepics1 = await profilepics.json()
     const allpostsrev = allPosts1.reverse()
-   let likedposts1;
+   let likedposts1=[];
 
      likedposts.then(response=>response.json()).
      then(data=>{likedposts1 = data.likedposts})
