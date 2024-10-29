@@ -145,7 +145,8 @@ function removeDuplicates(arr) {
     
     const allPosts = await fetch('https://new-commune.onrender.com/newPost',{headers:{accept:'application/json'}})
     const profilepics = await fetch('https://new-commune.onrender.com/profilepics',{headers:{accept:'application/json'}})
-    const likedposts = await fetch('https://new-commune.onrender.com/likedposts',{headers:{accept:'application/json'}})
+    const likedposts =  fetch('https://new-commune.onrender.com/likedposts',{method:'post',headers:{'Content-Type':'application/json'},body: JSON.stringify(userdet)})
+    // const likedposts = await fetch('https://new-commune.onrender.com/likedposts',{headers:{accept:'application/json'}})
     
     const profilepics1 = await profilepics.json()
     const allPosts1 = await allPosts.json()
@@ -173,7 +174,10 @@ function removeDuplicates(arr) {
     // console.log(trendingposts)
 
     // const allpostsrev = allPosts1.reverse()
-    const likedposts1 = await likedposts.json()
+    const likedposts1 = []
+
+    likedposts.then(response=>response.json()).then
+    (data=> likedposts1 = data.likedposts)
 
     console.log(likedposts1)
 
