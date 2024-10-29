@@ -102,7 +102,7 @@ let newprofilepic;
             data: req.file.buffer,
             contentType:'image/png'
           },
-          caption:req.body.caption?req.body.caption:"",
+          caption:req.body.caption,
           username: req.body.username,
           password: req.body.curuserpass,
           comments:[],
@@ -132,7 +132,7 @@ app.get('/newPost',async(req,res)=>{
   res.send(posts)
 })
 
-app.post('/profilepic',async(req,res)=>{
+app.post('/profilepic1',async(req,res)=>{
     let userdet = {
       username:req.body.username,
       password:req.body.password

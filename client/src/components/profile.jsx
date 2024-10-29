@@ -87,7 +87,7 @@ const cancelpicupdate = ()=>{
       username:curuser,password:curuserpass
     }
     let allusers1 = await fetch('https://new-commune.onrender.com/login',{headers:{accept:'application/json'}})
-    let profilepic = await fetch('https://new-commune.onrender.com/profilepic',{method:'post',headers:{accept:'application/json' },body: JSON.stringify(userdet)})
+    let profilepic = await fetch('https://new-commune.onrender.com/profilepic1',{method:'post',headers:{accept:'application/json' },body: JSON.stringify(userdet)})
     const user_id = await fetch('https://new-commune.onrender.com/user_id',{method:'post',headers:{accept:'application/json'},body:JSON.stringify(userdet)})
     let user_id1;
 
