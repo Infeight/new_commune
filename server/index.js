@@ -137,6 +137,7 @@ app.post('/profilepic1',async(req,res)=>{
       username:req.body.username,
       password:req.body.password
     }
+    console.log(userdet)
   const profilepicture = await profilepic.profilepic.findOne({username: userdet.username,password: userdet.password})
   res.json({
     profilepicture:profilepicture
