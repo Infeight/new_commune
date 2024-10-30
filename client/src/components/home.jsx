@@ -457,12 +457,7 @@ const showfollowers = ()=>{
     const allpostsrev = allPosts1.reverse()
    let likedposts1=[];
 
-     likedposts.then(response=>response.json()).
-     then(data=>{
-     data.likedposts.forEach(like=>{
-      likedposts1.push(like)
-     })
-    })
+    
     console.log(likedposts1.length)
    allpostsrev.forEach(element => {
 
@@ -587,22 +582,39 @@ const showfollowers = ()=>{
           }
          })
 
-         if(likedposts1.length !=0){
 
-          likedposts1.map(liked=>{
-            if(element._id === liked ){
-              likenum.innerHTML = `${element.likes}`
-              likenum.style.color ='red'
-            postlike.style.backgroundColor = '#fff'
-            postlike.style.color = 'red'
-            likesym.innerHTML = '❤️'
-            postlike.addEventListener('click',handleremovelikes)
-            postlike.removeEventListener('click',handlelikes)
-            console.log('working')
-            }
-           })
+         likedposts.then(response=>response.json()).
+         then(data=>{
+          if(data.likedposts.length!=0){
+
+            data.likedposts.forEach(like=>{
+              if(element._id === like ){
+                likenum.innerHTML = `${element.likes}`
+                likenum.style.color ='red'
+              postlike.style.backgroundColor = '#fff'
+              postlike.style.color = 'red'
+              likesym.innerHTML = '❤️'
+              postlike.addEventListener('click',handleremovelikes)
+              postlike.removeEventListener('click',handlelikes)
+              console.log('working')
+              }
+             })
+
+          }
+       
+        })
+
+
+
+
+
+        //  if(likedposts1.length !=0){
+
+        //   likedposts1.map(liked=>{
+          
+        //    })
          
-         }
+        //  }
 
          postimgholder.appendChild(postimg)
          postimgholder.appendChild(postcomment)
