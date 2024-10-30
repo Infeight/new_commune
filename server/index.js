@@ -8,9 +8,9 @@ const userdata = require('./mongoose')
 const messages = require('./mongoose')
 const multer = require ('multer');
 const profilepic = require('./mongoose')
-const open = require('open')
+// const open = require('open')
 // const socket = require('socket.io')
-// const openurl = require ('openurl')//
+const openurl = require ('openurl')
 
 
 
@@ -185,7 +185,7 @@ else{
     if(usercheck.username == logindata.username && usercheck.password == logindata.password){
       // sessionStorage.setItem("currentuser-name", req.body.username)
 
-      open('https://peoplecommune.onrender.com/profile');
+    openurl.open('https://peoplecommune.onrender.com/profile');
     //   (async () => {
     //     const open = (await import('open')).default;  // Use dynamic import
     //     await open('https://peoplecommune.onrender.com/profile');
@@ -236,7 +236,7 @@ app.post('/signup', async(req,res)=>{
 
   await login.login.insertMany(signupdata)
 
-  open('https://peoplecommune.onrender.com/profile');
+  openurl.open('https://peoplecommune.onrender.com/profile');
 //   (async () => {
 //     const open = (await import('open')).default;  // Use dynamic import
 //     await open('https://peoplecommune.onrender.com/profile');
