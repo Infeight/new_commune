@@ -459,7 +459,7 @@ const showfollowers = ()=>{
 
      likedposts.then(response=>response.json()).
      then(data=>{likedposts1 = data.likedposts})
-
+    console.log(likedposts1)
    allpostsrev.forEach(element => {
 
     const arr = element.post.data.data
