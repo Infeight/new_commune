@@ -583,7 +583,7 @@ const showfollowers = ()=>{
          })
 
 
-         likedposts.then(response).
+         likedposts.then(response=>{}).
          then(data=>{
           if(data.likedposts.length!=0){
 
