@@ -52,11 +52,15 @@ const Post = () => {
   }
 
   const handleuser_id = async()=>{
-    fetch('https://new-commune.onrender.com/user_id',{headers:{accept:'application/json'}}).then(res=>{})
-    .then(data=>{
-      setUser_id(data)
-      console.log(data)
-    })
+  
+
+    const user_id =  fetch('https://new-commune.onrender.com/user_id',{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify(userdet)})
+    let user_id1;
+
+    user_id.then(response=>response.json()).
+    then(data=> user_id1 = data._id)
+
+    setUser_id(user_id1)
     document.querySelector('.react-emoji').id = 'react-emoji'
   }
 

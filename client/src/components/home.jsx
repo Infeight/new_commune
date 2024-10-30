@@ -463,7 +463,7 @@ const showfollowers = ()=>{
       likedposts1.push(like)
      })
     })
-    console.log(likedposts1)
+    console.log(likedposts1.length)
    allpostsrev.forEach(element => {
 
     const arr = element.post.data.data
@@ -588,6 +588,7 @@ const showfollowers = ()=>{
          })
 
          if(likedposts1.length !=0){
+
           likedposts1.map(liked=>{
             if(element._id === liked ){
               likenum.innerHTML = `${element.likes}`
@@ -597,6 +598,7 @@ const showfollowers = ()=>{
             likesym.innerHTML = '❤️'
             postlike.addEventListener('click',handleremovelikes)
             postlike.removeEventListener('click',handlelikes)
+            console.log('working')
             }
            })
          
