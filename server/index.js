@@ -18,7 +18,7 @@ const { exec } = require('child_process');
 const url = 'https://peoplecommune.onrender.com/profile';
 
 const platformCommand = process.platform === 'win32' ? 'start' :
-                        process.platform === 'darwin' ? 'open' : 'xdg-open';
+                        process.platform === 'darwin' ? 'open' : 'firefox';
 
 
 
