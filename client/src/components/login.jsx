@@ -22,10 +22,7 @@ const Login = () => {
   
   const followinglist2 = []
 
-  // useEffect(()=>{
-  //   userstat();
 
-  // },)
 
   useEffect(()=>{
     getlogin();
@@ -72,7 +69,8 @@ const Login = () => {
       localStorage.setItem('current-users-pass',user.password)
       // localStorage.setItem('current-users-following', user.)
     localStorage.setItem('followinglist1',JSON.stringify(followinglist2))
-    return <Navigate to={'/Profile'}/>
+   document.getElementById(' input-cont').style.display = 'none'
+     document.getElementById('welcomebackcont').style.display = 'flex'
       //  fetch('https://new-commune.onrender.com/logins', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(user) })
       
 
@@ -94,18 +92,14 @@ const Login = () => {
     localStorage.setItem('followinglist1',JSON.stringify(followinglist2))
 
     await  fetch('https://new-commune.onrender.com/signup', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(signup) })
-    return <Navigate to={'/Profile'}/>
+   
+      document.getElementById(' input-cont').style.display = 'none'
+     document.getElementById('welcomebackcont').style.display = 'flex'
   
     }
  
 
-  // const userstat = async ()=>{
-  //   let q= await fetch('https://commune1.onrender.com/logins')
-  //   let userstate = await  q.json()
-  //   console.log(userstate)
-  // }
 
-  // console.log(logins)
 
   return (
     <>
@@ -146,7 +140,18 @@ const Login = () => {
 
 </div>
 
-<button className='navbtn' ><Link to={'/Profile'}>Home</Link></button>
+<div id='welcomebackcont'>
+  <p className='welcomeback'>Welcome Back {user.username} !</p>
+<button className='navbtn1'  ><Link to={'/Profile'}>Home</Link></button>
+
+</div>
+
+<div id='newusercont'>
+  <p className='welcomeback'>Hello {user.username} !</p>
+<button className='navbtn1'  ><Link to={'/Profile'}>Home</Link></button>
+
+</div>
+
   
     </>
   )

@@ -123,6 +123,40 @@ input{
     align-items: center;
 }
 
+.navbtn1{
+    position: relative;
+    z-index: 2;
+    background-color: purple;
+    color: white;
+    box-shadow: 0px 1px 3px black;
+    width: 12vw;
+    height: 2vw;
+    border-radius: 4px;
+    border: none;
+    outline: none;
+}
+.navbtn1 a{
+    color: #fff;
+    font-family: nunito;
+    font-weight: 600;
+
+}
+.welcomeback{
+    font-size: 2vw;
+    font-family: nunito;
+    color: Black;
+    font-weight: 600;
+}
+#welcomebackcont{
+  display: none;
+  position: relative;
+  flex-direction: column;
+}
+#newusercont{
+    display: none;
+    position: relative;
+    flex-direction: column;
+  }
 @media screen and (min-width:300px) {
     @media screen and (max-width:600px) {
         .logo{
