@@ -27,7 +27,7 @@ const port = 5004;
 // app.use(cors())
 // const cors = require('cors');
 app.use(cors({
-  origin: 'https://peoplecommune.onrender.com'
+  origin: ['https://peoplecommune.onrender.com','http://localhost:8000']
 }));
 
 app.use(bodyParser.json())
