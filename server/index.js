@@ -15,10 +15,24 @@ const { exec } = require('child_process');
 
 
 
+// const url = 'https://peoplecommune.onrender.com/profile';
+
+
 const url = 'https://peoplecommune.onrender.com/profile';
 
-// const platformCommand = process.platform === 'win32' ? 'start' :
-//                         process.platform === 'darwin' ? 'open' : 'firefox';
+const openBrowser = (url) => {
+    let command;
+
+    if (process.platform === 'win32') {
+        // Windows
+        command = `start "" "${url}"`;
+    } else if (process.platform === 'darwin') {
+        // macOS
+        command = `open "${url}"`;
+    } else {
+        // Linux and other Unix-like systems
+        command = `xdg-open "${url}"`;
+    }}
 
 
 
@@ -185,7 +199,7 @@ else{
     // openurl.open('https://peoplecommune.onrender.com/profile');
   
 
-    exec('start https://peoplecommune.onrender.com/profile', (err) => {
+    exec(command, (err) => {
       if (err) {
           console.error('Failed to open URL:', err);
       }
@@ -194,8 +208,7 @@ else{
 
     }
     else{
-      // await login.login.insertMany(logindata)
-      // openurl.open(address)
+ 
      
       res.send({user: "new-user"})
      
@@ -207,16 +220,7 @@ else{
   }
 }
 
-// app.get('/logins',(req,res)=>{
 
-//   if(sessionStorage.getItem("loggedin")== 'new-user'){
-//    res.send({user:"new-user"})
-//   }
-//   else{
-//     res.send({user:"existing-user"})
-//   }
-
-// })
 
 
 })
@@ -229,22 +233,16 @@ app.post('/signup', async(req,res)=>{
      followers:[],
      following:[]
    }
-  //  sessionStorage.setItem("currentuser-name", req.body.username)
-  //  sessionStorage.setItem("currentuser-pass", req.body.password)
-  //  sessionStorage.setItem("currentuser-mail", req.body.mail)
 
   await login.login.insertMany(signupdata)
 
   // openurl.open('https://peoplecommune.onrender.com/profile');
-  exec('start https://peoplecommune.onrender.com/profile', (err) => {
+  exec(command, (err) => {
     if (err) {
         console.error('Failed to open URL:', err);
     }
 });
-//   (async () => {
-//     const open = (await import('open')).default;  // Use dynamic import
-//     await open('https://peoplecommune.onrender.com/profile');
-// })();
+
   })
 
   app.post('/myPost',async(req,res)=>{

@@ -32,6 +32,8 @@ const Home = () => {
     followingno:''
   })
 
+  const[likedposts1,setLikedposts1] = ([])
+
   useEffect(()=>{
 
  setTimeout(()=>{
@@ -455,14 +457,10 @@ const showfollowers = ()=>{
     const allPosts1 = await allPosts.json()
     const profilepics1 = await profilepics.json()
     const allpostsrev = allPosts1.reverse()
-   let likedposts1=[];
-
+   
      likedposts.then(response=>response.json()).
      then(data=>{
-     data.likedposts.forEach(like=>{
-      likedposts1.push(like)
-      likedposts1.length++;
-     })
+    setLikedposts1(data.likedposts)
     })
     console.log(likedposts1.length)
    allpostsrev.forEach(element => {
