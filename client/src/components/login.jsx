@@ -1,6 +1,7 @@
 import React from 'react'
 import './login.css'
 import { useState,useEffect } from 'react';
+import { Navigate } from 'react-router-dom';
 
 const Login = () => {
 
@@ -69,9 +70,10 @@ const Login = () => {
       localStorage.setItem('current-users-pass',user.password)
       // localStorage.setItem('current-users-following', user.)
     localStorage.setItem('followinglist1',JSON.stringify(followinglist2))
-
+     
        fetch('https://new-commune.onrender.com/logins', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(user) })
       
+     return <Navigate to={'/Profile'}/>
     }
    
   })
@@ -90,6 +92,7 @@ const Login = () => {
     localStorage.setItem('followinglist1',JSON.stringify(followinglist2))
 
     await  fetch('https://new-commune.onrender.com/signup', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(signup) })
+    return <Navigate to={'/Profile'}/>
   
     }
  
