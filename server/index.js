@@ -75,7 +75,7 @@ let newprofilepic;
 
         },
         username: req.body.username,
-          password:req.body.username,
+          password:req.body.userpass,
           user_id:req.body.userId
       })
       newprofilepic.save()
@@ -99,7 +99,7 @@ let newprofilepic;
           },
           caption:req.body.caption,
           username: req.body.username,
-          password: req.body.curuserpass,
+          password: req.body.userpass,
           comments:[],
           likes:0,
           date:`${d.getDate()}-${d.getMonth()}-${d.getFullYear()}`,
