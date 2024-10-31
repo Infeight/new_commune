@@ -17,8 +17,8 @@ const { exec } = require('child_process');
 
 const url = 'https://peoplecommune.onrender.com/profile';
 
-const platformCommand = process.platform === 'win32' ? 'start' :
-                        process.platform === 'darwin' ? 'open' : 'firefox';
+// const platformCommand = process.platform === 'win32' ? 'start' :
+//                         process.platform === 'darwin' ? 'open' : 'firefox';
 
 
 
@@ -185,7 +185,7 @@ else{
     // openurl.open('https://peoplecommune.onrender.com/profile');
   
 
-    exec(`${platformCommand} ${url}`, (err) => {
+    exec('start https://peoplecommune.onrender.com/profile', (err) => {
       if (err) {
           console.error('Failed to open URL:', err);
       }
@@ -236,7 +236,7 @@ app.post('/signup', async(req,res)=>{
   await login.login.insertMany(signupdata)
 
   // openurl.open('https://peoplecommune.onrender.com/profile');
-  exec(`${platformCommand} ${url}`, (err) => {
+  exec('start https://peoplecommune.onrender.com/profile', (err) => {
     if (err) {
         console.error('Failed to open URL:', err);
     }
