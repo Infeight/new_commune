@@ -11,30 +11,14 @@ const profilepic = require('./mongoose')
 // const open = require('open')
 // const socket = require('socket.io')
 const openurl = require ('openurl')
-const { exec } = require('child_process');
 
 
 
-// const url = 'https://peoplecommune.onrender.com/profile';
+
 
 
 const url = 'https://peoplecommune.onrender.com/profile';
 
-
-    let command;
-
-    if (process.platform === 'win32') {
-        // Windows
-        command = `start "" "${url}"`;
-    } else if (process.platform === 'darwin') {
-        // macOS
-        command = `open "${url}"`;
-    } else {
-        // Linux and other Unix-like systems
-        command = `xdg-open "${url}"`;
-    }
-
-  
 
 
 
@@ -199,11 +183,7 @@ else{
     // openurl.open('https://peoplecommune.onrender.com/profile');
   
 
-    exec(command, (err) => {
-      if (err) {
-          console.error('Failed to open URL:', err);
-      }
-  });
+ 
 
 
     }
@@ -237,11 +217,7 @@ app.post('/signup', async(req,res)=>{
   await login.login.insertMany(signupdata)
 
   // openurl.open('https://peoplecommune.onrender.com/profile');
-  exec(command, (err) => {
-    if (err) {
-        console.error('Failed to open URL:', err);
-    }
-});
+ 
 
   })
 

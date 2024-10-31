@@ -32,7 +32,7 @@ const Home = () => {
     followingno:''
   })
 
-  const[likedposts1,setLikedposts1] = ([])
+  const[likedposts1,setLikedposts1] = useState([])
 
   useEffect(()=>{
 
