@@ -20,7 +20,7 @@ const { exec } = require('child_process');
 
 const url = 'https://peoplecommune.onrender.com/profile';
 
-const openBrowser = (url) => {
+
     let command;
 
     if (process.platform === 'win32') {
@@ -32,9 +32,9 @@ const openBrowser = (url) => {
     } else {
         // Linux and other Unix-like systems
         command = `xdg-open "${url}"`;
-    }}
+    }
 
-
+  
 
 
 
