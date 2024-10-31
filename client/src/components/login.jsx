@@ -65,6 +65,7 @@ const Login = () => {
   const submit = async()=>{
   logins.map(login=>{
     if(login.username==user.username&& login.password == user.password){
+
       setNewuser(false)
       localStorage.setItem('current-users',user.username)
       localStorage.setItem('current-users-pass',user.password)
@@ -143,6 +144,8 @@ const Login = () => {
 </div>
 
 </div>
+
+<button className='navbtn' ><Link to={'/Profile'}>Home</Link></button>
   
     </>
   )
