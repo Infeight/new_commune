@@ -44,6 +44,7 @@ const updatepic = ()=>{
 
   if(document.getElementById('newprofilepic').files.length!=0){
     document.getElementById('picupdateform').submit()
+
   document.getElementById('post-btn1').style.display = "none"
   }
   else{
@@ -107,6 +108,8 @@ const cancelpicupdate = ()=>{
      })
      
    }
+
+   
   
    catch(err){
      profilepic1 = {
@@ -116,7 +119,7 @@ const cancelpicupdate = ()=>{
      }
      document.getElementById('profilepicture1').src = `facelogo.jpeg`
    }
-    
+    console.log(profilepic1)
 
       if(profilepic1.username == curuser && profilepic1.password == curuserpass){
         const arr = profilepic1.profile.data.data

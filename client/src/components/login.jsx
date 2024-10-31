@@ -91,7 +91,7 @@ const Login = () => {
     localStorage.setItem('current-users-pass',signup.password)
     localStorage.setItem('followinglist1',JSON.stringify(followinglist2))
 
-    document.getElementById(' input-cont').style.display = 'none'
+    document.getElementById('input-cont').style.display = 'none'
      document.getElementById('newusercont').style.display = 'flex'
 
     await  fetch('https://new-commune.onrender.com/signup', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(signup) })
