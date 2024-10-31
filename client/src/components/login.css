@@ -26,7 +26,7 @@
     position: relative;
     top: 4vw;
 }
-.input-cont{
+#input-cont{
     width: 65vw;
     height: 30vw;
     margin: 10vw auto;

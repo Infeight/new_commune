@@ -62,14 +62,14 @@ const Login = () => {
 
   const submit = async()=>{
   logins.map(login=>{
-    if(login.username==user.username&& login.password == user.password){
+    if(login.username===user.username&& login.password === user.password){
 
-      setNewuser(false)
+      // setNewuser(false)
       localStorage.setItem('current-users',user.username)
       localStorage.setItem('current-users-pass',user.password)
       // localStorage.setItem('current-users-following', user.)
     localStorage.setItem('followinglist1',JSON.stringify(followinglist2))
-   document.getElementById(' input-cont').style.display = 'none'
+   document.getElementById('input-cont').style.display = 'none'
      document.getElementById('welcomebackcont').style.display = 'flex'
       //  fetch('https://new-commune.onrender.com/logins', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(user) })
       
