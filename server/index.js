@@ -11,22 +11,19 @@ const profilepic = require('./mongoose')
 // const open = require('open')
 // const socket = require('socket.io')
 const openurl = require ('openurl')
+const { exec } = require('child_process');
+
+
+
+const url = 'https://peoplecommune.onrender.com/profile';
+
+const platformCommand = process.platform === 'win32' ? 'start' :
+                        process.platform === 'darwin' ? 'open' : 'xdg-open';
 
 
 
 
-// (async () => {
-//     await open('https://peoplecommune.onrender.com/profile');
-// })();
-// const allowed = ['https://communepeople.vercel.app/','https://communepeople.vercel.app/logins','https://communepeople.vercel.app/profile','https://nss2server.vercel.app/events']
 
-
-
-
-// if (typeof sessionStorage === "undefined" || sessionStorage === null) {
-//   var sessionStorage = require('node-sessionStorage').sessionStorage;
-//   sessionStorage = new sessionStorage('./scratch');
-// }
 const port = 5004;
 
 // app.use(cors())
@@ -185,14 +182,16 @@ else{
     if(usercheck.username == logindata.username && usercheck.password == logindata.password){
       // sessionStorage.setItem("currentuser-name", req.body.username)
 
-    openurl.open('https://peoplecommune.onrender.com/profile');
-    //   (async () => {
-    //     const open = (await import('open')).default;  // Use dynamic import
-    //     await open('https://peoplecommune.onrender.com/profile');
-    // })();
+    // openurl.open('https://peoplecommune.onrender.com/profile');
+  
 
-    
-    //  sessionStorage.setItem('loggedin',"existing-user")
+    exec(`${platformCommand} ${url}`, (err) => {
+      if (err) {
+          console.error('Failed to open URL:', err);
+      }
+  });
+
+
     }
     else{
       // await login.login.insertMany(logindata)
@@ -236,7 +235,12 @@ app.post('/signup', async(req,res)=>{
 
   await login.login.insertMany(signupdata)
 
-  openurl.open('https://peoplecommune.onrender.com/profile');
+  // openurl.open('https://peoplecommune.onrender.com/profile');
+  exec(`${platformCommand} ${url}`, (err) => {
+    if (err) {
+        console.error('Failed to open URL:', err);
+    }
+});
 //   (async () => {
 //     const open = (await import('open')).default;  // Use dynamic import
 //     await open('https://peoplecommune.onrender.com/profile');
