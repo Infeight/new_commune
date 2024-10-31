@@ -32,7 +32,7 @@ const Home = () => {
     followingno:''
   })
 
-  const[likedposts1,setLikedposts1] = useState([])
+  // const[likedposts1,setLikedposts1] = useState([])
 
   useEffect(()=>{
 
@@ -457,10 +457,10 @@ const showfollowers = ()=>{
     const allPosts1 = await allPosts.json()
     const profilepics1 = await profilepics.json()
     const allpostsrev = allPosts1.reverse()
-   
+   let likedposts1 = [];
      likedposts.then(response=>response.json()).
      then(data=>{
-    setLikedposts1([...likedposts1,...data.likedposts])
+     likedposts1 = data.likedposts
     console.log(data.likedposts)
     })
     
