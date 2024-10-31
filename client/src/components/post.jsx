@@ -53,6 +53,10 @@ const Post = () => {
 
   const handleuser_id = async()=>{
   
+    let userdet = {
+      username:curuser,
+      password:curuserpass
+    }
 
     const user_id =  fetch('https://new-commune.onrender.com/user_id',{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify(userdet)})
     let user_id1;
