@@ -460,8 +460,10 @@ const showfollowers = ()=>{
    
      likedposts.then(response=>response.json()).
      then(data=>{
-    setLikedposts1(data.likedposts)
+    setLikedposts1([...Fragment.likedposts1,...data.likedposts])
+    console.log(data.likedposts)
     })
+    
     console.log(likedposts1.length)
    allpostsrev.forEach(element => {
 
