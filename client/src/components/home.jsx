@@ -464,7 +464,7 @@ const showfollowers = ()=>{
     console.log(data.likedposts)
     })
     
-    console.log(likedposts1.length)
+    console.log(likedposts1)
    allpostsrev.forEach(element => {
 
     const arr = element.post.data.data
