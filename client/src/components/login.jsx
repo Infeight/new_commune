@@ -58,7 +58,7 @@ const Login = () => {
   let getlogin = async()=>{
    let alllogin = await fetch ('https://new-commune.onrender.com/login',{headers:{accept:'application/json'}})
    let alllogin1 = await alllogin.json()
-
+    console.log(alllogin1)
    setLogins(alllogin1)
   }
 
@@ -70,10 +70,10 @@ const Login = () => {
       localStorage.setItem('current-users-pass',user.password)
       // localStorage.setItem('current-users-following', user.)
     localStorage.setItem('followinglist1',JSON.stringify(followinglist2))
-     
-       fetch('https://new-commune.onrender.com/logins', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(user) })
+    return <Navigate to={'/Profile'}/>
+      //  fetch('https://new-commune.onrender.com/logins', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(user) })
       
-     return <Navigate to={'/Profile'}/>
+
     }
    
   })
