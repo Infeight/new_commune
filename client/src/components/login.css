@@ -139,7 +139,7 @@ input{
     color: #fff;
     font-family: nunito;
     font-weight: 600;
-
+  font-size: 1.5vw;
 }
 .welcomeback{
     font-size: 2vw;
@@ -149,8 +149,12 @@ input{
 }
 #welcomebackcont{
   display: none;
-  position: relative;
-  flex-direction: column;
+  width: 50vw;
+    margin: auto;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    top: 18vw;
 }
 #newusercont{
     display: none;

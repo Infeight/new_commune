@@ -185,6 +185,11 @@ a{
     justify-content: space-between;
     align-items: center;
 }
+.name{
+    WIDTH: 85%;
+    overflow: hidden;
+    height: 3vw;
+}
 .profilepichold{
     
     width: 2.6vw;

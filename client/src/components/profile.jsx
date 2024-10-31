@@ -200,7 +200,7 @@ document.querySelectorAll('.update-options-btns').forEach(btn=>{
 <div className="logo-name">COMMUNE</div>
 <div className='profilepic' id='profilepic'> 
     <div className="profilepic1"><img src='' onClick={updateprofilepic} id='profilepicture1' className='profilepicture' alt="" />
-    <img src={image.url?image.url:''} style={{position:'absolute'}}  onClick={updateprofilepic}  id='profilepicture2' className='profilepicture' alt="" />
+    <img src={image.url?image.url:'noprofilepic.jpeg'} style={{position:'absolute'}}  onClick={updateprofilepic}  id='profilepicture2' className='profilepicture' alt="" />
     </div>
 
     <label htmlFor="newprofilepic">
@@ -211,7 +211,7 @@ document.querySelectorAll('.update-options-btns').forEach(btn=>{
           <input type="file" style={{display:'none'}} onChange={handleimage} name="newprofilepic" id='newprofilepic' />
           <input type="text" value={curuser} name='username' style={{display:'none'}} />
           <input type="text" value={curuserpass} name='userpass' style={{display:'none'}} />
-           <input type="text" value={currentuser_id.userId} name='userId' style={{display:'none'}} />
+           <input type="text" value={localStorage.getItem('curuserid')} name='userId' style={{display:'none'}} />
           <div className="post-btn" id='cancelpic' onClick={cancelpicupdate}>Cancel</div>
     
 
