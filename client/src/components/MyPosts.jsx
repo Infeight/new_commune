@@ -18,7 +18,7 @@ const MyPosts = () => {
 
   useEffect(()=>{
     setTimeout(()=>{
-      posts()
+      posts1()
     },200)
   })
  
@@ -64,7 +64,7 @@ const curuserdata = async()=>{
 
 // }
 
-  const posts = async()=>{
+  const posts1 = async()=>{
 
     const allPosts = await fetch('https://new-commune.onrender.com/myPost',{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify(curuser)})
     

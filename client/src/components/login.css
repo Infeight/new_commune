@@ -158,8 +158,12 @@ input{
 }
 #newusercont{
     display: none;
-    position: relative;
-    flex-direction: column;
+    width: 50vw;
+      margin: auto;
+      flex-direction: column;
+      position: relative;
+      align-items: center;
+      top: 18vw;
   }
 @media screen and (min-width:300px) {
     @media screen and (max-width:600px) {
@@ -167,7 +171,7 @@ input{
             top: -20vw;
             font-size: 10vw;
         }
-        .input-cont{
+        #input-cont{
             /* flex-direction: column-reverse; */
             width: 90vw;
             height: 60vw;
@@ -192,6 +196,20 @@ input{
        }
        .signupcont{
         width: 65%;
+       }
+       #welcomebackcont{
+        width: 95vw;
+        top: 47vh;
+       }
+       .welcomeback{
+        font-size: 5vw;
+       }
+       .navbtn1{
+        width: 16vw;
+        height: 6vw;
+       }
+       .navbtn1 a{
+        font-size: 4.5vw;
        }
     }
 }

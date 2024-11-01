@@ -61,28 +61,43 @@ let newprofilepic;
  app.post('/profilepic',async(req,res)=>{
 
  
- await profilepic.profilepic.deleteOne({user_id:req.body.userId})
-  profilepicture(req,res,(err)=>{
-    if(err){
-      console.log(err)
-    }
-    else{
+//  await profilepic.profilepic.deleteOne({user_id:req.body.userId})
+ 
+ await profilepic.profilepic.updateOne({user_id:req.body.userId},{$set:{
+  profile:{
+    data: req.file.buffer,
+    contentType:'image/png'
 
-      newprofilepic = new profilepic.profilepic({
-        profile:{
-          data: req.file.buffer?req.file.buffer:'',
-          contentType:'image/png'
+  },
+  username: req.body.username,
+    password:req.body.userpass,
+    user_id:req.body.userId
 
-        },
-        username: req.body.username,
-          password:req.body.userpass,
-          user_id:req.body.userId
-      })
-      newprofilepic.save()
-      .then(()=>{ res.redirect('https://peoplecommune.onrender.com/profile')})
-      .catch(err=>{console.log(err)})
-    }
-  })
+ }})
+
+
+
+  // profilepicture(req,res,(err)=>{
+  //   if(err){
+  //     console.log(err)
+  //   }
+  //   else{
+
+  //     newprofilepic = new profilepic.profilepic({
+  //       profile:{
+  //         data: req.file.buffer,
+  //         contentType:'image/png'
+
+  //       },
+  //       username: req.body.username,
+  //         password:req.body.userpass,
+  //         user_id:req.body.userId
+  //     })
+  //     newprofilepic.save()
+  //     .then(()=>{ res.redirect('https://peoplecommune.onrender.com/profile')})
+  //     .catch(err=>{console.log(err)})
+  //   }
+  // })
  })
 
   app.post('/newPost', async(req,res)=>{

@@ -149,7 +149,10 @@ const Login = () => {
 </div>
 
 <div id='newusercont'>
-  <p className='welcomeback'>Hello {user.username} !</p>
+  <p className='welcomeback'>
+Welcome to Commune! 🎉 <br />
+
+We're so glad you've joined us.</p>
 <button className='navbtn1'  ><Link to={'/Profile'}>Home</Link></button>
 
 </div>

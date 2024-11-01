@@ -32,7 +32,7 @@ const Home = () => {
     followingno:''
   })
 
-  // const[likedposts1,setLikedposts1] = useState([])
+  const[likedposts1,setLikedposts1] = useState([])
 
   useEffect(()=>{
 
@@ -242,7 +242,7 @@ const openacct = async(e) =>{
 
 localStorage.setItem('postownerid',ownerid)
 
- console.log(postownerid)
+//  console.log(ownerid)
   const searchdet = {
     ownerid:ownerid,
     ownername:ownername
@@ -252,6 +252,7 @@ localStorage.setItem('postownerid',ownerid)
   details.then(response => response.json())
   .then(data => {setFounduser({username:data.founduser.username,user_id:data.founduser._id,followerno:data.founduser.followers.length,followingno:data.founduser.following.length})
 
+  if(data.userdp){
   const arr = data.userdp.profile.data.data
   const base64String = 
 
@@ -259,7 +260,7 @@ localStorage.setItem('postownerid',ownerid)
           arr.reduce((data, byte) => data + String.fromCharCode(byte), '')
        );
 
-document.getElementById('profilepicdisp').src = `data:image/png;base64,${base64String}`;
+document.getElementById('profilepicdisp').src = `data:image/png;base64,${base64String}`;}
 
 
 const followerlist = document.createElement('div')
@@ -457,178 +458,182 @@ const showfollowers = ()=>{
     const allPosts1 = await allPosts.json()
     const profilepics1 = await profilepics.json()
     const allpostsrev = allPosts1.reverse()
-   var likedposts1 = [];
+  //  var likedposts1 = [];
      likedposts.then(response=>response.json()).
      then(data=>{
-  likedposts1 = data.likedposts
-    console.log(data.likedposts)
-    })
+       setLikedposts1(data.likedposts)
+
+
+       allpostsrev.forEach(element => {
+
+        const arr = element.post.data.data
+        const base64String = 
     
-    console.log(likedposts1)
-   allpostsrev.forEach(element => {
-
-    const arr = element.post.data.data
-    const base64String = 
-
-         btoa(
-            arr.reduce((data, byte) => data + String.fromCharCode(byte), '')
-         );
-
-        const postdisp = document.createElement ("div")
-        const postimgholder = document.createElement("div")
-         const postimg = document.createElement("img")
-         const postcomment = document.createElement("div")
-       const  postcomment_hold = document.createElement("div")
-         const postowner = document.createElement('div')
-         const postownname = document.createElement('div')
-         const postownpass = document.createElement('div')
-         const postfollow = document.createElement('div')
-         const postlike = document.createElement('div')
-         const likenum = document.createElement('div')
-         const showcomment = document.createElement('div')
-         const postcommments_user = document.createElement('textarea')
-         const sendcomment = document.createElement("div")
-         const likesym = document.createElement("span")
-         const followsym = document.createElement("span")
-         const commentsym = document.createElement("span")
-         const postid = document.createElement('span')
-         const allcommentshold = document.createElement("div")
-         const date = document.createElement('div')
-         const profilepichold = document.createElement('img')
-         const postownuser_id = document.createElement('span')
-         const name = document.createElement('div')
+             btoa(
+                arr.reduce((data, byte) => data + String.fromCharCode(byte), '')
+             );
     
-         postownuser_id.className = 'postownuser_id'
-         postowner.className = 'postowner'
-         postownname.className = 'postownname'
-         name.className = 'name'
-         postownpass.className = 'postownpass'
-         postfollow.className = 'postfollow'
-         postlike.className = "postlike"
-         showcomment.className = "showcomment"
-         postcommments_user.className= "postcomments_user"
-         postcommments_user.placeholder = "Comment on this post!"
-         sendcomment.className = "sendcomment-btn"
-         likesym.className = "likesym"
-         followsym.className = "followsym"
-         commentsym.className = "commentsym"
-         postid.className = "postid"
-         allcommentshold.className = "allcommentshold"
-         likenum.className = "likenum"
-         date.className = 'date'
-         profilepichold.className = 'profilepichold'
-
-        name.innerText = element.username
-        postownpass.innerText = element.password
-        postid.innerHTML = element._id
-        postfollow.innerText = "Follow"
-        likesym.innerHTML = '🤍'
-        followsym.innerText = "📌"
-        commentsym.innerText = "📤"
-        likenum.innerHTML = element.likes
-        sendcomment.innerText = "Comment"
-        showcomment.innerText=" Comments"
-       postcomment_hold.className = "postcomment_hold"
-       date.innerHTML = `Posted on ${element.date}`
-       postownuser_id.innerText = element.user_id
+            const postdisp = document.createElement ("div")
+            const postimgholder = document.createElement("div")
+             const postimg = document.createElement("img")
+             const postcomment = document.createElement("div")
+           const  postcomment_hold = document.createElement("div")
+             const postowner = document.createElement('div')
+             const postownname = document.createElement('div')
+             const postownpass = document.createElement('div')
+             const postfollow = document.createElement('div')
+             const postlike = document.createElement('div')
+             const likenum = document.createElement('div')
+             const showcomment = document.createElement('div')
+             const postcommments_user = document.createElement('textarea')
+             const sendcomment = document.createElement("div")
+             const likesym = document.createElement("span")
+             const followsym = document.createElement("span")
+             const commentsym = document.createElement("span")
+             const postid = document.createElement('span')
+             const allcommentshold = document.createElement("div")
+             const date = document.createElement('div')
+             const profilepichold = document.createElement('img')
+             const postownuser_id = document.createElement('span')
+             const name = document.createElement('div')
+        
+             postownuser_id.className = 'postownuser_id'
+             postowner.className = 'postowner'
+             postownname.className = 'postownname'
+             name.className = 'name'
+             postownpass.className = 'postownpass'
+             postfollow.className = 'postfollow'
+             postlike.className = "postlike"
+             showcomment.className = "showcomment"
+             postcommments_user.className= "postcomments_user"
+             postcommments_user.placeholder = "Comment on this post!"
+             sendcomment.className = "sendcomment-btn"
+             likesym.className = "likesym"
+             followsym.className = "followsym"
+             commentsym.className = "commentsym"
+             postid.className = "postid"
+             allcommentshold.className = "allcommentshold"
+             likenum.className = "likenum"
+             date.className = 'date'
+             profilepichold.className = 'profilepichold'
+    
+            name.innerText = element.username
+            postownpass.innerText = element.password
+            postid.innerHTML = element._id
+            postfollow.innerText = "Follow"
+            likesym.innerHTML = '🤍'
+            followsym.innerText = "📌"
+            commentsym.innerText = "📤"
+            likenum.innerHTML = element.likes
+            sendcomment.innerText = "Comment"
+            showcomment.innerText=" Comments"
+           postcomment_hold.className = "postcomment_hold"
+           date.innerHTML = `Posted on ${element.date}`
+           postownuser_id.innerText = element.user_id
+          
+           postownuser_id.style.display = 'none'
+    
+           profilepics1.map(elements=>{
+            const arr1 = elements.profile.data.data
+          const base64String1 = 
       
-       postownuser_id.style.display = 'none'
-
-       profilepics1.map(elements=>{
-        const arr1 = elements.profile.data.data
-      const base64String1 = 
-  
-           btoa(
-              arr1.reduce((data, byte) => data + String.fromCharCode(byte), '')
-           );
-
-           if(elements.user_id == element.user_id){
-            profilepichold.src = `data:image/png;base64,${base64String1}`
-           }
-      })
-      postownname.appendChild(name)
-       postownname.appendChild(profilepichold)
-       postownname.appendChild(postownuser_id)
-       name.addEventListener('click',openacct)
-
-       element.comments.forEach(e=>{
-   
-      const com=  document.createElement("li")
-      const commentor = document.createElement("li")
-      commentor.className = 'commentli'
-      com.className = "commentli"
-      com.innerHTML = e.comment
-      commentor.innerHTML = e.username
-      com.appendChild(commentor)
-
-      allcommentshold.appendChild(com)
-       })
-
-     sendcomment.addEventListener("click",handlecommentsend)
-
-     postfollow.addEventListener("click", handlefollow)
-
-     postlike.addEventListener("click",handlelikes)
-         postimg.className = "postimg"
-         postcomment.className = "postcomment"
-         postimg.src =  `data:image/png;base64,${base64String}`
-         postimg.type = 'images/base64'
-         postcomment_hold.innerText = element.caption
-         postimgholder.className = "post-img-cap" 
-
-         postdisp.className = "postdisp"
-
-         followinglist.map(following=>{
-      
-          if(element.user_id == following.id){
-            postfollow.innerHTML = "Following"
-            followsym.innerText = ""
-            postfollow.addEventListener("click",handleunfollow)
-            postfollow.removeEventListener("click",handlefollow)
-          }
-         })
-
-         if(likedposts1.length !=0){
-
-          likedposts1.map(liked=>{
-            if(element._id === liked ){
-              likenum.innerHTML = `${element.likes}`
-              likenum.style.color ='red'
-            postlike.style.backgroundColor = '#fff'
-            postlike.style.color = 'red'
-            likesym.innerHTML = '❤️'
-            postlike.addEventListener('click',handleremovelikes)
-            postlike.removeEventListener('click',handlelikes)
-            console.log('working')
-            }
+               btoa(
+                  arr1.reduce((data, byte) => data + String.fromCharCode(byte), '')
+               );
+    
+               if(elements.user_id == element.user_id){
+                profilepichold.src = `data:image/png;base64,${base64String1}`
+               }
+          })
+          postownname.appendChild(name)
+           postownname.appendChild(profilepichold)
+           postownname.appendChild(postownuser_id)
+           name.addEventListener('click',openacct)
+    
+           element.comments.forEach(e=>{
+       
+          const com=  document.createElement("li")
+          const commentor = document.createElement("li")
+          commentor.className = 'commentli'
+          com.className = "commentli"
+          com.innerHTML = e.comment
+          commentor.innerHTML = e.username
+          com.appendChild(commentor)
+    
+          allcommentshold.appendChild(com)
            })
-         
-         }
+    
+         sendcomment.addEventListener("click",handlecommentsend)
+    
+         postfollow.addEventListener("click", handlefollow)
+    
+         postlike.addEventListener("click",handlelikes)
+             postimg.className = "postimg"
+             postcomment.className = "postcomment"
+             postimg.src =  `data:image/png;base64,${base64String}`
+             postimg.type = 'images/base64'
+             postcomment_hold.innerText = element.caption
+             postimgholder.className = "post-img-cap" 
+    
+             postdisp.className = "postdisp"
+    
+             followinglist.map(following=>{
+          
+              if(element.user_id == following.id){
+                postfollow.innerHTML = "Following"
+                followsym.innerText = ""
+                postfollow.addEventListener("click",handleunfollow)
+                postfollow.removeEventListener("click",handlefollow)
+              }
+             })
+    
+             if(data.likedposts.length !=0){
+    
+              data.likedposts.map(liked=>{
+                if(element._id === liked ){
+                  likenum.innerHTML = `${element.likes}`
+                  likenum.style.color ='red'
+                postlike.style.backgroundColor = '#fff'
+                postlike.style.color = 'red'
+                likesym.innerHTML = '❤️'
+                postlike.addEventListener('click',handleremovelikes)
+                postlike.removeEventListener('click',handlelikes)
+                console.log('working')
+                }
+               })
+             
+             }
+    
+             postimgholder.appendChild(postimg)
+             postimgholder.appendChild(postcomment)
+            postlike.appendChild(likenum)
+             postlike.appendChild(likesym)
+             postfollow.appendChild(followsym)
+             sendcomment.appendChild(commentsym)
+         postdisp.appendChild(postimgholder)
+         postdisp.appendChild(date)
+         postdisp.appendChild(allcommentshold)
+         postowner.appendChild(showcomment)
+        postcomment.appendChild(postownname)
+         postowner.appendChild(postownpass)
+         postowner.appendChild(postlike)
+         postowner.appendChild(postfollow)
+         postowner.appendChild(postcommments_user)
+         postowner.appendChild(sendcomment)
+         postowner.appendChild(postid)
+    
+         postcomment.appendChild(postcomment_hold)
+         postcomment.appendChild(postowner)
+    
+        setLoad (false)
+       document.getElementById("home").appendChild(postdisp)
+       });
 
-         postimgholder.appendChild(postimg)
-         postimgholder.appendChild(postcomment)
-        postlike.appendChild(likenum)
-         postlike.appendChild(likesym)
-         postfollow.appendChild(followsym)
-         sendcomment.appendChild(commentsym)
-     postdisp.appendChild(postimgholder)
-     postdisp.appendChild(date)
-     postdisp.appendChild(allcommentshold)
-     postowner.appendChild(showcomment)
-    postcomment.appendChild(postownname)
-     postowner.appendChild(postownpass)
-     postowner.appendChild(postlike)
-     postowner.appendChild(postfollow)
-     postowner.appendChild(postcommments_user)
-     postowner.appendChild(sendcomment)
-     postowner.appendChild(postid)
 
-     postcomment.appendChild(postcomment_hold)
-     postcomment.appendChild(postowner)
 
-    setLoad (false)
-   document.getElementById("home").appendChild(postdisp)
-   });
+    })
+  
+
 
    document.querySelectorAll('.postcomments_user').forEach(e=>{
     e.addEventListener("click",()=>{

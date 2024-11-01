@@ -95,16 +95,36 @@ const cancelpicupdate = ()=>{
     let user_id1;
 
     user_id.then(response=>response.json()).
-    then(data=> user_id1 = data._id)
-
-     setCurrentuser_id({'userId':user_id1})
-     localStorage.setItem('curuserid',currentuser_id.userId)
+    then(data=> {
+      console.log(data.userid._id)
+      setCurrentuser_id({'userId':data.userid._id})
+      localStorage.setItem('curuserid',data.userid._id)
+    }
+    )
+  //  console.log(user_id)
+     
     let allusers11 = await allusers1.json()
-    let profilepic1 ={}
+ 
    try{
     profilepic.then(response=> response.json()).then(data=>{
-             profilepic1 = data.profilepicture  
-             console.log(data)
+ console.log(data)
+   if(data.profilepicture){
+    if(data.profilepicture.username == curuser && data.profilepicture.password == curuserpass){
+      const arr = data.profilepicture.profile.data.data
+ console.log('yes')
+      const base64String = 
+  
+           btoa(
+              arr.reduce((data, byte) => data + String.fromCharCode(byte), '')
+           );
+
+            document.getElementById('profilepicture1').src = `data:image/png;base64,${base64String}`
+    } 
+   }
+   else{
+     document.getElementById('profilepicture1').src = `facelogo.jpeg`
+   }
+           
      })
      
    }
@@ -112,26 +132,15 @@ const cancelpicupdate = ()=>{
    
   
    catch(err){
-     profilepic1 = {
-      profile:{},
-      username:"",
-      password:""
-     }
+    //  profilepic1 = {
+    //   profile:{},
+    //   username:"",
+    //   password:""
+    //  }
      document.getElementById('profilepicture1').src = `facelogo.jpeg`
    }
-    console.log(profilepic1)
 
-      if(profilepic1.username == curuser && profilepic1.password == curuserpass){
-        const arr = profilepic1.profile.data.data
-
-        const base64String = 
-    
-             btoa(
-                arr.reduce((data, byte) => data + String.fromCharCode(byte), '')
-             );
-  
-              document.getElementById('profilepicture1').src = `data:image/png;base64,${base64String}`
-      }
+   
 
     allusers11.map(elem=>{
     if(elem.username == curuser && elem.password === curuserpass){
@@ -203,18 +212,18 @@ document.querySelectorAll('.update-options-btns').forEach(btn=>{
 <div className="logo-name">COMMUNE</div>
 <div className='profilepic' id='profilepic'> 
     <div className="profilepic1"><img src='' onClick={updateprofilepic} id='profilepicture1' className='profilepicture' alt="" />
-    <img src={image.url?image.url:'noprofilepic.jpeg'} style={{position:'absolute'}}  onClick={updateprofilepic}  id='profilepicture2' className='profilepicture' alt="" />
+    <img src={image.url?image.url:''} style={{position:'absolute'}}  onClick={updateprofilepic}  id='profilepicture2' className='profilepicture' alt="" />
     </div>
 
     <label htmlFor="newprofilepic">
       <div className='selectimg' style={{position:'absolute'}}>Select Picture</div>
     </label>
-
+{/* {console.log(currentuser_id.userId)} */}
     <form style={{position:'absolute'}} id='picupdateform' className='picupdateform' action="https://new-commune.onrender.com/profilepic" method='post'  encType='multipart/form-data'>
           <input type="file" style={{display:'none'}} onChange={handleimage} name="newprofilepic" id='newprofilepic' />
-          <input type="text" value={curuser} name='username' style={{display:'none'}} />
-          <input type="text" value={curuserpass} name='userpass' style={{display:'none'}} />
-           <input type="text" value={localStorage.getItem('curuserid')} name='userId' style={{display:'none'}} />
+          <input value={curuser} name='username' style={{display:'none'}} />
+          <input value={curuserpass} name='userpass' style={{display:'none'}} />
+           <input value={localStorage.getItem('curuserid')} name='userId' style={{display:'none'}} />
           <div className="post-btn" id='cancelpic' onClick={cancelpicupdate}>Cancel</div>
     
 
