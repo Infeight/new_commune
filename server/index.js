@@ -63,41 +63,54 @@ let newprofilepic;
  
 //  await profilepic.profilepic.deleteOne({user_id:req.body.userId})
  
- await profilepic.profilepic.updateOne({user_id:req.body.userId},{$set:{
-  profile:{
-    data: req.file.buffer,
-    contentType:'image/png'
+//  await profilepic.profilepic.updateOne({user_id:req.body.userId},{$set:{
+//   profile:{
+//     data: req.file.buffer,
+//     contentType:'image/png'
 
-  },
-  username: req.body.username,
-    password:req.body.userpass,
-    user_id:req.body.userId
+//   },
+//   username: req.body.username,
+//     password:req.body.userpass,
+//     user_id:req.body.userId
 
- }})
+//  }})
 
 
 
-  // profilepicture(req,res,(err)=>{
-  //   if(err){
-  //     console.log(err)
-  //   }
-  //   else{
+  profilepicture(req,res,(err)=>{
+    if(err){
+      console.log(err)
+    }
+    else{
 
-  //     newprofilepic = new profilepic.profilepic({
-  //       profile:{
-  //         data: req.file.buffer,
-  //         contentType:'image/png'
+      // newprofilepic = new profilepic.profilepic({
+      //   profile:{
+      //     data: req.file.buffer,
+      //     contentType:'image/png'
 
-  //       },
-  //       username: req.body.username,
-  //         password:req.body.userpass,
-  //         user_id:req.body.userId
-  //     })
-  //     newprofilepic.save()
-  //     .then(()=>{ res.redirect('https://peoplecommune.onrender.com/profile')})
-  //     .catch(err=>{console.log(err)})
-  //   }
-  // })
+      //   },
+      //   username: req.body.username,
+      //     password:req.body.userpass,
+      //     user_id:req.body.userId
+      // })
+      // newprofilepic.save()
+      // .then(()=>{ res.redirect('https://peoplecommune.onrender.com/profile')})
+      // .catch(err=>{console.log(err)})
+
+      profilepic.profilepic.updateOne({user_id:req.body.userId},{$set:{
+        profile:{
+          data: req.file.buffer,
+          contentType:'image/png'
+      
+        },
+        username: req.body.username,
+          password:req.body.userpass,
+          user_id:req.body.userId
+      
+       }})
+
+    }
+  })
  })
 
   app.post('/newPost', async(req,res)=>{
