@@ -61,7 +61,7 @@ let newprofilepic;
  app.post('/profilepic',async(req,res)=>{
 
  
- await profilepic.profilepic.deleteOne({user_id:req.body.userId}).then(()=>{
+ await profilepic.profilepic.deleteMany({'username':req.body.username,'password':req.body.userpass}).then(()=>{
 
   profilepicture(req,res,(err)=>{
     if(err){
