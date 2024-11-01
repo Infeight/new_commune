@@ -702,6 +702,9 @@ video {
             transition-duration: 0.2s;
             box-shadow: 0 0 3px 0 black;
         }
+        .name{
+            height: 8vw;
+        }
         .postowner.click{
             transition-duration: 0.2s;
             max-height: 30vw;

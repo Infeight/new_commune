@@ -61,7 +61,7 @@ let newprofilepic;
  app.post('/profilepic',async(req,res)=>{
 
  
- await profilepic.profilepic.deleteMany({'username':req.body.username,'password':req.body.userpass}).then(()=>{
+ await profilepic.profilepic.deleteMany({'username':req.body.username,'password':req.body.userpass})
 
   profilepicture(req,res,(err)=>{
     if(err){
@@ -83,7 +83,7 @@ let newprofilepic;
       .then(()=>{ res.redirect('https://peoplecommune.onrender.com/profile')})
       .catch(err=>{console.log(err)})
     }
-  })
+  
  })
  
 

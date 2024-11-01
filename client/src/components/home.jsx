@@ -631,7 +631,7 @@ const showfollowers = ()=>{
 
 
 
-    })
+   
   
 
 
@@ -681,7 +681,7 @@ document.querySelectorAll(".showcomment").forEach(e=>{
   e.addEventListener("click",()=>{
     e.closest(".postdisp").querySelector('.allcommentshold').classList.toggle('show')
   })
-})
+}) })
  
   }
 
