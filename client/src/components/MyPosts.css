@@ -16,7 +16,7 @@ body{
     box-shadow: 0 0 0.5px 0.5px black;
 }
 .postimg{
-    width: 100%;
+    width: 60%;
 }
 .pospostcomment_hold{
     height: calc(100%-400px);
@@ -172,6 +172,9 @@ body{
 
  @media screen and (min-width:325px) {
     @media screen and (max-width:600px) {
+        .postimg{
+            width: 100%;
+        }
         #postlike1{
             width: 100%;
             height: 10vw;

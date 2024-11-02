@@ -766,10 +766,10 @@ video {
 
 
         }
-        .postlike:hover{
+        /* .postlike:hover{
             background-color: transparent;
             color: purple;
-        }
+        } */
         .postfollow{
             font-size: 4vw;
             height: 6.5vw;

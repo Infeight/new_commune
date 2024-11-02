@@ -102,7 +102,7 @@ useEffect(()=>{
 
 useEffect(()=>{
   arrivemsg && setAllmsgs((prev)=>[...prev,arrivemsg])
-},[arrivemsg])
+},[allmsgs])
 
 useEffect(()=>{
    scrollref.current?.scrollIntoView({behaviour:'smooth'})

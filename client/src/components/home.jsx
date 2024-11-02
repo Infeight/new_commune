@@ -161,9 +161,8 @@ const handleaccountfollow = (e)=>{
 
  fetch('https://new-commune.onrender.com/follow',{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify(followdetails)})
  
-   setTimeout(()=>{
      e.target.innerText = "Following"
-   },1000)
+   
     e.target.removeEventListener("click",handleaccountfollow)
     e.target.addEventListener("click",handleunfollow)
     followinglist.push({
@@ -193,7 +192,7 @@ const handleunfollow=async(e)=>{
  setTimeout(()=>{
   e.target.closest('.postowner').querySelector('.postfollow').innerText = "Follow 📌"
 
-},1000)
+},500)
  e.target.removeEventListener("click",handleunfollow)
  e.target.addEventListener("click",handlefollow)
  setFollowstat(!followstat)
