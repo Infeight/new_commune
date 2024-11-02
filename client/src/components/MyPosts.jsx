@@ -106,7 +106,7 @@ const curuserdata = async()=>{
        deletebtn.className = 'postlike'
        deletebtn.appendChild(postid)
          postimg.className = "postimg"
-         postimg.id = 'mypost-img'
+        //  postimg.id = 'mypost-img'
          postcomment.className = "postcomment"
          postimg.src =  `data:image/png;base64,${base64String}`
          postimg.type = 'images/base64'

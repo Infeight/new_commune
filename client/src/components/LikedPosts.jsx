@@ -71,25 +71,24 @@ e.target.closest('.postdisp').querySelector('.allcommentshold').appendChild(newc
 const handlelikes = async(e)=>{
   e.target.closest(".postowner").querySelector(".postlike").removeEventListener("click",handlelikes)
   e.target.closest(".postowner").querySelector(".postlike").addEventListener("click",handleremovelikes)
+e.target.closest('.postowner').querySelector('.postlike').querySelector('.likesym').innerText = '❤️'
+e.target.closest('.postowner').querySelector('.postlike').querySelector('.likesym').style.animationName = 'liked'
  let curlikes =  e.target.closest(".postowner").querySelector(".postlike").querySelector(".likenum").innerHTML
  curlikes = Number.parseInt(curlikes)+1
-
 
  let likes =curlikes
  let postid = e.target.closest(".postowner").querySelector('.postid').innerHTML
 
  let likeinfo = {
    likes: likes,
-   postid:postid
+   postid:postid,
+   username: curuser,
+   user_id:curuserid,
+   password:curuserpass
  }
 
-
 fetch('https://new-commune.onrender.com/likes', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(likeinfo) })
-// e.target.closest(".postowner").querySelector(".postlike").querySelector(".likesym").innerHTML = ""
-
  e.target.closest(".postowner").querySelector(".postlike").querySelector(".likenum").innerHTML = `${curlikes}`
-
-
 }
 
 const handleremovelikes = async(e)=>{
@@ -97,26 +96,23 @@ const handleremovelikes = async(e)=>{
   e.target.closest(".postowner").querySelector(".postlike").addEventListener("click",handlelikes)
   e.target.closest('.postowner').querySelector('.postlike').querySelector('.likesym').innerHTML = '🤍'
   e.target.closest('.postowner').querySelector('.postlike').querySelector('.likenum').style.color = '#fff'
-  e.target.closest('.postowner').querySelector('.postlike').style.backgroundColor= 'purple'
+  e.target.closest('.postowner').querySelector('.postlike').style.backgroundColor = 'purple'
 
  let curlikes =  e.target.closest(".postowner").querySelector(".postlike").querySelector(".likenum").innerHTML
- curlikes = Number.parseInt(curlikes)-1
- let likes =curlikes
+ let curlikes1 = Number.parseInt(curlikes)-1
+ let likes =curlikes1
  let postid = e.target.closest(".postowner").querySelector('.postid').innerHTML
 
  let likeinfo = {
    likes: likes,
-   postid:postid
+   postid:postid,
+   username: curuser,
+   user_id:curuserid,
+   password:curuserpass
  }
- e.target.closest(".postowner").querySelector(".postlike").querySelector(".likenum").innerHTML = `${curlikes}`
-
+ e.target.closest(".postowner").querySelector(".postlike").querySelector(".likenum").innerHTML = `${curlikes1}`
 
 fetch('https://new-commune.onrender.com/removelikes', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(likeinfo) })
-// e.target.closest(".postowner").querySelector(".postlike").querySelector(".likesym").innerHTML = ""
-
-
-
-
 }
 
 const handlefollow=async(e)=>{
@@ -163,12 +159,6 @@ function removeDuplicates(arr) {
       sortedlikes.push(elem.likes)
     sortedlikes=  removeDuplicates(sortedlikes.sort((a,b)=>(a-b)).reverse())
 
- 
-   
-      // if(elem.likes<=likes){
-      //  sortedlikes.push(elem)
-      //  likes = elem.likes
-      // }
     })
     let trendingposts=[];
     sortedlikes.forEach(no=>{
@@ -178,10 +168,6 @@ function removeDuplicates(arr) {
         }
       })
     })
-    // console.log(trendingposts)
-
-    // const allpostsrev = allPosts1.reverse()
-    let likedposts1 = []
 
     likedposts.then(response=>response.json()).then
     (data=>{
@@ -365,9 +351,9 @@ function removeDuplicates(arr) {
 
 
 
-    })
+  
 
-    console.log(likedposts1)
+    // console.log(likedposts1)
 
 
 
@@ -379,21 +365,7 @@ function removeDuplicates(arr) {
       e.closest(".postowner").querySelector(".sendcomment-btn").classList.add("click")
     })
 })
-    document.querySelectorAll('.postlike').forEach(e=>{
-      e.addEventListener("mouseover",()=>{
-        e.querySelector(".likesym").innerHTML = "❤️"
-        e.querySelector(".likesym").classList.add('hover')
-      
-      })
-    })
-
-    document.querySelectorAll('.postlike').forEach(e=>{
-      e.addEventListener("mouseleave",()=>{
-        e.querySelector(".likesym").innerHTML = "🤍"
-        e.querySelector(".likesym").classList.remove('hover')
-       
-      })
-    })
+  
 
     document.querySelectorAll('.postfollow').forEach(e=>{
       e.addEventListener("mouseover",()=>{
@@ -441,7 +413,7 @@ document.querySelectorAll(".showcomment").forEach(e=>{
     e.closest(".postdisp").querySelector('.allcommentshold').classList.toggle('show')
   })
 })
-
+})
     
   }
 
