@@ -533,30 +533,30 @@ res.json({
   })
 
 
-//   const io = socket(server,{
-//     cors:{
-//       origin:'https://peoplecommune.onrender.com',
-//       Credential:true
-//     }
-//   })
-//   // const io = require('socket.io')(server)
-//  global.onlineusers = new Map();
+  const io = socket(server,{
+    cors:{
+      origin:'https://peoplecommune.onrender.com',
+      Credential:true
+    }
+  })
+  // const io = require('socket.io')(server)
+ global.onlineusers = new Map();
 
-//  io.on('connection',(socket)=>{
-//   // console.log('socket is working')
-//    global.chatSocket = socket;
-//    socket.on('add-user',(curuserid)=>{
+ io.on('connection',(socket)=>{
+  // console.log('socket is working')
+   global.chatSocket = socket;
+   socket.on('add-user',(curuserid)=>{
 
-//       onlineusers.set(curuserid,socket.id)
-//       // console.log(curuserid)
-//    })
+      onlineusers.set(curuserid,socket.id)
+      // console.log(curuserid)
+   })
 
-//    socket.on('sendmsg',(msgdata)=>{
-//     const senduser = onlineusers.get(msgdata.to)
-//     console.log(msgdata)
-//     if(senduser){
-//       socket.to(senduser).emit("recievemsg",msgdata.msg)
-//     }
-//  })
-//  })
+   socket.on('sendmsg',(msgdata)=>{
+    const senduser = onlineusers.get(msgdata.to)
+    console.log(msgdata)
+    if(senduser){
+      socket.to(senduser).emit("recievemsg",msgdata.msg)
+    }
+ })
+ })
 
