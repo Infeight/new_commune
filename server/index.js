@@ -9,7 +9,7 @@ const messages = require('./mongoose')
 const multer = require ('multer');
 const profilepic = require('./mongoose')
 // const open = require('open')
-// const socket = require('socket.io')
+const socket = require('socket.io')
 const openurl = require ('openurl')
 
 
