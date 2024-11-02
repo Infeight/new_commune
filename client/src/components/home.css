@@ -687,11 +687,12 @@ video {
             display: flex;
             align-items:center;
             justify-content: center;
-            max-height: 100vh;
+            max-height: 105vh;
             flex-direction: column;
         }
         .postimg{
             width: 100%;
+            border-radius: 4px;
         }
         .postcomment{
             width: 100%;
@@ -701,6 +702,7 @@ video {
             height: 65px;
             transition-duration: 0.2s;
             box-shadow: 0 0 3px 0 black;
+            background-color: transparent;
         }
         .name{
             height: 8vw;
@@ -723,7 +725,7 @@ video {
         .postowner.click{
             height: 170px;
             transition-duration: 0.5s;
-            grid-template-rows: 15% 70% 15%;
+            grid-template-rows: 20% 65% 15%;
         }
         .postcomments_user{
             height: 100%;
@@ -733,12 +735,19 @@ video {
         }
         .postcomments_user.click{
             height: 70px;
+            border-radius: 0 0 0px 0px;
+
         }
         .showcomment{
             font-size: 4vw;
-            height: 5.5vw;
+            height: 6.5vw;
             width: 100%;
-            border-radius: 10px 0px 0 0
+            border-radius: 10px 0px 0 0;
+            /* border: 0.1px solid ; */
+            color: #780078;
+            background-color: transparent;
+            box-shadow: 0px 0px 0px;
+
         }
         .showcomment:hover{
             background-color: #780078;
@@ -746,19 +755,32 @@ video {
         }
         .postlike{
             font-size: 4vw;
-            height: 5.5vw;
+            height: 6.5vw;
             width: 100%;
-            border-radius: 0 0px 0 0
+            border-radius: 0 0px 0 0;
+            /* border: 0.1px solid ; */
+            color: #780078;
+            background-color: transparent;
+            box-shadow: 0 0 1px 1px purple;
+
+
+
         }
         .postlike:hover{
-            background-color: #780078;
-            color: #fff;
+            background-color: transparent;
+            color: purple;
         }
         .postfollow{
             font-size: 4vw;
-            height: 5.5vw;
+            height: 6.5vw;
             width: 100%;
-            border-radius: 0 10px 0 0
+            border-radius: 0 10px 0 0;
+            /* border: 0.1px solid ; */
+            color: #780078;
+            background-color: transparent;
+            box-shadow: 0px 0px 0px;
+
+
         }
         .sendcomment-btn{
             left: 0;
@@ -767,6 +789,9 @@ video {
     height: 6.5vw;
     font-size: 5vw;
     border-radius: 0 0 10px 10px;
+    color: #780078;
+    background-color: #fff;
+   box-shadow: 0 0 1px 0.2px black
         }
 
         .postcomment_hold{
@@ -774,6 +799,8 @@ video {
             font-size: 4.5vw;
             overflow-y: scroll;
             min-height: 4vh;
+            padding: 0px 10px;
+            box-sizing: border-box;
         }
         .postcomment_hold.click{
            /* max-height: calc(100% - 170px); */
