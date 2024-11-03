@@ -46,7 +46,7 @@ useEffect(()=>{
 },[])
 useEffect(()=>{
    handlegetmsgs()
-},[currentmsg,to_id])
+},[allmsgs,to_id])
 
 const handlesend = ()=>{
 
@@ -56,21 +56,24 @@ const handlesend = ()=>{
     message:msg.caption
   }
 
+  const msgs = [...allmsgs]
+  msgs.push({fromself:true, message:msg.caption})
 
+  setAllmsgs(msgs)
+
+  socket.current.emit('sendmsg',{
+    to: to_id.to_id,
+    from: curuserid,
+    message:msg.caption
+  })
 
 fetch('https://new-commune.onrender.com/sendmsg', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(sendmsg) })
 setCurrentmsg({message:msg.caption})
 document.querySelector('.react-input-emoji--input').innerText="";
 
 
-socket.current.emit('sendmsg',{
-  to: to_id.to_id,
-  from: curuserid,
-  message:msg.caption
-})
-const msgs = [...allmsgs]
-msgs.push({fromself:true, message:msg.caption})
-setAllmsgs(msgs)
+
+
 }
 
 const handlegetmsgs = async()=>{
