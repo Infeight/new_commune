@@ -1,5 +1,9 @@
-import { useState } from 'react'
+import {  useState } from 'react'
+import { Suspense,lazy } from 'react'
 import Profile from './components/profile'
+// const Home1 = lazy(()=>{
+//   import ('./components/home')
+// })
 import Home from './components/home'
 import MyPosts from './components/MyPosts'
 import LikedPosts from './components/LikedPosts'
@@ -23,6 +27,9 @@ function App() {
         <Routes>
            <Route path='/' element={<Login/>}/>
            <Route path='/Profile' element={<Profile/>}/>
+
+           
+
            <Route path='/Home' element={<Home/>}/>
            <Route path='/MyPosts' element={<MyPosts/>}/>
            <Route path='/LikedPosts' element={<LikedPosts/>}/>

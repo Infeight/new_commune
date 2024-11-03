@@ -614,7 +614,7 @@ body{
             a{
                 color: black;
                 padding: 0;
-                font-size: 3vw;
+                font-size: 18px;
 
             }
         }
@@ -624,10 +624,10 @@ body{
             border-radius: 0;
         }
         .logo-name{
-            font-size: 5.5vw;
+            font-size: 5vw;
         }
         .username{
-            font-size: 4.5vw;
+            font-size: 4vw;
         }
         .profilepic{
             width: 25vw;
@@ -638,13 +638,13 @@ body{
             height: 25vw;
         }
         .followers h6{
-            font-size: 3vw;
+            font-size: 2.5vw;
         }
         .following h6{
-            font-size: 3vw;
+            font-size: 2.5vw;
         }
         .followerli{
-            font-size: 3vw;
+            font-size: 18px;
         }
         .selectimg{
             font-size: 2.5vw;

@@ -193,6 +193,7 @@ function removeDuplicates(arr) {
            const  postcomment_hold = document.createElement("div")
              const postowner = document.createElement('div')
              const postownname = document.createElement('div')
+             const name = document.createElement('div')
              const postownpass = document.createElement('div')
              const postfollow = document.createElement('div')
              const postlike = document.createElement('div')
@@ -216,6 +217,7 @@ function removeDuplicates(arr) {
              
              postowner.className = 'postowner'
              postownname.className = 'postownname'
+             name.className = 'name'
              postownpass.className = 'postownpass'
              postfollow.className = 'postfollow'
              postlike.className = "postlike"
@@ -231,7 +233,7 @@ function removeDuplicates(arr) {
              likenum.className = "likenum"
              date.className = 'date'
     
-            postownname.innerText = element.username
+            name.innerText = element.username
             postownpass.innerText = element.password
             postid.innerHTML = element._id
             postfollow.innerText = "Follow"
@@ -254,7 +256,7 @@ function removeDuplicates(arr) {
     
          postfollow.addEventListener("click", handlefollow)
     
-        //  postlike.addEventListener("click",handlelikes)
+         postlike.addEventListener("click",handlelikes)
     
              postimg.className = "postimg"
              postcomment.className = "postcomment"
@@ -276,28 +278,23 @@ function removeDuplicates(arr) {
               }
              })
     
-    
              if(data.likedposts.length !=0){
+    
               data.likedposts.map(liked=>{
-                if(element._id == liked ){
+                if(element._id === liked ){
                   likenum.innerHTML = `${element.likes}`
                   likenum.style.color ='red'
                 postlike.style.backgroundColor = '#fff'
                 postlike.style.color = 'red'
                 likesym.innerHTML = '❤️'
                 postlike.addEventListener('click',handleremovelikes)
-      
-                }
-                else{
-                  postlike.addEventListener('click',handlelikes)
+                postlike.removeEventListener('click',handlelikes)
+                console.log('working')
                 }
                })
              
              }
-             else{
-              postlike.addEventListener('click',handlelikes)
-    
-             }
+            
              
             
     
@@ -317,7 +314,7 @@ function removeDuplicates(arr) {
     
             
     
-    
+            postownname.appendChild(name)
             postownname.appendChild(profilepichold)
              postimgholder.appendChild(postimg)
              postimgholder.appendChild(postcomment)

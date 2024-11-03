@@ -58,7 +58,7 @@ body::-webkit-scrollbar{
 a{
     text-decoration: none;
 }
-
+  
 .post-img-cap{
     width: 100%;
     height: auto;
@@ -67,7 +67,7 @@ a{
     justify-content: center;
     box-sizing: border-box;
     /* overflow-y: scroll; */
-    max-height: 40vw;
+    max-height: 50vw;
 }
 
 .postimg{
@@ -284,10 +284,10 @@ a{
     background-color: #780078;
 
 }
-.postlike:hover{
+/* .postlike:hover{
     background-color: #fff;
     color: red;  
-}
+} */
 .postfollow:hover{
     background-color: #fff;
     color: purple; 
@@ -478,7 +478,7 @@ video {
     width: 90%;
     margin: 2vw auto;
     height: auto;
-    max-height: 50vw;
+    max-height: 55vw;
     display: grid;
     box-shadow: 1px 1px 5px;
     border-radius: 10px;
@@ -749,10 +749,10 @@ video {
             box-shadow: 0px 0px 0px;
 
         }
-        .showcomment:hover{
+        /* .showcomment:hover{
             background-color: #780078;
             color: #fff;
-        }
+        } */
         .postlike{
             font-size: 4vw;
             height: 6.5vw;
@@ -840,7 +840,7 @@ video {
         .showcomment1{
             width: 100%;
             font-size: 4vw;
-            height: 5.5vw;
+            height: 7vw;
             border-radius: 10px  0 0 0 ;
         }
         .allcommentshold.show{
@@ -856,12 +856,43 @@ video {
 
 @media screen and (min-width:1025px) {
     @media screen and (max-width:1439px) {
+
         .post-btn{
             top: 70vw;
             font-size: 2vw;
         }
         .profilepichold{
             right: 6.5vw;
+        }
+        .date{
+            font-size: 13px;
+        }
+        .post-img-cap{
+            max-height: 65vw;
+        }
+        .postdisp{
+            max-height: 68vw;
+            width: 95%;
+        }
+        .sendcomment-btn{
+            height: 3vw;
+        }
+        .postowner{
+            grid-template-rows: 30% 70%;
+        }
+        .postowner.click{
+            grid-template-rows: 20% 60% 20%;
+        }
+        .postcomments_user{
+            height: 75px;
+        }
+        .postcomments_user.click{
+            height: 140px;
+        }
+        .profilepichold{
+            height: 3vw;
+            width: 3vw;
+            right: 4.5vw;
         }
     }}
 
@@ -876,14 +907,15 @@ video {
                 width: 100vw;
             }
             .postdisp{
-                max-height: 70vh;
+                max-height: 85vh;
                 width: 95%;
             }
             .post-img-cap{
-                max-height: 55vh;
+                max-height: 80vh;
             }
             .postownname{
-                font-size: 3vw;
+                font-size: 2.5vw;
+                height: 6vw;
             }
             .profilepichold{
                 right: 5vw;
@@ -923,6 +955,9 @@ video {
                 background-color: #780078;
                 color: #fff;
             } */
+             .date{
+                font-size: 12px;
+             }
             .postcomments_user{
                 font-size: 2.3vw;
             }
@@ -941,7 +976,7 @@ video {
                 font-size: 2.2vw;
             }
             #post-btn{
-                font-size: 3vw;
+                font-size: 2.5vw;
                 width: 12vw;
                 height: 4vw;
                 top: 90vh;
@@ -974,6 +1009,9 @@ video {
                 width: 4vw;
                 height: 4vw;
                 font-size: 2.3vw;
+            }
+            .allcommentshold{
+                max-height: 25vw;
             }
             
         }
