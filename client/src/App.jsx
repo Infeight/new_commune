@@ -4,6 +4,7 @@ import Profile from './components/profile'
 // const Home1 = lazy(()=>{
 //   import ('./components/home')
 // })
+import Home1 from './components/home1'
 import Home from './components/home'
 import MyPosts from './components/MyPosts'
 import LikedPosts from './components/LikedPosts'
@@ -28,9 +29,11 @@ function App() {
            <Route path='/' element={<Login/>}/>
            <Route path='/Profile' element={<Profile/>}/>
 
-           
+          
+           {/* <Suspense fallback={<div>Loading ...</div>}> <Route path='/Home' Component={<Home1/>}/></Suspense> */}
 
-           <Route path='/Home' element={<Home/>}/>
+
+           <Route path='/Home' element={<Home1/>}/>
            <Route path='/MyPosts' element={<MyPosts/>}/>
            <Route path='/LikedPosts' element={<LikedPosts/>}/>
            <Route path='/post' element={<Post/>}/>

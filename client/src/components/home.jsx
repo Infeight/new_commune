@@ -62,7 +62,7 @@ const handlecommentsend = async(e)=>{
   }
 
   if(comment!=""){
-    fetch('https://new-commune.onrender.com/comment', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(commentinfo) })
+    fetch('https://new-commune-1.onrender.com/comment', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(commentinfo) })
 
   }
 
@@ -92,7 +92,7 @@ e.target.closest('.postowner').querySelector('.postlike').querySelector('.likesy
    password:curuserpass
  }
 
-fetch('https://new-commune.onrender.com/likes', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(likeinfo) })
+fetch('https://new-commune-1.onrender.com/likes', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(likeinfo) })
  e.target.closest(".postowner").querySelector(".postlike").querySelector(".likenum").innerHTML = `${curlikes}`
 }
 
@@ -117,7 +117,7 @@ const handleremovelikes = async(e)=>{
  }
  e.target.closest(".postowner").querySelector(".postlike").querySelector(".likenum").innerHTML = `${curlikes}`
 
-fetch('https://new-commune.onrender.com/removelikes', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(likeinfo) })
+fetch('https://new-commune-1.onrender.com/removelikes', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(likeinfo) })
 }
 
 const handlefollow=async(e)=>{
@@ -134,7 +134,7 @@ const handlefollow=async(e)=>{
 
  }
 
- fetch('https://new-commune.onrender.com/follow',{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify(followdetails)})
+ fetch('https://new-commune-1.onrender.com/follow',{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify(followdetails)})
  
    setTimeout(()=>{
      e.target.closest('.postowner').querySelector('.postfollow').innerText = "Following"
@@ -159,7 +159,7 @@ const handleaccountfollow = (e)=>{
 
  }
 
- fetch('https://new-commune.onrender.com/follow',{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify(followdetails)})
+ fetch('https://new-commune-1.onrender.com/follow',{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify(followdetails)})
  
      e.target.innerText = "Following"
    
@@ -187,7 +187,7 @@ const handleunfollow=async(e)=>{
 
  }
 
- fetch('https://new-commune.onrender.com/unfollow',{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify(followdetails)})
+ fetch('https://new-commune-1.onrender.com/unfollow',{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify(followdetails)})
 
  setTimeout(()=>{
   e.target.closest('.postowner').querySelector('.postfollow').innerText = "Follow 📌"
@@ -213,7 +213,7 @@ const handleacctunfollow = (e)=>{
   curuserpass: curuserpass
  }
 
- fetch('https://new-commune.onrender.com/unfollow',{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify(followdetails)})
+ fetch('https://new-commune-1.onrender.com/unfollow',{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify(followdetails)})
 
  setTimeout(()=>{
   e.target.innerText = "Follow"
@@ -247,7 +247,7 @@ localStorage.setItem('postownerid',ownerid)
     ownername:ownername
   }
 
- const details =  fetch('https://new-commune.onrender.com/searchusers',{method:'post',headers:{'Content-Type':'application/json'},body: JSON.stringify(searchdet)});
+ const details =  fetch('https://new-commune-1.onrender.com/searchusers',{method:'post',headers:{'Content-Type':'application/json'},body: JSON.stringify(searchdet)});
   details.then(response => response.json())
   .then(data => {setFounduser({username:data.founduser.username,user_id:data.founduser._id,followerno:data.founduser.followers.length,followingno:data.founduser.following.length})
 
@@ -449,11 +449,10 @@ const showfollowers = ()=>{
       userid:curuserid
     }
      
-    const allPosts = await fetch('https://new-commune.onrender.com/newPost',{headers:{accept:'application/json'}});
-    const profilepics = await fetch('https://new-commune.onrender.com/profilepics',{headers:{accept:'application/json'}})
-    const likedposts =  fetch('https://new-commune.onrender.com/likedposts',{method:'post',headers:{'Content-Type':'application/json'},body: JSON.stringify(userdet)})
+    const allPosts = await fetch('https://new-commune-1.onrender.com/newPost',{headers:{accept:'application/json'}});
+    const profilepics = await fetch('https://new-commune-1.onrender.com/profilepics',{headers:{accept:'application/json'}})
+    const likedposts =  fetch('https://new-commune-1.onrender.com/likedposts',{method:'post',headers:{'Content-Type':'application/json'},body: JSON.stringify(userdet)})
     // const user_id = await fetch('https://new-commune.onrender.com/user_id',{headers:{accept:'application/json'}})
-    
     const allPosts1 = await allPosts.json()
     const profilepics1 = await profilepics.json()
     const allpostsrev = allPosts1.reverse()
@@ -570,6 +569,7 @@ const showfollowers = ()=>{
              postimg.className = "postimg"
              postcomment.className = "postcomment"
              postimg.src =  `data:image/png;base64,${base64String}`
+             postimg.loading = 'lazy'
              postimg.type = 'images/base64'
              postcomment_hold.innerText = element.caption
              postimgholder.className = "post-img-cap" 
@@ -623,8 +623,9 @@ const showfollowers = ()=>{
     
          postcomment.appendChild(postcomment_hold)
          postcomment.appendChild(postowner)
-    
-        setLoad (false)
+        
+        
+         setLoad (false)
        document.getElementById("home").appendChild(postdisp)
        });
 
@@ -706,7 +707,7 @@ document.querySelectorAll(".showcomment").forEach(e=>{
     <div className="acctname" id='acctname'>
     </div>
 
-     <img src="" alt="" id='profilepicdisp' className='profilepicdisp'/>
+     <img loading='lazy' src="" alt="" id='profilepicdisp' className='profilepicdisp'/>
      <div className="followercount" id='follwercount' onClick={showfollowers}>Followers <br />({founduser.followerno})
      
      <div className="followerlist1" id='followerlist1'></div>

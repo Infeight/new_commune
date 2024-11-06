@@ -89,9 +89,9 @@ const cancelpicupdate = ()=>{
       username:curuser,
       password:curuserpass
     }
-    let allusers1 = await fetch('https://new-commune.onrender.com/login',{headers:{accept:'application/json'}})
-    let profilepic =  fetch('https://new-commune.onrender.com/profilepic1',{method:'post',headers:{'Content-Type':'application/json' },body: JSON.stringify(userdet)})
-    const user_id =  fetch('https://new-commune.onrender.com/user_id',{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify(userdet)})
+    let allusers1 = await fetch('https://new-commune-1.onrender.com/login',{headers:{accept:'application/json'}})
+    let profilepic =  fetch('https://new-commune-1.onrender.com/profilepic1',{method:'post',headers:{'Content-Type':'application/json' },body: JSON.stringify(userdet)})
+    const user_id =  fetch('https://new-commune-1.onrender.com/user_id',{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify(userdet)})
     let user_id1;
 
     user_id.then(response=>response.json()).
@@ -219,7 +219,7 @@ document.querySelectorAll('.update-options-btns').forEach(btn=>{
       <div className='selectimg' style={{position:'absolute'}}>Select Picture</div>
     </label>
 {/* {console.log(currentuser_id.userId)} */}
-    <form style={{position:'absolute'}} id='picupdateform' className='picupdateform' action="https://new-commune.onrender.com/profilepic" method='post'  encType='multipart/form-data'>
+    <form style={{position:'absolute'}} id='picupdateform' className='picupdateform' action="https://new-commune-1.onrender.com/profilepic" method='post'  encType='multipart/form-data'>
           <input type="file" style={{display:'none'}} onChange={handleimage} name="newprofilepic" id='newprofilepic' />
           <input value={curuser} name='username' style={{display:'none'}} />
           <input value={curuserpass} name='userpass' style={{display:'none'}} />

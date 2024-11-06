@@ -54,7 +54,7 @@ const Login = () => {
 
 
   let getlogin = async()=>{
-   let alllogin = await fetch ('https://new-commune.onrender.com/login',{headers:{accept:'application/json'}})
+   let alllogin = await fetch ('https://new-commune-1.onrender.com/login',{headers:{accept:'application/json'}})
    let alllogin1 = await alllogin.json()
     console.log(alllogin1)
    setLogins(alllogin1)
@@ -94,7 +94,7 @@ const Login = () => {
     document.getElementById('input-cont').style.display = 'none'
      document.getElementById('newusercont').style.display = 'flex'
 
-    await  fetch('https://new-commune.onrender.com/signup', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(signup) })
+    await  fetch('https://new-commune-1.onrender.com/signup', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(signup) })
    
       
   
