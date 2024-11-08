@@ -26,14 +26,15 @@ body{
     height: auto;
     overflow-y: scroll;
     text-align: center;
-    max-height: 11vw;
+    max-height: 10vw;
     
 }
 #commdisp1{
     display: grid;
     grid-column-start: 1;
     grid-column-end: 3;
-
+position: relative;
+top: 0.5vw;
 }
 .commdisp::-webkit-scrollbar{
     display: none;
@@ -174,6 +175,9 @@ body{
     @media screen and (max-width:600px) {
         .postimg{
             width: 100%;
+        }
+        .post-img-cap{
+            max-height: 115vh;
         }
         #postlike1{
             width: 100%;

@@ -14,6 +14,9 @@ body{
             top: 90vh;
             left: 80vw;
         }
+        .postimg{
+            max-height: 179vw;
+        }
     }
 }
 
