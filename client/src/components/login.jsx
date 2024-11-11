@@ -36,6 +36,14 @@ const Login = () => {
     document.getElementById('signupcont').style.display = "flex"
   }
 
+  const handlesignin_anim = ()=>{
+    document.getElementById('cover').style.borderRadius = "5px 0px 0px 5px"
+    document.getElementById('cover-p').innerText = 'Log In to Commune!'
+    document.getElementById("input-cont").style.flexDirection = "row"
+    document.getElementById('logincont').style.display = "flex"
+    document.getElementById('signupcont').style.display = "none"
+  }
+
   let name; let value;
   const handleChange = (e) => {
     name = e.target.name;
@@ -75,13 +83,16 @@ const Login = () => {
       
 
     }
+    else{
+       document.getElementById('wrongpass').style.display = 'initial'
+    }
    
   })
-  if(newuser==true){
- handlesignup_anim();
+//   if(newuser==true){
+//  handlesignup_anim();
 
-  }
-  else if (newuser==false){
+//   }
+ if (newuser==false){
       document.getElementById("username").style.visibility = "visible"
   }
   }
@@ -115,6 +126,8 @@ const Login = () => {
  
 
     <div className="logincont" id='logincont'>
+<div id='wrongpass' style={{display:'none'}}>Incorrect username or password.<br /> New to Commune? Please sign up!</div>
+
 
     <input type="text" name='username' value={user.username} placeholder='Username' id='username' onChange={handleChange}/>
     <input type="text" name='password' value={user.password} placeholder='Password' id='password' onChange={handleChange} />
@@ -134,15 +147,21 @@ const Login = () => {
 <input type="text" name='username' id='username1' placeholder='Username' value={signup.username}  onChange={handleSignup}/>
 <input type="text" name='password' id='password1' placeholder='Password' value={signup.password}  onChange={handleSignup}/>
 <input type="text" name='mail' id='mail1' placeholder='E-mail' value={signup.mail} onChange={handleSignup}/>
+
+<div className='signbtn-holder'>
+<button type='submit' className='submit-btn' onClick={handlesignin_anim}>Log In</button>
+
 <button type='submit' className='submit-btn' onClick={()=>{submitSignup()}}>Sign up</button>
-
+</div>
 </div>
 
 </div>
 
 </div>
+
 
 <div id='welcomebackcont'>
+ 
   <p className='welcomeback'>Welcome Back {user.username} !</p>
 <button className='navbtn1'  ><Link to={'/Profile'}>Home</Link></button>
 
