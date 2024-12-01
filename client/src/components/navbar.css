@@ -186,7 +186,7 @@ body{
         flex-direction: row;
         justify-content: space-evenly;
         z-index: 3;
-        box-shadow: 0px 1px 7px black;
+        box-shadow: 0px 1px 5px black;
        
         /* top: 94.5vh; */
       }

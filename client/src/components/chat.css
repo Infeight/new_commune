@@ -48,10 +48,10 @@
 .contactname{
     background-color: purple;
     color: #fff;
-    font-size: 2vw;
+    font-size: 1.5vw;
     font-family: nunito;
     font-weight: 500;
-    width: 15vw;
+    width: 17vw;
     max-height: 100%;
     overflow: hidden;
 }
@@ -71,20 +71,34 @@
 }
 
 .chathere {
-    width: 60vw;
+    width: 56vw;
     height: 100vh;
     background-color: #fff;
     overflow: hidden;
+  
+
+}
+.chatheremob{
+    width: 56vw;
+    height: 100vh;
+    background-color: #fff;
+    overflow: hidden;
+    position: absolute;
+    background-image: url('chat.gif');
+    background-size: 60%;
+    background-repeat: no-repeat;
+    background-position: center
 }
 
 .chatscont{
+    
+    display: none;
     width: 100%;
     height: calc(87.5vh - 25px);
+    min-height: 40vw;
     overflow-y: scroll;
-    background-image: url('chat.gif');
-    background-size: contain;
-    background-repeat: no-repeat;
-    background-position: center
+    /* background-image: url('chat.gif'); */
+   
 
 }
 .chatscont::-webkit-scrollbar{
@@ -113,6 +127,12 @@
     display: none;
     align-items: center;
     justify-content: center;
+}
+.backbtn{
+    display: flex;
+    margin-right: 1vw;
+    justify-content: center;
+    align-items: center;
 }
 
 .send-btn{
@@ -147,13 +167,15 @@
     display: flex;
     align-items: center;
     padding: 0 1vw;
-    font-size: 2vw;
+    font-size: 1.5vw;
+    font-weight: 600;
     font-family: 'Nunito';
     border-radius: 10px;
     box-shadow: 1px 1.5px 8px black;
     position: relative;
     top: -10vw;
     transition-duration:  0.2s;
+    /* display: none; */
 }
 .msgsent{
     background-color: #f2befa;
@@ -199,24 +221,29 @@
         }
 
         .allcontacts{
-            top: 80vh;
+            top: 30vh;
             position: absolute;
             left: 0;
-            width: 20vw;
-            height: 5vh;
+            width: 98vw;
+            height: 65vh;
             overflow: scroll;
-            background-image: url('followers.jpeg');
+            padding: 0;
+            border-radius: 0;
+            /* background-image: url(followers.jpeg);
             background-size: cover;
             background-repeat: no-repeat;
-            background-position-y: center;
+            background-position-y: center; */
         }
         .allcontacts::-webkit-scrollbar{
             display: none;
         }
         .contacthold{
-            visibility: hidden;
+            visibility: visible;  
+              height: 11vw;
+              border-radius: 0;
+              margin: 0.4vw;
         }
-        .allcontacts:hover{
+        /* .allcontacts:hover{
             top: 60vh;
             left: 0;
             width: 65vw;
@@ -227,18 +254,31 @@
                 margin: 1.3vw;
                 height: 9.5vw;justify-content: space-between;
             }
-        }
+        } */
         .contactname{
             font-size: 5.2vw;
-            width: 40vw;
+            width: 85vw;
         }
         .profilehold{
-            width: 8vw;
-            height: 8vw;
+            width: 10vw;
+            height: 10vw;
         }
 
         .chathere{
             width: 100vw;
+            background: url();
+            z-index: -2;
+        }
+        .chatheremob{
+            width: 100vw;
+            height: 30vh;
+            background-color: #fff;
+            overflow: hidden;
+            background-image: url('chat.gif');
+            background-size: contain;
+            background-repeat: no-repeat;
+            background-position: center;
+            /* display:none; */
         }
         .chatscont{
             height: calc(87.5vh - 40px);

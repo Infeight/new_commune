@@ -21,6 +21,10 @@ const MyPosts = () => {
       posts1()
     },200)
   })
+
+  // if(load == false){
+  //   document.getElementById('communeload').style.display = "none"
+  // }
  
   const deletepost = async( e)=>{
    document.getElementById('confirmdel').style.display = 'flex'
@@ -36,7 +40,7 @@ const MyPosts = () => {
     }
       document.getElementById('confirmdel').style.display = 'none'
    document.getElementById('home').style.opacity = '100%'
-      await fetch('https://new-commune-1.onrender.com/delpost',{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify(del_id_det)})
+      await fetch('https://new-commune-2.onrender.com/delpost',{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify(del_id_det)})
    })
 
    document.getElementById('cancdel').addEventListener('click', async()=>{
@@ -49,6 +53,7 @@ const MyPosts = () => {
 
    
   }
+
 
 const curuserdata = async()=>{
 
@@ -66,13 +71,14 @@ const curuserdata = async()=>{
 
   const posts1 = async()=>{
 
-    const allPosts = await fetch('https://new-commune-1.onrender.com/myPost',{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify(curuser)})
+    const allPosts = await fetch('https://new-commune-2.onrender.com/myPost',{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify(curuser)})
     
     const allPosts1 = await allPosts.json()
  
     const allpostsrev = allPosts1.reverse()
-  
-   allpostsrev.forEach(element => {
+ 
+ 
+   allpostsrev.length!=0?allpostsrev.forEach(element => {
    
     let arr = element.post.data.data
   
@@ -178,10 +184,15 @@ const curuserdata = async()=>{
 
      
     document.getElementById('communeload').style.display = "none"
-    
+    // setLoad(false)
    document.getElementById("home").appendChild(postdisp)
 
-   });
+   }):
+   
+    // setLoad(false)
+       document.getElementById('communeload').style.display = "none"
+    document.getElementById("noposts").style.display = 'flex'
+   ;
 
  
 
@@ -199,17 +210,18 @@ const curuserdata = async()=>{
   <div className="home" id='home'>
  <div className="yourposthead">Your Posts</div>
 
-  <div className = "communeload" id='communeload' >
-    
-  <video autoPlay muted loop>
+ <div className = "communeload" id='communeload' >
+  {/* <video autoPlay muted loop>
         <source
                 src="likesvideo.mp4"
                 type="video/mp4"
                 />
       </video>
-      <h2 className='loadh2'>COMMUNE</h2>
-
+      <h2 className='loadh2'>COMMUNE</h2> */}
+<iframe id='loadinganime' src="https://lottie.host/embed/fb7368f5-4618-4c6d-a8da-641058d0018c/2i41WWJ7M2.lottie" frameborder="0"></iframe>
     </div> 
+    <div id='noposts'>    <iframe id='noposts' src="https://lottie.host/embed/8fa2ab6e-25f7-4161-9c1f-4bf530c53443/QxF5yU2Bff.lottie" frameborder="0"></iframe>
+    </div>
  </div>
 
  <div className='confirmdel' id='confirmdel'>⚠ This post gets deleted permanently.

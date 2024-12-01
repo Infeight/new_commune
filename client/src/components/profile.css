@@ -31,6 +31,9 @@ body{
     }
 }
 .logo-name{
+    position: relative;
+    left: 4vw;
+    margin-right: auto;
     grid-column-start: 1;
     grid-column-end: 3;
     font-family: nunito;
@@ -39,14 +42,14 @@ body{
     font-weight: 800;
     font-style: normal;
     color: purple;
-    font-size: 3.5vw;
+    font-size: 2.5vw;
     
 }
 .profilepic{
     width: 21vw;
     height: 21vw;
     position: relative;
-    left: -5vw;
+    left: -6vw;
     border-radius: 50vw;
     display: flex;
     align-items: center;
@@ -140,6 +143,7 @@ body{
     height: 65%;
     position: relative;
     left: -11vw;
+    top: 1vw;
     list-style: none;
     font-size: 2.5vw;
     letter-spacing: 0.1vw;
@@ -169,6 +173,12 @@ body{
     grid-column: span 1 / 3;
     grid-column-start: 1;
     margin-bottom: 1vw;
+   transition-duration: 0.2s;
+
+}
+.username:hover{
+   font-size: 3.2vw; 
+   transition-duration: 0.2s;
 }
 
 #nav-btns{
@@ -248,7 +258,7 @@ body{
 
 .followers{
     position: relative;
-    width: 100%;
+    width: 90%;
     height: 100%;
     overflow-y: scroll;
     background-color: transparent;
@@ -256,7 +266,7 @@ body{
     padding: 2px;
     h6{
         margin: 0;
-        font-size: 2.1vw;
+        font-size: 1.7vw;
         position: sticky;
         top: -0.3vw;
         background-color: #fff;
@@ -265,7 +275,7 @@ body{
 }
 .following{
     position: relative;
-    width: 100%;
+    width: 90%;
     height: 100%;
     overflow-y: scroll;
     background-color: transparent;
@@ -273,7 +283,7 @@ body{
     padding: 5px;
     h6{
         margin: 0;
-        font-size: 2.1vw;
+        font-size: 1.7vw;
         position: sticky;
         top: -0.4vw;
         background-color: #fff;
@@ -281,7 +291,7 @@ body{
     }
 }
 
-.followers::-webkit-scrollbar{width: 0.2vw;}
+.followers::-webkit-scrollbar{width: 0.1vw;height: 0vw;}
 .followers::-webkit-scrollbar-track{
     background-color: #fff;
 }
@@ -289,7 +299,7 @@ body{
     background-color: purple;
     border-radius: 2vw;
 }
-.following::-webkit-scrollbar{width: 0.2vw;}
+.following::-webkit-scrollbar{width: 0.1vw; height: 0vw;}
 .following::-webkit-scrollbar-track{
     background-color: #fff;
 }
@@ -299,7 +309,7 @@ body{
 }
 
 .followerli{
-    font-size: 1.9vw;
+    font-size: 1.4vw;
     box-sizing: border-box;
     padding: 2px;
     overflow-x: scroll;
@@ -484,7 +494,7 @@ body{
             left: 0;
             margin-top: 95vh;
             margin-bottom: 0;
-          box-shadow: 0px 1px 7px black;
+          box-shadow: 0px 1px 5px black;
             z-index: 3;
         }
 
@@ -506,7 +516,7 @@ body{
         }
 
         .logo-name{
-            font-size: 8vw;
+            font-size: 7vw;
             margin-top: 5vw;
         }
         .profilepic{
@@ -531,21 +541,23 @@ body{
             align-items: center;
         }
         .followers h6{
-            font-size: 5.5vw;
+            font-size: 5vw;
         }
         .following{
+            width: 100%;
             padding-left: 30px;
 
             h6{
-                font-size: 5.5vw;
+                font-size: 5vw;
             }
             
         }
         .followerli{
-            font-size: 4.5vw;
+            font-size: 4vw;
         }
         .selectimg{
-            font-size: 5.5vw
+            top: 10vw;
+            font-size: 4.5vw
         }
         #post-btn1{
             top: 28vw;

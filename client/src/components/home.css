@@ -7,7 +7,7 @@ body{
 body::-webkit-scrollbar{
     display: none;
 }
-
+postfollow
 .home{
     position: absolute;
     width: 80vw;
@@ -18,7 +18,12 @@ body::-webkit-scrollbar{
     animation: home 0.5s 0s 1 ease;
     z-index: 1;
 }
-
+.logohome{
+    font-family: 'nunito';
+    font-weight: 800;
+    color: #780078;
+   display: none;
+}
 .home::-webkit-scrollbar{
     display: none;
 }
@@ -168,10 +173,13 @@ a{
     grid-template-rows: 25% 50% 25%;
 
 }
+.postownuser_id{
+    display: none;
+}
 .postownname {
     display: flex;
     width: 100%;
-    font-size: 2.2vw;
+    font-size: 2.1vw;
     overflow-x: scroll;
     overflow-y: hidden;
     background-color: transparent;
@@ -227,7 +235,7 @@ a{
     height:85%;
     box-sizing: border-box;
     padding: 5px;
-    font-size: 1.5vw;
+    font-size: 1.3vw;
     box-shadow: 0 0 3px 0.2px black;
     display: flex;
     align-items: center;
@@ -248,7 +256,7 @@ a{
 
 }
 #postfollow1:hover{
-    color: #fff;
+    color: purple;
     font-size: 1.6vw;
     transition-duration: 0.1s;
 
@@ -259,7 +267,7 @@ a{
     height:85%;
     box-sizing: border-box;
     padding: 5px;
-    font-size: 1.5vw;
+    font-size: 1.4vw;
     box-shadow: 0 0 3px 0.2px black;
     display: flex;
     align-items: center;
@@ -274,7 +282,7 @@ a{
     height:85%;
     box-sizing: border-box;
     padding: 2px;
-    font-size: 1.5vw;
+    font-size: 1.3vw;
     box-shadow: 0 0 3px 0.2px black;
     display: flex;
     align-items: center;
@@ -417,7 +425,7 @@ transition-duration: 0.1s;
 
 }
 .communeload{
-    position: absolute;
+    /* position: absolute;
     width: 80vw;
     height: 13vw;
     font-size: 5vw;
@@ -425,12 +433,23 @@ transition-duration: 0.1s;
     color: purple;
     font-weight: 700;
     top: 35%;
-    /* margin: 20%; */
     left: 0%;
     padding: 1vw;
-    /* z-index: 2; */
+    box-sizing: border-box; */
+
+    position: absolute;
+    width: 80vw;
+    height: 90vw;
+    color: purple;
+    font-weight: 700;
+    top: 2%;
+    /* left: 5%; */
     box-sizing: border-box;
 }
+iframe{
+    height: 90%;
+}
+
 
 video {
     position: absolute;
@@ -654,10 +673,34 @@ video {
             height: 96vh;
             min-height: 96vh;
         }
+        .logohome{
+            position: sticky;
+            height: 10vw;
+            display: block;
+            font-size: 6vw;
+            left: 0vw;
+            top: 0vw;
+            padding-left: 2.5vw;
+            padding-top: 2vw;
+            background-color: white;
+            box-shadow: 0px 0px 4px black;
+            z-index: 5;
+        }
+        .logoanim{
+            width: 15vw;
+            height: 15vw;
+            top: -12.5vw;
+            left: 84vw;
+            position: relative;
+        }
         .communeload{
-            width: 100vw;
+            width: 90vw;
+            height: 115vw;
+
+            top: 10%;
             /* font-size: 10vw; */
         }
+        iframe{height: 100%;}
         .loadh2{
             font-size: 18vw !important;
         }
@@ -819,6 +862,12 @@ video {
             font-size: 5.3vw;
             width: 7vw;
             height: 7vw;
+            top: 14vw;
+        }
+        .accthold{
+            position: relative;
+            height: 88%;
+            top: 15vw;
         }
         .acctname{
             padding-left: 0;

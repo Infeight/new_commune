@@ -3,9 +3,26 @@ import './login.css'
 import { Link } from 'react-router-dom';
 import { useState,useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
+import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+
+
+
+// import React from 'react';
+// import { DotLottieReact } from '@lottiefiles/dotlottie-react';
+
+// const App = () => {
+//   return (
+//     <DotLottieReact
+//       src="https://lottie.host/5da5bb72-96d6-4259-8dfa-587faa9c0e51/1qJAOfYK4M.lottie"
+//       loop
+//       autoplay
+//     />
+//   );
+// };
+
 
 const Login = () => {
-
+ 
   let [user,setUser] = useState({
     username:"",
     password:""
@@ -19,10 +36,16 @@ const Login = () => {
 
   const [logins,setLogins] = useState([])
   const [newuser,setNewuser] = useState(true)
+  const [showinp,setShowinp] = useState(false);
   
   const followinglist2 = []
 
+if(showinp==true){
+  document.getElementById('loading').style.display = 'none';
+  document.getElementById('logo').style.display = 'flex'
+document.getElementById('input-cont').style.display = 'flex'
 
+}
 
   useEffect(()=>{
     getlogin();
@@ -30,7 +53,10 @@ const Login = () => {
 
   const handlesignup_anim = ()=>{
     document.getElementById('cover').style.borderRadius = "5px 0px 0px 5px"
-    document.getElementById('cover-p').innerText = 'Sign Up to Commune!'
+    // document.getElementById('cover').getElementsByTagName('iframe').src= 'https://lottie.host/embed/4ed902e0-497a-48fe-a39b-045df9baf9db/4SqjSEaEBR.lottie'
+    document.getElementById('signupgif').style.display = 'block'
+    document.getElementById('signingif').style.display = 'none'
+
     document.getElementById("input-cont").style.flexDirection = "row"
     document.getElementById('logincont').style.display = "none"
     document.getElementById('signupcont').style.display = "flex"
@@ -38,8 +64,11 @@ const Login = () => {
 
   const handlesignin_anim = ()=>{
     document.getElementById('cover').style.borderRadius = "5px 0px 0px 5px"
-    document.getElementById('cover-p').innerText = 'Log In to Commune!'
+    document.getElementById('cover').getElementsByTagName('iframe').src = 'https://lottie.host/embed/fe93e82c-38bc-45ec-aa6a-2dc72341d3c1/hO0M5SKM7L.lottie'
     document.getElementById("input-cont").style.flexDirection = "row"
+    document.getElementById('signingif').style.display = 'block'
+    document.getElementById('signupgif').style.display = 'none'
+
     document.getElementById('logincont').style.display = "flex"
     document.getElementById('signupcont').style.display = "none"
   }
@@ -62,10 +91,11 @@ const Login = () => {
 
 
   let getlogin = async()=>{
-   let alllogin = await fetch ('https://new-commune-1.onrender.com/login',{headers:{accept:'application/json'}})
+   let alllogin = await fetch ('https://new-commune-2.onrender.com/login',{headers:{accept:'application/json'}})
    let alllogin1 = await alllogin.json()
     console.log(alllogin1)
    setLogins(alllogin1)
+   setShowinp(true);
   }
 
   const submit = async()=>{
@@ -78,6 +108,7 @@ const Login = () => {
       // localStorage.setItem('current-users-following', user.)
     localStorage.setItem('followinglist1',JSON.stringify(followinglist2))
    document.getElementById('input-cont').style.display = 'none'
+   document.getElementById('logo').style.display ='none'
      document.getElementById('welcomebackcont').style.display = 'flex'
       //  fetch('https://new-commune.onrender.com/logins', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(user) })
       
@@ -98,14 +129,22 @@ const Login = () => {
   }
 
   const submitSignup = async()=>{
-    localStorage.setItem('current-users',signup.username)
-    localStorage.setItem('current-users-pass',signup.password)
-    localStorage.setItem('followinglist1',JSON.stringify(followinglist2))
+  
+     if(signup.username==''|| signup.password==''){
+ document.getElementById('username1').style.border = '1px solid red'
+      document.getElementById('password1').style.border = '1px solid red'
+    }
+    else{
+      localStorage.setItem('current-users',signup.username)
+      localStorage.setItem('current-users-pass',signup.password)
+   
+      localStorage.setItem('followinglist1',JSON.stringify(followinglist2))
+      document.getElementById('input-cont').style.display = 'none'
+      document.getElementById('logo').style.display = 'none'
+      document.getElementById('newusercont').style.display = 'flex'
+      await  fetch('https://new-commune-2.onrender.com/signup', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(signup) })
+    }
 
-    document.getElementById('input-cont').style.display = 'none'
-     document.getElementById('newusercont').style.display = 'flex'
-
-    await  fetch('https://new-commune-1.onrender.com/signup', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(signup) })
    
       
   
@@ -119,13 +158,23 @@ const Login = () => {
 
     <div className="cont">
 
-      <div className="logo">COMMUNE</div>
+      <div className="logo" id='logo'>COMMUNE</div>
+      <div className="loading" id='loading'>
+
+      {/* <DotLottieReact
+      src="https://lottie.host/5da5bb72-96d6-4259-8dfa-587faa9c0e51/1qJAOfYK4M.lottie"
+      loop
+      autoplay
+    /> */}
+    <iframe src="https://lottie.host/embed/61dc7774-2274-438e-88d5-84fc4e57b827/iVXw4PgjEL.lottie" frameborder="0"></iframe>
+
+      </div>
 
 <div className="input-cont" id='input-cont'>
 
  
 
-    <div className="logincont" id='logincont'>
+    <div className="logincont" id='logincont'> Sign In
 <div id='wrongpass' style={{display:'none'}}>Incorrect username or password.<br /> New to Commune? Please sign up!</div>
 
 
@@ -139,10 +188,12 @@ const Login = () => {
     </div>
 
     <div className="cover" id='cover'>
-      <p id='cover-p'>Log In to Commune!</p>
+      {/* <p id='cover-p'>Log In to Commune!</p> */}
+      <iframe id='signingif' style={{display:'block'}} src="https://lottie.host/embed/fe93e82c-38bc-45ec-aa6a-2dc72341d3c1/hO0M5SKM7L.lottie" frameborder="0"></iframe>
+      <iframe id='signupgif' style={{display:'none'}} src="https://lottie.host/embed/002408d7-8a31-4096-9651-9d3e0d9bbb03/72dB3Boe0J.lottie" frameborder="0"></iframe>
     </div>
 
-    <div className="signupcont" id='signupcont'>
+    <div className="signupcont" id='signupcont'> Sign Up
 
 <input type="text" name='username' id='username1' placeholder='Username' value={signup.username}  onChange={handleSignup}/>
 <input type="text" name='password' id='password1' placeholder='Password' value={signup.password}  onChange={handleSignup}/>
@@ -162,12 +213,21 @@ const Login = () => {
 
 <div id='welcomebackcont'>
  
+<div className="celebration1">
+  <iframe id='celebration' src="https://lottie.host/embed/503bed59-c29d-46eb-935d-a996c60858a3/geOsLMBMTf.lottie" frameborder="0"></iframe>
+
+  </div>
+
   <p className='welcomeback'>Welcome Back {user.username} !</p>
 <button className='navbtn1'  ><Link to={'/Profile'}>Home</Link></button>
 
 </div>
 
 <div id='newusercont'>
+  <div className="celebration">
+  <iframe id='celebration' src="https://lottie.host/embed/d7852d0f-dbde-43f2-9223-9233d839e93f/9i7ZLGOPeC.lottie" frameborder="0"></iframe>
+
+  </div>
   <p className='welcomeback'>
 Welcome to Commune! 🎉 <br />
 

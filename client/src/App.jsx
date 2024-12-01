@@ -29,7 +29,7 @@ function App() {
            <Route path='/' element={<Login/>}/>
            <Route path='/Profile' element={<Profile/>}/>
 
-          
+         
            {/* <Suspense fallback={<div>Loading ...</div>}> <Route path='/Home' Component={<Home1/>}/></Suspense> */}
 
 

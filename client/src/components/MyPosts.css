@@ -2,6 +2,14 @@ body{
     background-color: purple;
 }
 
+#noposts{
+    display: flex;
+    position: relative;
+    top: 15vh;
+    left: 0vw;
+    height: 24vw;
+}
+
 #postowner1{
     height: 240px;
     flex-direction: column;
@@ -178,6 +186,13 @@ top: 0.5vw;
         }
         .post-img-cap{
             max-height: 115vh;
+        }
+        #noposts{
+            display: flex;
+            position: relative;
+            top: 12vh;
+            left: 1vw;
+            height: 70vw;
         }
         #postlike1{
             width: 100%;

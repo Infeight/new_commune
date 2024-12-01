@@ -21,19 +21,29 @@
     font-family: "Nunito", sans-serif;
     font-optical-sizing: auto;
     font-weight: 800;
-    display: flex;
+    display: none;
     align-items: center;
     position: relative;
     top: 4vw;
 }
+
+.loading{
+  width: 60vw;
+  height: 60vh;
+}
+iframe{
+    width: 100%;
+    height: 100%;
+}
 #input-cont{
+
     width: 65vw;
     height: 30vw;
     margin: 10vw auto;
     /* background-color: purple; */
     box-shadow: 1px 1px 4px black;
     border-radius: 5px;
-    display: flex;
+    display: none;
     align-items: center;
     justify-content: space-evenly;
 
@@ -41,11 +51,15 @@
 }
 
 .logincont{
+    color: purple;
+    font-size: 2vw;
+    font-family: 'nunito';
+    font-weight: 600;
     position: relative;
     display: flex;
     flex-direction: column;
     width: 50%;
-    height: 90%;
+    height: 100%;
     align-items: center;
     justify-content: space-evenly;
     transition-duration: 1s;
@@ -53,11 +67,15 @@
 }
 
 .signupcont{
+    color: purple;
+    font-size: 2vw;
+    font-family: 'nunito';
+    font-weight: 600;
     position: relative;
     display: flex;
     flex-direction: column;
     width: 50%;
-    height: 90%;
+    height: 100%;
     align-items: center;
     justify-content: space-evenly;
     display: none;
@@ -100,7 +118,7 @@ input{
     position: relative;
     width: 50%;
     height: 100%;
-    background-color: purple;
+    background-color: white;
     color: #fff;
     z-index: 0;
     left: 0%;
@@ -134,6 +152,7 @@ input{
     border-radius: 4px;
     border: none;
     outline: none;
+    top: -5vw;
 }
 .navbtn1 a{
     color: #fff;
@@ -142,10 +161,13 @@ input{
   font-size: 1.5vw;
 }
 .welcomeback{
+    text-align: center;
     font-size: 2vw;
     font-family: nunito;
     color: Black;
     font-weight: 600;
+    position: relative;
+    top: -6vw;
 }
 #welcomebackcont{
   display: none;
@@ -156,6 +178,12 @@ input{
     align-items: center;
     top: 18vw;
 }
+.celebration1{
+    width: 15vw;
+    height: 15vw;
+    position: relative;
+    top: -6vw;
+}
 #newusercont{
     display: none;
     width: 50vw;
@@ -163,7 +191,13 @@ input{
       flex-direction: column;
       position: relative;
       align-items: center;
-      top: 18vw;
+      top: 0vw;
+  }
+  .celebration{
+    width: 35vw;
+    height: 35vw;
+    position: relative;
+    top: 0vw;
   }
 
   #wrongpass{
@@ -171,9 +205,9 @@ input{
     color: #dc0000;
     z-index: 2;
     position: relative;
-    font-size: 1.3vw;
+    font-size: 1.25vw;
     font-family: 'Nunito';
-    font-weight: 700;
+    font-weight: 500;
     text-align: center;
   }
 
@@ -190,6 +224,7 @@ input{
         }
         .logincont{
             width: 65%;
+            font-size: 5vw;
         }
        .cover{
         font-size: 6vw;
@@ -208,6 +243,7 @@ input{
        }
        .signupcont{
         width: 65%;
+        font-size: 5vw;
        }
        #welcomebackcont{
         width: 95vw;
@@ -217,12 +253,28 @@ input{
         width: 95vw;
         top: 47vh;
        }
+       .celebration{
+        
+            width: 35vw;
+            height: 35vw;
+            position: relative;
+            top: -25vw;
+           
+       }
        .welcomeback{
         font-size: 5vw;
+        top: -25vw;
+       }
+       .celebration1{
+        width: 35vw;
+        height: 35vw;
+        position: relative;
+        top: -25vw;
        }
        .navbtn1{
         width: 16vw;
         height: 6vw;
+        top: -25vw;
        }
        .navbtn1 a{
         font-size: 4.5vw;

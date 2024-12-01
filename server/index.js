@@ -130,7 +130,22 @@ app.get('/', async(req,res)=>{
 })
 
 app.get('/newPost',async(req,res)=>{
+  const postdata=[];
   const posts = await allPosts.allPosts.find()
+  // posts.forEach(post1=>{
+  //     let onlydata={
+  //       caption:post1.caption,
+  //       username:post1.username,
+  //       password:post1.password,
+  //       // comments:post1.comments,
+  //       // likes:post1.likes,
+  //       // date:post1.date,
+  //       user_id:post1.user_id
+  //     }
+
+  //     postdata.push(onlydata)
+  // })
+
   res.send(posts)
 })
 
@@ -153,8 +168,40 @@ app.get('/profilepics',async(req,res)=>{
 
 
 app.get('/login', async(req,res)=>{
-  const logins = await login.login.find()
-  res.send(logins)
+
+  const logins1 = await login.login.find()
+  res.send(logins1)
+})
+
+
+
+
+ app.post('/login1', async(req,res)=>{
+  const userdet ={
+    username: req.body.username,
+    userpass: req.body.password,
+    
+   }
+  const logins1 = await login.login.findOne({'username':userdet.username,'password':userdet.userpass})
+  res.json({logins1:logins1})
+})
+
+
+
+app.post('/loginbyname', async(req,res)=>{
+   const userdet ={
+    username: req.body.username,
+    userpass: req.body.userpass,
+    user_id: req.body.user_id
+   }
+
+   const logins = await login.login.findOne({'_id':userdet.user_id})
+ 
+  // 
+  res.json({
+    logins:logins
+  })
+  //  console.log()
 })
 
 
@@ -220,8 +267,11 @@ app.post('/signup', async(req,res)=>{
      followers:[],
      following:[]
    }
-
+ if(signupdata.username!=''&& signupdata.password!=''){
   await login.login.insertMany(signupdata)
+ }
+ else{console.log('can not sign up')}
+  
 
   // openurl.open('https://peoplecommune.onrender.com/profile');
  
@@ -512,22 +562,40 @@ else{
     res.json(projectmsgs)
   })
 
+  app.post('/searchusersdet',async(req,res)=>{
+    const userdet = {
+      ownerid:req.body.ownerid,
+      ownername:req.body.ownername
+    }
+   const founduser =  await login.login.findOne({'_id':userdet.ownerid})
+ res.json({
+  founduser:founduser
+ })
+  })
+
+  app.post('/searchusersdp',async(req,res)=>{
+    const userdet = {
+      ownerid:req.body.ownerid,
+      ownername:req.body.ownername
+    }
+    const userdp = await profilepic.profilepic.findOne({'user_id':userdet.ownerid})
+
+ res.json({
+  userdp:userdp
+ })
+  })
+
   app.post('/searchusers',async(req,res)=>{
     const det={
       ownerid:req.body.ownerid,
       ownername:req.body.ownername
     }
     
-   const founduser =  await login.login.findOne({'_id':det.ownerid})
-   const userdp = await profilepic.profilepic.findOne({'user_id':det.ownerid})
    const posts = await allPosts.allPosts.find({'user_id':det.ownerid})
- 
 
-  
-   
 res.json({
-  founduser:founduser,
-  userdp:userdp,
+  // founduser:founduser,
+  // userdp:userdp,
   posts:posts
 })
   })
