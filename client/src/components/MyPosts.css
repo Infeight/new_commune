@@ -3,7 +3,7 @@ body{
 }
 
 #noposts{
-    display: flex;
+    /* display: none; */
     position: relative;
     top: 15vh;
     left: 0vw;

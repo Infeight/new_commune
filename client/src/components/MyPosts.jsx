@@ -78,7 +78,7 @@ const curuserdata = async()=>{
     const allpostsrev = allPosts1.reverse()
  
  
-   allpostsrev.length!=0?allpostsrev.forEach(element => {
+   allpostsrev&&allpostsrev.forEach(element => {
    
     let arr = element.post.data.data
   
@@ -188,12 +188,11 @@ const curuserdata = async()=>{
     
    document.getElementById("home").appendChild(postdisp)
 
-   }):
-   
-    // setLoad(false)
-       document.getElementById('communeload').style.display = "none"
-    document.getElementById("noposts").style.display = 'flex'
-   ;
+   })
+   if(allpostsrev.length==0){
+    document.getElementById('communeload').style.display = "none"
+
+   }
 
  
 
