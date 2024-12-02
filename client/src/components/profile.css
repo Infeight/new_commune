@@ -517,7 +517,7 @@ body{
 
         .logo-name{
             font-size: 7vw;
-            margin-top: 5vw;
+            margin-top: 0vw;
         }
         .profilepic{
             width: 50vw;
@@ -636,27 +636,35 @@ body{
             border-radius: 0;
         }
         .logo-name{
+            top: -5vw;
             font-size: 5vw;
         }
         .username{
-            font-size: 4vw;
+            font-size: 5vw;
         }
         .profilepic{
-            width: 25vw;
-            height: 25vw;
+            width: 30vw;
+            height: 30vw;
+            left: -5vw;
+            box-shadow: 0 0 0px black;
         }
         .profilepic1{
-            width: 25vw;
-            height: 25vw;
+            width: 30vw;
+            height: 30vw;
+        }
+        .profile-det{
+            left: -5vw;
+            top: 10vw;
+            width: 100%;
         }
         .followers h6{
-            font-size: 2.5vw;
+            font-size: 3vw;
         }
         .following h6{
-            font-size: 2.5vw;
+            font-size: 3vw;
         }
         .followerli{
-            font-size: 18px;
+            font-size: 25px;
         }
         .selectimg{
             font-size: 2.5vw;

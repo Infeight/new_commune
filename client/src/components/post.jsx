@@ -73,6 +73,12 @@ const Post = () => {
       <Navbar />
       <div className="home">
 
+      <div className="logohome">COMMUNE
+    <div className="logoanim">
+    <iframe src="https://lottie.host/embed/34d1a88f-3548-427c-8957-4b232d15e76c/zN3N8fdCZp.lottie" frameborder="0"></iframe>
+    </div>
+  </div>
+
         <div className="addimghold">
 
           {image.url!=""? 

@@ -301,6 +301,10 @@
         .react-input-emoji--input{
             font-size: 4.5vw;
         }
+        .react-input-emoji--container {
+            max-height: 45px;
+            overflow: scroll;
+        }
         .msgsent{
             font-size: 4.5vw;
             min-height: 5vw;
@@ -338,28 +342,82 @@
                     width: 100vw;
                 }
                 .chathere{
-                    width: 70vw;
+                    width: 100vw;
+                    background: url();
+                    z-index: -2;
+                }
+                .chatheremob{
+                    width: 100vw;
+                    height: 30vh;
+                    background-color: #fff;
+                    overflow: hidden;
+                    background-image: url('chat.gif');
+                    background-size: contain;
+                    background-repeat: no-repeat;
+                    background-position: center;
+                    /* display:none; */
                 }
                 .allcontacts{
-                    width: 30vw;
+                    top: 30vh;
+                    position: absolute;
+                    left: 0;
+                    width: 98vw;
+                    height: 65vh;
+                    overflow: scroll;
+                    padding: 0;
+                    border-radius: 0;
+                }
+                .allcontacts::-webkit-scrollbar{
+                    display: none;
                 }
                 .send-btn{
                     width: 8.5vw;
                 }
                 .contacthold{
-                    height: 4.5vw;
+                    width: 95%;
+                    height: 8.5vw;
                     justify-content: space-between;
                 }
+                .profilehold{
+                    width: 8vw;
+                    height: 8vw;
+                }
                 .contactname{
-                    width: 20vw;
-                    font-size: 2.5vw;
+                    width: 90vw;
+                    font-size: 3.5vw;
+                }
+                .react-emoji{
+                    left: 0;
+                }
+        
+                .react-emoji-picker--wrapper{
+                    top: -60vh;
+                    left: 1.5vw;
                 }
                 .react-input-emoji--input{
-                    font-size: 2.5vw;
+                    font-size: 3.5vw;
+                    height: 5vw;
+                    box-shadow: 1px 1px 3px black;
+                    max-width: 80vw;
+                }
+                .react-input-emoji--container {
+                    max-height: 100px;
+                    overflow: scroll;
+                }
+                .react-input-emoji--container::-webkit-scrollbar{
+                    display: none;
+                }
+
+                .input-send-cont{
+                    top: -4vw;
+                    position: relative;
+                }
+                .send-btn{
+                    width: 10.5vw;
                 }
                 .to_name{
-                    font-size: 3vw;
-                    height: 5vw;
+                    font-size: 3.5vw;
+                    height: 6vw;
                 }
                 .chatscont{
                     height: calc(87.5vh - 45px);
@@ -370,5 +428,10 @@
                 }
                 .msgreceived{
                     font-size: 2.5vw;
+                }
+                .react-input-emoji--button svg {
+                    fill: #858585;
+                    width: 4vw;
+                    height: 5vw;
                 }
             }}

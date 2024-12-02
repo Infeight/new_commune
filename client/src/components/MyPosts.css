@@ -271,6 +271,11 @@ top: 0.5vw;
             #postowner1{
                grid-template-rows:  20% 80%;
             }
+            #noposts {
+                top: 13vh;
+                left: 0vw;
+                height: 40vw;
+            }
             #postlike1{
                 height: 100%;
                 width: 99%;
@@ -282,11 +287,10 @@ top: 0.5vw;
                 border-radius: 0px  10px 0 0 ;
             }
             .yourposthead{
-                width: 25vw;
+                width: 30vw;
                 position: sticky;
-                height: 4.5vw;
-                font-size: 2.5vw;
-
+                height: 5.5vw;
+                font-size: 3.5vw;
             }
             .confirmdel{
                 width: 45vw;

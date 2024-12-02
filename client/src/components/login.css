@@ -30,6 +30,19 @@
 .loading{
   width: 60vw;
   height: 60vh;
+  position: relative;
+  top: -6vw;
+}
+.loadingstatement{
+    font-family: nunito;
+    font-size: 1.9vw;
+    /* margin: 0 10vw; */
+    width: 60vw;
+    position: relative;
+    left: 0;
+    text-align: center;
+    top: -3vw;
+    font-weight: 500;
 }
 iframe{
     width: 100%;
@@ -217,6 +230,15 @@ input{
             top: -20vw;
             font-size: 10vw;
         }
+        .loading{
+            top: -15vw;
+        }
+        .loadingstatement{
+            font-size: 4.9vw;
+            width: 80vw;
+            left: -10vw;
+            top: -40vw;
+        }
         #input-cont{
             /* flex-direction: column-reverse; */
             width: 90vw;
@@ -284,3 +306,66 @@ input{
        }
     }
 }
+@media screen and (min-width:760px) {
+    @media screen and (max-width:1024px) {
+        .logo{
+            font-size: 7vw;
+        }
+        .loadingstatement{
+            font-size: 3.9vw;
+            /* margin: 0 10vw; */
+            width: 80vw;
+            left: -10vw;
+            top: -25vw;
+        }
+        .logincont{
+            font-size: 4vw;
+        }
+        #input-cont{
+            width: 80vw;
+            height: 40vw;
+        }
+
+        input{
+            width: 89%;
+            height: 4.5vw;
+            font-size: 2.8vw;
+        }
+        .submit-btn{
+            height: 4.5vw;
+            font-size: 2.5vw;
+        }
+        .signupcont{
+            font-size: 4vw;
+        }
+        .celebration1{
+            width: 25vw;
+            height: 25vw;
+            position: relative;
+            top: -10vw;
+        }
+        #welcomebackcont{
+            top: 50vw;
+        }
+        .welcomeback{
+            font-size: 4vw;
+            top: -10vw;
+        }
+        .navbtn1{
+            top: -10vw;
+            height: 5vw;
+            width: 15vw;
+        }
+        .navbtn1 a{
+            font-size: 3.5vw;
+        }
+        #newusercont{
+            top: 14vw;
+        }
+        .celebration{
+            width: 45vw;
+            height: 65vw;
+            position: relative;
+            top: 2vw;
+        }
+    }}

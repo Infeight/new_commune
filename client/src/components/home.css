@@ -694,7 +694,7 @@ video {
             position: relative;
         }
         .communeload{
-            width: 90vw;
+            width: 100vw;
             height: 115vw;
 
             top: 10%;
@@ -953,6 +953,9 @@ video {
                 width: 100vw;
                 height: 95vh;
             }
+            .home{
+                min-height: 95vh;
+            }
             .communeload{
                 width: 100vw;
             }
@@ -1006,7 +1009,7 @@ video {
                 color: #fff;
             } */
              .date{
-                font-size: 12px;
+                font-size: 22px;
              }
             .postcomments_user{
                 font-size: 2.3vw;

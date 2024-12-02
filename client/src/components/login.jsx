@@ -91,11 +91,20 @@ document.getElementById('input-cont').style.display = 'flex'
 
 
   let getlogin = async()=>{
-   let alllogin = await fetch ('https://new-commune-2.onrender.com/login',{headers:{accept:'application/json'}})
-   let alllogin1 = await alllogin.json()
-    console.log(alllogin1)
-   setLogins(alllogin1)
-   setShowinp(true);
+    try{
+      let alllogin = await fetch ('https://new-commune-2.onrender.com/login',{headers:{accept:'application/json'}})
+      let alllogin1 = await alllogin.json()
+       console.log(alllogin1)
+      setLogins(alllogin1)
+      setShowinp(true);
+      clearInterval(loadinterval)
+    }
+   catch{
+    
+  document.getElementById('loadingstatement').style.display = 'none'
+    document.getElementById('notfound').style.display = 'block'
+   document.getElementById('loadingframe').src = 'https://lottie.host/embed/022135e1-57a1-4e84-a7bc-fabf4d41815c/sTQR4TIHQw.lottie'
+   }
   }
 
   const submit = async()=>{
@@ -119,10 +128,7 @@ document.getElementById('input-cont').style.display = 'flex'
     }
    
   })
-//   if(newuser==true){
-//  handlesignup_anim();
 
-//   }
  if (newuser==false){
       document.getElementById("username").style.visibility = "visible"
   }
@@ -146,12 +152,20 @@ document.getElementById('input-cont').style.display = 'flex'
     }
 
    
-      
+   
   
     }
  
 
+    let loadingstatements  = ['Just a moment... Excellence can’t be rushed!',
+      'Grabbing the magic wand... Sparkles loading!',
+      'Almost there! Great experiences are just seconds away.',
+      'We’re cooking up something great—almost done baking!',
+      'Loading... This is a great time to take a deep breath!']
 
+    let loadinterval =  setInterval(()=>{
+        document.getElementById('loadingstatement').innerText = loadingstatements[Math.floor(Math.random()*5)]
+      },3000)
 
   return (
     <>
@@ -166,8 +180,10 @@ document.getElementById('input-cont').style.display = 'flex'
       loop
       autoplay
     /> */}
-    <iframe src="https://lottie.host/embed/61dc7774-2274-438e-88d5-84fc4e57b827/iVXw4PgjEL.lottie" frameborder="0"></iframe>
+    <iframe id='loadingframe' src="https://lottie.host/embed/0779841c-24c8-4da4-b4bb-8b366930a3af/z6EltEHTOI.lottie" frameborder="0"></iframe>
 
+    <p className='loadingstatement' id='loadingstatement'></p>
+    <p className='loadingstatement' id='notfound' style={{display:'none'}}>We're sorry for the inconvenience 😔</p>
       </div>
 
 <div className="input-cont" id='input-cont'>

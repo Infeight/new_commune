@@ -184,7 +184,8 @@ const curuserdata = async()=>{
 
      
     document.getElementById('communeload').style.display = "none"
-    // setLoad(false)
+    document.getElementById("noposts").style.display = 'none'
+    
    document.getElementById("home").appendChild(postdisp)
 
    }):
