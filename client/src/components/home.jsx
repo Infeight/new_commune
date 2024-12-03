@@ -24,7 +24,7 @@ const Home = () => {
  const [followstat,setFollowstat] = useState(false)
  const [acctclose,setAcctclose] = useState(false)
  const [openacct1,setOpenacct1] = useState(true)
-
+ const [followerlist,setFollowerlist] = useState([]);
 const [allpostdata,setallpostdata] = useState([]);
 
 
@@ -278,17 +278,15 @@ const openacct = async(e) =>{
 
 
 
-const followerlist = document.createElement('div')
-followerlist.className = 'followerlist'
-followerlist.id = 'followerlist'
+// var followerlist = document.createElement('div')
+// followerlist.className = 'followerlist'
+// followerlist.id = 'followerlist'
 
   data.founduser.followers.map(follower=>{
-    const followername = document.createElement('li')
-    followername.className = 'followername'
-    followername.innerHTML = follower.name
 
-followerlist.appendChild(followername)
+ setFollowerlist(prev=>[...prev,follower])
   })
+
   
 }).catch(err=>console.log(err))
 
@@ -430,6 +428,7 @@ details.then(response=>response.json()).then(data=>{
        document.getElementById('postownname1').append(postfollow)
   
       //  document.getElementById('followerlist1').appendChild(followerlist)
+       
         // document.getElementById('acctname').innerHTML =''
       //  document.getElementById('acctname').appendChild(postownname)
       
@@ -483,7 +482,7 @@ const close = ()=>{
 }
 
 const showfollowers = ()=>{
-  document.querySelector('.followerlist').classList.toggle('clicked')
+  document.querySelector('.followerlist1').classList.toggle('clicked')
 }
 
   const posts = async()=>{
@@ -782,7 +781,13 @@ document.querySelectorAll(".showcomment").forEach(e=>{
      <img loading='lazy' src="" alt="" id='profilepicdisp' className='profilepicdisp'/>
      <div className="followercount" id='follwercount' onClick={showfollowers}>Followers <br />({founduser.followerno})
      
-     <div className="followerlist1" id='followerlist1'></div>
+     <div className="followerlist1" id='followerlist1'>
+      {followerlist&&followerlist.map(follower=>{
+      <li className='followername'>{follower.name}</li>
+      })}
+     </div>
+
+
      </div>
      <div className="followercount">Following <br />({founduser.followingno})</div>
    </div>

@@ -45,6 +45,7 @@ const Profile = () => {
     if (document.getElementById('newprofilepic').files.length != 0) {
       document.getElementById('picupdateform').submit()
 
+
       document.getElementById('post-btn1').style.display = "none"
     }
     else {

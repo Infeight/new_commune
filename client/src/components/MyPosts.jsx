@@ -191,7 +191,8 @@ const curuserdata = async()=>{
    })
    if(allpostsrev.length==0){
     document.getElementById('communeload').style.display = "none"
-
+    document.getElementById("noposts").style.display = 'block'
+    
    }
 
  
@@ -220,7 +221,7 @@ const curuserdata = async()=>{
       <h2 className='loadh2'>COMMUNE</h2> */}
 <iframe id='loadinganime' src="https://lottie.host/embed/fb7368f5-4618-4c6d-a8da-641058d0018c/2i41WWJ7M2.lottie" frameborder="0"></iframe>
     </div> 
-    <div id='noposts'>    <iframe id='noposts' src="https://lottie.host/embed/8fa2ab6e-25f7-4161-9c1f-4bf530c53443/QxF5yU2Bff.lottie" frameborder="0"></iframe>
+    <div id='noposts'>    <iframe id='' src="https://lottie.host/embed/8fa2ab6e-25f7-4161-9c1f-4bf530c53443/QxF5yU2Bff.lottie" frameborder="0"></iframe>
     </div>
  </div>
 

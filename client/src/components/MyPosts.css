@@ -3,9 +3,9 @@ body{
 }
 
 #noposts{
-    /* display: none; */
+    display: none;
     position: relative;
-    top: 15vh;
+    top: 25vh;
     left: 0vw;
     height: 24vw;
 }

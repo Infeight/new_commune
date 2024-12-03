@@ -7,7 +7,7 @@ body{
 body::-webkit-scrollbar{
     display: none;
 }
-postfollow
+.followerlist
 .home{
     position: absolute;
     width: 80vw;
@@ -627,22 +627,22 @@ video {
     margin-left: 2vw;
     /* display: none; */
 }
-.followerlist{
+.followerlist1{
     display: none;
 }
-.followerlist.clicked{
+.followerlist1.clicked{
     display: initial;
 }
 
-#followerlist::-webkit-scrollbar{
+#followerlist1::-webkit-scrollbar{
     width: 0.2vw;
 }
-#followerlist::-webkit-scrollbar-track{
+#followerlist1::-webkit-scrollbar-track{
     width: 0.2vw;
     border-radius: 10px;
 }
 
-#followerlist::-webkit-scrollbar-thumb{
+#followerlist1::-webkit-scrollbar-thumb{
     background-color: #780078;
     border-radius: 10px;
     width: 0.2vw;
