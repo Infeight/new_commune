@@ -224,9 +224,15 @@ const Post = () => {
   
       placeholder="Type a message"
     />
-          <button id='post-btn' className='post-btn' type='submit'>Post</button>
+          <button id='post-btn' 
+          onClick={()=>{
+            document.getElementById('blockpost').style.display = 'flex'
+            document.getElementById('cancelbtn').style.display = 'none'
+            document.getElementById('post-btn').innerText = 'Posting...'
+          }} 
+          className='post-btn' type='submit'>Post</button>
 
-
+    <div id='blockpost'></div>
         </form>
 
       </div>
