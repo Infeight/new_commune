@@ -124,7 +124,7 @@ let newprofilepic;
 
 app.get('/', async(req,res)=>{
     const posts = await allPosts.allPosts.find()
-    res.send("Working"+ posts)
+    // res.send("Working"+ posts)
 
     if(req.cookies){
       res.redirect('https://peoplecommune.onrender.com/Profile')
