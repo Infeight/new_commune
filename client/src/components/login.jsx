@@ -97,25 +97,14 @@ const Login = () => {
   }
 
 
-  // let getlogin = async()=>{
-  //   try{
-  //     let alllogin = await fetch ('https://new-commune-2.onrender.com/login',{headers:{accept:'application/json'}})
-  //     let alllogin1 = await alllogin.json()
-  //      console.log(alllogin1)
-  //     setLogins(alllogin1)
-  //     setShowinp(true);
-  //     clearInterval(loadinterval)
-  //   }
-  //  catch{
-    
-  // document.getElementById('loadingstatement').style.display = 'none'
-  //   document.getElementById('notfound').style.display = 'block'
-  //  document.getElementById('loadingframe').src = 'https://lottie.host/embed/022135e1-57a1-4e84-a7bc-fabf4d41815c/sTQR4TIHQw.lottie'
-  //  }
-  // }
+  
 
   const submit = async()=>{
-    
+     document.getElementById('loginbtn').innerText = 'Log In ...'
+     document.getElementById('loginbtn').style.backgroundColor = '#a064a0'
+     document.getElementById('loginbtn').style.zIndex = '-1'
+
+
     const userdet = {
       username:user.username,
       password: user.password
@@ -123,8 +112,9 @@ const Login = () => {
     console.log(userdet)
   const alllogin = fetch('https://new-commune-2.onrender.com/login',{ method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(userdet) })
 
-  alllogin.then(response=>console.log(response)).then(data=>{
-    if(data.loggedin){
+  alllogin.then(response=>response.json()).then(data=>{
+    // console.log(data)
+    if(data){
       console.log('good')
       // setNewuser(false)
       localStorage.setItem('current-users',user.username)
@@ -138,6 +128,10 @@ const Login = () => {
     }
     else{
        document.getElementById('wrongpass').style.display = 'initial'
+        document.getElementById('loginbtn').innerText = 'Log In'
+     document.getElementById('loginbtn').style.backgroundColor = 'purple'
+     document.getElementById('loginbtn').style.zIndex = '1'
+
     }
    
   })
@@ -148,6 +142,11 @@ const Login = () => {
   }
 
   const submitSignup = async()=>{
+     document.getElementById('signupbtn').style.zIndex = '-1'
+     document.getElementById('signupbtn').style.backgroundColor = '#a064a0'
+     document.getElementById('signupbtn').innerText = 'Sign Up...'
+     
+
   
      if(signup.username==''|| signup.password==''){
  document.getElementById('username1').style.border = '1px solid red'
@@ -210,7 +209,8 @@ const Login = () => {
     <input type="text" name='username' value={user.username} placeholder='Username' id='username' onChange={handleChange}/>
     <input type="text" name='password' value={user.password} placeholder='Password' id='password' onChange={handleChange} />
    <div className='signbtn-holder'>
-   <button type='submit' className='submit-btn' onClick={()=>{submit()}}>Log In</button>
+   <button type='submit' className='submit-btn' id='loginbtn' onClick={()=>{submit()}}>Log In</button>
+
    <button  className='submit-btn' onClick={handlesignup_anim}>Sign Up</button>
    </div>
 
@@ -231,7 +231,7 @@ const Login = () => {
 <div className='signbtn-holder'>
 <button type='submit' className='submit-btn' onClick={handlesignin_anim}>Log In</button>
 
-<button type='submit' className='submit-btn' onClick={()=>{submitSignup()}}>Sign up</button>
+<button type='submit' id='signupbtn' className='submit-btn' onClick={()=>{submitSignup()}}>Sign up</button>
 </div>
 </div>
 

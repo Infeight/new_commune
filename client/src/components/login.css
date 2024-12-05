@@ -7,7 +7,7 @@
     padding: 3vw;
     width: 100vw;
     height: 100vh;
-    background-color: #fff;
+    background-color: transparent;
     position: absolute;
     box-sizing: border-box;
     align-items: center;
@@ -52,7 +52,7 @@ iframe{
 #input-cont{
 
     width: 65vw;
-    height: 30vw;
+    height: 25vw;
     margin: 10vw auto;
     /* background-color: purple; */
     box-shadow: 1px 1px 4px black;
@@ -126,6 +126,13 @@ input{
     font-weight: 600;
 
 }
+/* #blocklogin{
+    width: 40%;
+    height: 2.5vw;
+    border-radius: 5px;
+    background-color: transparent; 
+    z-index: 2;
+} */
 
 .cover{
     box-sizing: border-box;

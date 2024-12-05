@@ -10,7 +10,8 @@ const multer = require ('multer');
 const profilepic = require('./mongoose')
 // const open = require('open')
 const socket = require('socket.io')
-const openurl = require ('openurl')
+const openurl = require ('openurl');
+const cookieParser = require('cookie-parser');
 
 
 
@@ -31,7 +32,7 @@ app.use(cors({
 }));
 
 app.use(bodyParser.json())
-
+app.use(cookieParser())
 
 
 const server = app.listen(port,() =>{
@@ -125,6 +126,10 @@ app.get('/', async(req,res)=>{
     const posts = await allPosts.allPosts.find()
     res.send("Working"+ posts)
 
+    if(req.cookies){
+      res.redirect('https://peoplecommune.onrender.com/Profile')
+    }
+
 })
 
 app.get('/newPost',async(req,res)=>{
@@ -172,7 +177,7 @@ app.post('/login', async(req,res)=>{
     password: req.body.password
    }
   const loggedin = await login.login.findOne({username:data.username, password:data.password})
-
+  res.cookie('data',data.username)
   res.json({loggedin:loggedin})
 })
 
@@ -207,9 +212,9 @@ app.post('/loginbyname', async(req,res)=>{
   //  console.log()
 })
 
-app.get('/alreadylogin',async(req,res)=>{
-   res.redirect('https://peoplecommune.onrender.com/Profile')
-})
+// app.get('/alreadylogin',async(req,res)=>{
+//    res.redirect('https://peoplecommune.onrender.com/Profile')
+// })
 
 app.post('/logins', async(req,res)=>{
  var logindata = {
@@ -262,6 +267,8 @@ app.post('/signup', async(req,res)=>{
    }
  if(signupdata.username!=''&& signupdata.password!=''){
   await login.login.insertMany(signupdata)
+  res.cookie('data',signupdata.username)
+
  }
  else{console.log('can not sign up')}
   
