@@ -18,15 +18,28 @@ import Post from './components/post'
 function App() {
   const [count, setCount] = useState(0)
 
+
+
+ const getCookie = (name) => {
+  const cookieArray = document.cookie.split("; ");
+  for (let cookie of cookieArray) {
+    const [key, value] = cookie.split("=");
+    if (key === name) return value;
+  }
+  return null;
+};
+
+// console.log(getCookie("user"));
+
   return (
 
     
 
 <>
-
+ 
 <BrowserRouter> 
         <Routes>
-           <Route path='/' element={<Login/>}/>
+           <Route path='/' element={getCookie('user')?<Profile/>:<Login/>}/>
            <Route path='/Profile' element={<Profile/>}/>
 
          

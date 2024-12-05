@@ -28,6 +28,8 @@ import { Navigate } from 'react-router-dom';
 // };
 
 
+
+
 const Login = () => {
  
   let [user,setUser] = useState({
@@ -47,16 +49,14 @@ const Login = () => {
   
   const followinglist2 = []
 
-// if(showinp==true){
-//   document.getElementById('loading').style.display = 'none';
-//   document.getElementById('logo').style.display = 'flex'
-// document.getElementById('input-cont').style.display = 'flex'
-
-// }
-
-  // useEffect(()=>{
-  //   getlogin();
-  // },[])
+  const setCookie = (name, value, days) => {
+    const date = new Date();
+    date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+    const expires = "expires=" + date.toUTCString();
+    document.cookie = `${name}=${value}; ${expires}; path=/; secure; samesite=lax`;
+  };
+  
+  
 
   const handlesignup_anim = ()=>{
     document.getElementById('cover').style.borderRadius = "5px 0px 0px 5px"
@@ -117,6 +117,7 @@ const Login = () => {
     if(data){
       console.log('good')
       // setNewuser(false)
+      setCookie("user", user.username, 7);
       localStorage.setItem('current-users',user.username)
       localStorage.setItem('current-users-pass',user.password)
       // localStorage.setItem('current-users-following', user.)
