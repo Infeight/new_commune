@@ -147,6 +147,7 @@ app.get('/newPost',async(req,res)=>{
   res.send(posts)
 })
 
+
 app.post('/profilepic1',async(req,res)=>{
     let userdet = {
       username:req.body.username,
@@ -202,18 +203,15 @@ app.post('/loginbyname', async(req,res)=>{
   //  console.log()
 })
 
+app.get('/alreadylogin',async(req,res)=>{
+   res.redirect('https://peoplecommune.onrender.com/profile')
+})
 
 app.post('/logins', async(req,res)=>{
  var logindata = {
     username: req.body.username,
     password: req.body.password
   }
-
-  // sessionStorage.setItem("currentuser-name", req.body.username)
-  // sessionStorage.setItem("currentuser-pass", req.body.password)
-
-
-
 
   const address = 'https://peoplecommune.onrender.com/profile'
   
@@ -230,13 +228,6 @@ if(usercheck==null){
 else{
   try{
     if(usercheck.username == logindata.username && usercheck.password == logindata.password){
-      // sessionStorage.setItem("currentuser-name", req.body.username)
-
-    // openurl.open('https://peoplecommune.onrender.com/profile');
-  
-
- 
-
 
     }
     else{

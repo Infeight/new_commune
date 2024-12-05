@@ -6,7 +6,13 @@ import { Navigate } from 'react-router-dom';
 // import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 
+const alreadyname = localStorage.getItem('current-users')
+const alreadypass = localStorage.getItem('current-users-pass')
 
+if(alreadyname!="" && alreadypass !=""){
+  await fetch ('https://new-commune-2.onrender.com/alreadylogin',{headers:{accept:'application/json'}})
+
+}
 // import React from 'react';
 // import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
