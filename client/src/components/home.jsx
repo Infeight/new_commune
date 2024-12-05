@@ -425,7 +425,9 @@ details.then(response=>response.json()).then(data=>{
         }
        })
   
-       document.getElementById('postownname1').append(postfollow)
+       if(!document.getElementById('postownname1').contains(document.getElementById('postfollow1'))){
+        document.getElementById('postownname1').appendChild(postfollow)
+       }
   
       //  document.getElementById('followerlist1').appendChild(followerlist)
        
@@ -437,7 +439,7 @@ details.then(response=>response.json()).then(data=>{
     
 
       setLoad1(false);
-      document.getElementById('acctposts').innerHTML = ''
+      // document.getElementById('acctposts').innerHTML = ''
 
 
       document.getElementById('acctposts').appendChild(postdisp) 
