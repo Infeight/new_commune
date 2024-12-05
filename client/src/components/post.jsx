@@ -229,6 +229,7 @@ const Post = () => {
             document.getElementById('blockpost').style.display = 'flex'
             document.getElementById('cancelbtn').style.display = 'none'
             document.getElementById('post-btn').innerText = 'Posting...'
+            document.getElementById('post-btn').style.backgroundColor = '#a064a0'
           }} 
           className='post-btn' type='submit'>Post</button>
 

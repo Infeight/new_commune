@@ -10,7 +10,7 @@ const MyPosts = () => {
     username:"",
     password:""
   })
-  const[posts,setPosts] = useState(false);
+  // const[posts,setPosts] = useState(false);
   const [load,setLoad] = useState(true)
 
   useEffect(()=>{
@@ -80,7 +80,7 @@ const curuserdata = async()=>{
  
  
    allpostsrev&&allpostsrev.forEach(element => {
-    setPosts(true);
+    // setPosts(true);
    
     let arr = element.post.data.data
   
