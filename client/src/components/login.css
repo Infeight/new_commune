@@ -32,6 +32,7 @@
   height: 60vh;
   position: relative;
   top: -6vw;
+  display: none;
 }
 .loadingstatement{
     font-family: nunito;
@@ -56,7 +57,7 @@ iframe{
     /* background-color: purple; */
     box-shadow: 1px 1px 4px black;
     border-radius: 5px;
-    display: none;
+    display: flex;
     align-items: center;
     justify-content: space-evenly;
 

@@ -6,13 +6,14 @@ import { Navigate } from 'react-router-dom';
 // import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 
-const alreadyname = localStorage.getItem('current-users')
-const alreadypass = localStorage.getItem('current-users-pass')
+// const alreadyname = localStorage.getItem('current-users')
+// const alreadypass = localStorage.getItem('current-users-pass')
 
-if(alreadyname!="" && alreadypass !=""){
-  await fetch ('https://new-commune-2.onrender.com/alreadylogin',{headers:{accept:'application/json'}})
+// if(alreadyname!="" && alreadypass !=""){
+//   console.log('working')
+//   await fetch ('https://new-commune-2.onrender.com/alreadylogin',{headers:{accept:'application/json'}})
 
-}
+// }
 // import React from 'react';
 // import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
@@ -42,20 +43,20 @@ const Login = () => {
 
   const [logins,setLogins] = useState([])
   const [newuser,setNewuser] = useState(true)
-  const [showinp,setShowinp] = useState(false);
+  const [showinp,setShowinp] = useState(true);
   
   const followinglist2 = []
 
-if(showinp==true){
-  document.getElementById('loading').style.display = 'none';
-  document.getElementById('logo').style.display = 'flex'
-document.getElementById('input-cont').style.display = 'flex'
+// if(showinp==true){
+//   document.getElementById('loading').style.display = 'none';
+//   document.getElementById('logo').style.display = 'flex'
+// document.getElementById('input-cont').style.display = 'flex'
 
-}
+// }
 
-  useEffect(()=>{
-    getlogin();
-  },[])
+  // useEffect(()=>{
+  //   getlogin();
+  // },[])
 
   const handlesignup_anim = ()=>{
     document.getElementById('cover').style.borderRadius = "5px 0px 0px 5px"
@@ -96,27 +97,35 @@ document.getElementById('input-cont').style.display = 'flex'
   }
 
 
-  let getlogin = async()=>{
-    try{
-      let alllogin = await fetch ('https://new-commune-2.onrender.com/login',{headers:{accept:'application/json'}})
-      let alllogin1 = await alllogin.json()
-       console.log(alllogin1)
-      setLogins(alllogin1)
-      setShowinp(true);
-      clearInterval(loadinterval)
-    }
-   catch{
+  // let getlogin = async()=>{
+  //   try{
+  //     let alllogin = await fetch ('https://new-commune-2.onrender.com/login',{headers:{accept:'application/json'}})
+  //     let alllogin1 = await alllogin.json()
+  //      console.log(alllogin1)
+  //     setLogins(alllogin1)
+  //     setShowinp(true);
+  //     clearInterval(loadinterval)
+  //   }
+  //  catch{
     
-  document.getElementById('loadingstatement').style.display = 'none'
-    document.getElementById('notfound').style.display = 'block'
-   document.getElementById('loadingframe').src = 'https://lottie.host/embed/022135e1-57a1-4e84-a7bc-fabf4d41815c/sTQR4TIHQw.lottie'
-   }
-  }
+  // document.getElementById('loadingstatement').style.display = 'none'
+  //   document.getElementById('notfound').style.display = 'block'
+  //  document.getElementById('loadingframe').src = 'https://lottie.host/embed/022135e1-57a1-4e84-a7bc-fabf4d41815c/sTQR4TIHQw.lottie'
+  //  }
+  // }
 
   const submit = async()=>{
-  logins.map(login=>{
-    if(login.username===user.username&& login.password === user.password){
+    
+    const userdet = {
+      username:user.username,
+      password: user.password
+    }
+    console.log(userdet)
+  const alllogin = fetch('https://new-commune-2.onrender.com/login',{ method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(userdet) })
 
+  alllogin.then(response=>console.log(response)).then(data=>{
+    if(data.loggedin){
+      console.log('good')
       // setNewuser(false)
       localStorage.setItem('current-users',user.username)
       localStorage.setItem('current-users-pass',user.password)
@@ -126,8 +135,6 @@ document.getElementById('input-cont').style.display = 'flex'
    document.getElementById('logo').style.display ='none'
      document.getElementById('welcomebackcont').style.display = 'flex'
       //  fetch('https://new-commune.onrender.com/logins', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(user) })
-      
-
     }
     else{
        document.getElementById('wrongpass').style.display = 'initial'

@@ -166,10 +166,14 @@ app.get('/profilepics',async(req,res)=>{
 })
 
 
-app.get('/login', async(req,res)=>{
+app.post('/login', async(req,res)=>{
+   const data = {
+    username: req.body.username,
+    password: req.body.password
+   }
+  const loggedin = await login.login.findOne({username:data.username, password:data.password})
 
-  const logins1 = await login.login.find()
-  res.send(logins1)
+  res.json({loggedin:loggedin})
 })
 
 
@@ -204,7 +208,7 @@ app.post('/loginbyname', async(req,res)=>{
 })
 
 app.get('/alreadylogin',async(req,res)=>{
-   res.redirect('https://peoplecommune.onrender.com/profile')
+   res.redirect('https://peoplecommune.onrender.com/Profile')
 })
 
 app.post('/logins', async(req,res)=>{
