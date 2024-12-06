@@ -3,6 +3,7 @@ import './login.css'
 import { Link } from 'react-router-dom';
 import { useState,useEffect } from 'react';
 import { Navigate } from 'react-router-dom';
+// import { login } from '../../../server/mongoose';
 // import { DotLottieReact } from '@lottiefiles/dotlottie-react';
 
 
@@ -46,7 +47,7 @@ const Login = () => {
 
   const [logins,setLogins] = useState([])
   const [newuser,setNewuser] = useState(true)
-  const [showinp,setShowinp] = useState(true);
+  const [showinp,setShowinp] = useState(false);
   
   const followinglist2 = []
 
@@ -55,6 +56,11 @@ const Login = () => {
     alllogins()
   },[])
 
+  if(showinp==true){
+    document.getElementById('input-cont').style.display = 'flex'
+    document.getElementById('loading').style.display='none'
+    document.getElementById('notfound').style.display = 'none'
+  }
 
   const setCookie = (name, value, days) => {
     const date = new Date();
@@ -101,16 +107,31 @@ const Login = () => {
     value = e.target.value;
     setSignup({ ...signup, [name]: value })
 
+    document.getElementById('signupbtn').style.zIndex = '0'
+    document.getElementById('signupbtn').style.backgroundColor = 'purple'
+    document.getElementById('signupbtn').innerText = 'Sign Up'
+    document.getElementById('wrongnewpass').style.display = 'none'
   }
 
   const alllogins = async()=>{
-   const alllogins1 = await fetch('https://new-commune-2.onrender.com/getalllogin',{headers:{accept:'application/json'}})
+   try{
+    const alllogins1 = await fetch('https://new-commune-2.onrender.com/getalllogin',{headers:{accept:'application/json'}})
+
    const alllogins11 = await alllogins1.json();
    alllogins11.map(logindet=>{
-    console.log(logindet)
+   setLogins(prev=>[...prev,logindet.password])
+   setShowinp(true);
    })
+   }
+   catch{
+    console.log('hjb')
+    document.getElementById('input-cont').style.display = 'none'
+    document.getElementById('loading').style.display='block'
+    document.getElementById('notfound').style.display = 'block'
+   }
   }
   
+  // console.log(logins)
 
   const submit = async()=>{
      document.getElementById('loginbtn').innerText = 'Log In ...'
@@ -160,11 +181,19 @@ const Login = () => {
      document.getElementById('signupbtn').style.backgroundColor = '#a064a0'
      document.getElementById('signupbtn').innerText = 'Sign Up...'
      
-
+     let samepass =false;
+    logins.forEach(ele=>{
+      if(ele===signup.password){ samepass = true}
+    })
   
      if(signup.username==''|| signup.password==''){
  document.getElementById('username1').style.border = '1px solid red'
       document.getElementById('password1').style.border = '1px solid red'
+    }
+    else if(samepass==true){
+      document.getElementById('password1').style.border = '1px solid red'
+      document.getElementById('wrongnewpass').style.display = 'block'
+      // document.getElementById('password1').value = 'Password taken'
     }
     else{
       localStorage.setItem('current-users',signup.username)
@@ -217,7 +246,7 @@ const Login = () => {
  
 
     <div className="logincont" id='logincont'> Sign In
-<div id='wrongpass' style={{display:'none'}}>Incorrect username or password.<br /> New to Commune? Please sign up!</div>
+<div id='wrongpass' className='wrongpass' style={{display:'none'}}>Incorrect username or password.<br /> New to Commune? Please sign up!</div>
 
 
     <input type="text" name='username' value={user.username} placeholder='Username' id='username' onChange={handleChange}/>
@@ -237,7 +266,7 @@ const Login = () => {
     </div>
 
     <div className="signupcont" id='signupcont'> Sign Up
-
+    <div className='wrongpass' id='wrongnewpass' style={{display:'none'}}>This password is already taken.<br /> Please think of a new one. </div>
 <input type="text" name='username' id='username1' placeholder='Username' value={signup.username}  onChange={handleSignup}/>
 <input type="text" name='password' id='password1' placeholder='Password' value={signup.password}  onChange={handleSignup}/>
 <input type="text" name='mail' id='mail1' placeholder='E-mail' value={signup.mail} onChange={handleSignup}/>

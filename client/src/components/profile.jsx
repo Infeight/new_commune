@@ -10,8 +10,9 @@ import { IoMdSettings } from "react-icons/io";
 
 import './profile.css'
 import './MyPosts.css'
-const Profile = () => {
 
+const Profile = () => {
+  const[show,setShow] = useState(false)
   const [followerno, setFollowerno] = useState('');
   const [followingno, setFollowingno] = useState('')
   const [currentuser_id, setCurrentuser_id] = useState({
@@ -30,18 +31,20 @@ const Profile = () => {
   const followinglist = []
 
   useEffect(() => {
-    allusers().then(()=>{
-      posts1()
-    })
-
+    allusers()
   }, [])
+  useEffect(()=>{
+    posts1()
+  },[])
  
-  // const setCookie = (name, value, days) => {
-  //   const date = new Date();
-  //   date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-  //   const expires = "expires=" + date.toUTCString();
-  //   document.cookie = `${name}=${value}; ${expires}; path=/; secure; samesite=lax`;
-  // };
+
+  if(show==true){
+    document.getElementById('loading').style.display = 'none'
+    document.getElementById('profile').style.display = window.innerWidth<='600px'?'flex':'grid'
+    
+  }
+  
+
   const deleteCookie = (name) => {
     document.cookie = `${name}=''; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/`;
     console.log(`Cookie "${name}" deleted.`);
@@ -159,6 +162,8 @@ const Profile = () => {
 
 
     allusers1.then(response => response.json()).then(data => {
+      setShow(true);
+      
       data.logins1.followers.map(follower => {
         const followerli = document.createElement('li')
         followerli.className = "followerli"
@@ -339,7 +344,14 @@ const Profile = () => {
     <>
           <Navbar />
 
-      <div className='profile'>
+          <div className="loading" id='loading'>
+<iframe id='loadingframe' src="https://lottie.host/embed/0779841c-24c8-4da4-b4bb-8b366930a3af/z6EltEHTOI.lottie" frameborder="0"></iframe>
+
+<p className='loadingstatement' id='loadingstatement'></p>
+<p className='loadingstatement' id='notfound' style={{display:'none'}}>We're sorry for the inconvenience 😔</p>
+</div>
+
+      <div className='profile' id='profile' style={{display:'none'}}>
         <div className="logo-name">COMMUNE</div>
         <div className='profilepic' id='profilepic'>
           <div className="profilepic1"><img src='' onClick={updateprofilepic} id='profilepicture1' className='profilepicture' alt="" />
@@ -389,7 +401,10 @@ const Profile = () => {
 
 {/* Your posts */}
 
-<div className="home" id='homeprofile'>
+
+
+
+<div className="home" id='homeprofile' >
  <div className="yourposthead">Your Posts</div>
 
  <div className = "communeload" id='communeload' >

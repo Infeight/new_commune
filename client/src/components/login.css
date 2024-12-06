@@ -124,6 +124,7 @@ input{
     font-family: "Nunito", sans-serif;
     font-optical-sizing: auto;
     font-weight: 600;
+    cursor: pointer;
 
 }
 /* #blocklogin{
@@ -221,7 +222,7 @@ input{
     top: 0vw;
   }
 
-  #wrongpass{
+  .wrongpass{
     display: initial;
     color: #dc0000;
     z-index: 2;
