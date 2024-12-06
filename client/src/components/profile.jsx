@@ -4,9 +4,12 @@ import { useState, useEffect } from 'react'
 import Home from './home'
 import MyPosts from './MyPosts'
 import LikedPosts from './LikedPosts'
+import Navbar from './navbar'
+
 import { IoMdSettings } from "react-icons/io";
 
 import './profile.css'
+import './MyPosts.css'
 const Profile = () => {
 
   const [followerno, setFollowerno] = useState('');
@@ -27,8 +30,36 @@ const Profile = () => {
   const followinglist = []
 
   useEffect(() => {
-    allusers()
+    allusers().then(()=>{
+      posts1()
+    })
+
   }, [])
+ 
+  // const setCookie = (name, value, days) => {
+  //   const date = new Date();
+  //   date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
+  //   const expires = "expires=" + date.toUTCString();
+  //   document.cookie = `${name}=${value}; ${expires}; path=/; secure; samesite=lax`;
+  // };
+  const deleteCookie = (name) => {
+    document.cookie = `${name}=''; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/`;
+    console.log(`Cookie "${name}" deleted.`);
+  };
+
+  console.log(document.cookie)
+
+  const handlelogout = async () => {
+    localStorage.removeItem('current-users')
+    localStorage.removeItem('current-users-pass')
+    localStorage.removeItem('curuserid')
+    deleteCookie('user');
+    console.log(document.cookie)
+ 
+  }
+  const conflogout = () => {
+    document.getElementById('confirmdel1').style.display = 'flex'
+  }
 
   const handleimage = (e) => {
     if (e.target.files[0]) {
@@ -102,24 +133,21 @@ const Profile = () => {
         localStorage.setItem('curuserid', data.userid._id)
       }
       )
-    //  console.log(user_id)
-
-    // let allusers11 = await allusers1.json()
 
     try {
       profilepic.then(response => response.json()).then(data => {
         console.log(data)
         if (data.profilepicture) {
-          
-            const arr = data.profilepicture.profile.data.data
-            console.log('yes')
-            const base64String =
 
-              btoa(
-                arr.reduce((data, byte) => data + String.fromCharCode(byte), '')
-              );
-            document.getElementById('profilepicture1').src = `data:image/png;base64,${base64String}`
-          }
+          const arr = data.profilepicture.profile.data.data
+          console.log('yes')
+          const base64String =
+
+            btoa(
+              arr.reduce((data, byte) => data + String.fromCharCode(byte), '')
+            );
+          document.getElementById('profilepicture1').src = `data:image/png;base64,${base64String}`
+        }
         else {
           document.getElementById('profilepicture1').src = `facelogo.jpeg`
         }
@@ -149,7 +177,6 @@ const Profile = () => {
       setFollowerno(data.logins1.followers.length)
       setFollowingno(data.logins1.following.length)
     })
-
 
 
 
@@ -190,8 +217,128 @@ const Profile = () => {
     })
   }
 
+
+  const deletepost = async (e) => {
+    document.getElementById('confirmdel').style.display = 'flex'
+    document.getElementById('homeprofile').style.opacity = '50%'
+    document.getElementById('confdel').addEventListener('click', async () => {
+      document.getElementById('homeprofile').removeChild(e.target.closest('.postdisp'))
+      let del_id = e.target.querySelector('.postid').innerHTML
+      let del_id_det = {
+        delid: del_id,
+      }
+      document.getElementById('confirmdel').style.display = 'none'
+      document.getElementById('homeprofile').style.opacity = '100%'
+      await fetch('https://new-commune-2.onrender.com/delpost', { method: 'post', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(del_id_det) })
+    })
+    document.getElementById('cancdel').addEventListener('click', async () => {
+      document.getElementById('confirmdel').style.display = 'none'
+      document.getElementById('homeprofile').style.opacity = '100%'
+    })
+  }
+
+  
+  const posts1 = async () => {
+
+    let userdata = {
+      username: localStorage.getItem("current-users"),
+      password: localStorage.getItem("current-users-pass")
+    }
+
+    const allPosts = await fetch('https://new-commune-2.onrender.com/myPost', { method: 'post', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(userdata) })
+    const allPosts1 = await allPosts.json()
+    const allpostsrev = allPosts1.reverse()
+
+    allpostsrev && allpostsrev.forEach(element => {
+      let arr = element.post.data.data
+      const base64String =
+        btoa(
+          arr.reduce((data, byte) => data + String.fromCharCode(byte), '')
+        );
+
+      const postdisp = document.createElement("div")
+      const postimgholder = document.createElement("div")
+      const postimg = document.createElement("img")
+      const postcomment = document.createElement("div")
+      const postowner = document.createElement('div')
+      const postcomment_hold = document.createElement("div")
+      const postlike = document.createElement('div')
+      const commdisp = document.createElement('div')
+      const likesym = document.createElement('span')
+      const date = document.createElement('div')
+      const deletebtn = document.createElement('button')
+      const postid = document.createElement('span')
+
+      postid.className = 'postid'
+      postid.innerHTML = element._id
+      postid.style.display = 'none'
+      deletebtn.innerText = 'Delete'
+      deletebtn.id = 'delbtn1'
+      deletebtn.className = 'postlike'
+      deletebtn.appendChild(postid)
+      postimg.className = "postimg"
+      postcomment.className = "postcomment"
+      postimg.src = `data:image/png;base64,${base64String}`
+      postimg.type = 'images/base64'
+      postcomment_hold.innerText = element.caption
+      postimgholder.className = "post-img-cap"
+      postdisp.className = "postdisp"
+      postowner.className = 'postowner'
+      postowner.id = 'postowner1'
+      postcomment_hold.className = "postcomment_hold"
+      postlike.className = 'postlike'
+      postlike.id = 'postlike1'
+      commdisp.className = 'commdisp'
+      commdisp.id = 'commdisp1'
+      commdisp.innerText = 'No comments yet'
+      likesym.className = 'likesym'
+      date.className = 'date'
+      likesym.innerText = '❤️'
+      date.innerHTML = `Posted on ${element.date}`
+
+
+      element.comments.forEach(e => {
+        const comhold = document.createElement('div')
+        const com = document.createElement("li")
+        const commentor = document.createElement("li")
+        commentor.className = 'commentli'
+        commentor.id = 'commentor'
+        comhold.className = "commentli"
+        comhold.id = "comhold"
+        com.id = 'commentli1'
+        com.innerHTML = e.comment
+        commentor.innerHTML = e.username
+
+        if (commdisp.innerText == 'No comments yet') {
+          commdisp.innerText = ''
+        }
+        comhold.appendChild(com)
+        comhold.appendChild(commentor)
+        commdisp.appendChild(comhold)
+      })
+
+      deletebtn.addEventListener('click', deletepost)
+      postlike.innerText = `${element.likes}`
+      postlike.appendChild(likesym)
+      postcomment.appendChild(postcomment_hold)
+      postcomment.appendChild(postowner)
+      postowner.appendChild(postlike)
+      postowner.appendChild(deletebtn)
+      postowner.appendChild(commdisp)
+      postimgholder.appendChild(postimg)
+      postimgholder.appendChild(postcomment)
+      postdisp.appendChild(postimgholder)
+      postdisp.appendChild(date)
+
+      document.getElementById("communeload").style.display = "none"
+      document.getElementById("homeprofile").appendChild(postdisp)
+    })
+  }
+
   return (
     <>
+          <Navbar />
+
       <div className='profile'>
         <div className="logo-name">COMMUNE</div>
         <div className='profilepic' id='profilepic'>
@@ -238,14 +385,46 @@ const Profile = () => {
 
         </div>
 
-      </div>
-      <div className="nav-btns" id='nav-btns'>
+       
+
+{/* Your posts */}
+
+<div className="home" id='homeprofile'>
+ <div className="yourposthead">Your Posts</div>
+
+ <div className = "communeload" id='communeload' >
+<iframe id='loadinganime' src="https://lottie.host/embed/fb7368f5-4618-4c6d-a8da-641058d0018c/2i41WWJ7M2.lottie" frameborder="0"></iframe>
+    </div> 
+ </div>
+ <div className='confirmdel' id='confirmdel'>⚠ This post gets deleted permanently.
+  <div style={{display:'flex',width:'100%',justifyContent:'space-evenly'}}>
+  <button id='cancdel'>Cancel</button>
+  <button id='confdel'>Delete</button></div>
+ </div>
+
+
+{/* End of your posts */}
+
+
+<div className='confirmlogout' id='confirmdel1'>
+  <iframe style={{ width: '25%', height: '50%' }} src="https://lottie.host/embed/7e551e9a-b560-4cbc-bd23-bbad97d95a03/LQemBCcnYs.lottie" frameborder="0"></iframe>
+  Are you sure you want to Log out ?
+  <div style={{ display: 'flex', width: '40%', marginTop: '2vw', justifyContent: 'space-evenly' }}>
+    <button id='cancdel' className='Nobtn' onClick={() => { document.getElementById('confirmdel1').style.display = 'none' }}>No</button>
+    <button id='confdel' className='logoutyesbtn' onClick={handlelogout}><Link to={'/'}>Log out</Link></button></div>
+</div>
+<button id='logoutbtn' onClick={conflogout}>Log Out</button>
+
+</div>
+
+
+      {/* <div className="nav-btns" id='nav-btns'>
         <button id='homebtn'><Link to={'/Home'}>Home</Link></button>
         <button><Link to={'/MyPosts'}>Posts</Link></button>
         <button><Link to={'/LikedPosts'}>#Trending</Link></button>
         <button id=''><Link to={'/chat'}>Chats</Link></button>
         <button><Link to={'/Profile'}>Profile</Link></button>
-      </div>
+      </div> */}
     </>
   )
 }

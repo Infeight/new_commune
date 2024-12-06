@@ -1,5 +1,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');@import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
 
+html{
+    height: 86vw;
+}
 body{
     margin: 0;
     padding: 0;
@@ -8,7 +11,7 @@ body{
 
 .profile{
     background-color: #fff;
-    border-radius: 0 0 50vw 0;
+    border-radius: 0 0 0vw 0;
     width: 80vw;
     height: 100vh;
     display: grid;
@@ -16,8 +19,8 @@ body{
     justify-items: center;
     z-index: 1;
     position: absolute;
-    box-shadow: 0 0 10px black;
-    grid-template-rows: 20% 60%;
+    /* box-shadow: 0 0 10px black; */
+    grid-template-rows: 10% 60%;
     grid-template-columns: 50% 50%;
     animation: profile 0.5s 1 ease;
 }
@@ -32,7 +35,8 @@ body{
 }
 .logo-name{
     position: relative;
-    left: 4vw;
+    left: 1vw;
+    top: 2vw;
     margin-right: auto;
     grid-column-start: 1;
     grid-column-end: 3;
@@ -143,7 +147,7 @@ body{
     height: 65%;
     position: relative;
     left: -11vw;
-    top: 1vw;
+    top: 0vw;
     list-style: none;
     font-size: 2.5vw;
     letter-spacing: 0.1vw;
@@ -473,7 +477,92 @@ body{
     justify-content: space-evenly;
     display: none;
 }
-
+#homeprofile{
+    border-radius: 10px;
+    left: 20vw;
+    position: relative;
+    width: 78vw;
+    height: 70vh;
+    background-color: #fff;
+    min-height: 70vh;
+    overflow-y: scroll;
+    animation: home 0.5s 0s 1 ease;
+    margin-bottom: 50vw;
+    /* box-shadow: 0px 0px 5px inset; */
+}
+.confirmlogout{
+    left: 0vw;
+    position: fixed;
+    margin: 28vw 0;
+    width: 100vw;
+    height: 100vh;
+    backdrop-filter: blur(10px);
+    background-color: transparent;
+    z-index: 2;
+    display: none;
+    border-radius: 1vw;
+    box-shadow: 0 0 10px;
+    box-sizing: border-box;
+    padding: 0.5vw;
+    padding-top: 8vw;
+    font-size: 1.3vw;
+    font-family: nunito;
+    font-weight: 600;
+    align-items: center;
+    flex-direction: column;
+    justify-content: start;
+}
+.nobtn{
+    width: 8vw;
+    font-size: 1.2vw;
+    background-color: purple;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0px 1px 2px black;
+    box-sizing: border-box;
+    
+}
+.logoutyesbtn{
+    width: 8vw;
+    background-color: red;
+    border: none;
+    border-radius: 5px;
+    box-shadow: 0px 1px 2px black;
+    box-sizing: border-box;
+    cursor: auto;
+    
+}
+.logoutyesbtn a{
+    font-size: 1.2vw;
+    color: white;
+}
+#logoutbtn{
+    width: 15%;
+    height: 2vw;
+    border-radius: 5px;
+    box-shadow: 0 0 3px black;
+    font-size: 1vw;
+    outline: none;
+    border: none;
+    background-color: rgba(253, 40, 40, 0.43);
+    color: #fff;
+    font-family: nunito;
+    font-family: "Nunito", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    left: -52.5vw;
+    position: relative;
+    z-index: 3;
+    top: -2vw;
+}
+#logoutbtn:hover{
+    background-color: red;
+}
+#logoutbtn a{
+    color: #fdf0ff;
+}
 
 @media screen and (min-width:300px) {
     @media screen and (max-width:600px) {
@@ -481,6 +570,7 @@ body{
         .profile{
             width: 100vw;
             border-radius: 0;
+            height: fit-content;
            display: flex;
            flex-direction: column;
            justify-content: space-around;
@@ -516,13 +606,24 @@ body{
         }
 
         .logo-name{
-            font-size: 7vw;
-            margin-top: 0vw;
+            font-size: 6vw;
+            margin-bottom: 5vw;
+            position: sticky;
+            z-index: 5;
+            background-color: white;
+            width: 100vw;
+            height: 10vw;
+            display: flex;
+            align-items: center;
+            padding-left: 4vw;
+            top: 0vw;
+            box-sizing: border-box;
         }
         .profilepic{
             width: 50vw;
             height: 50vw;
             left: 0;
+            margin-bottom: 6vw;
         }
         .profilepic1{
             width: 50vw;
@@ -542,6 +643,7 @@ body{
         }
         .followers h6{
             font-size: 5vw;
+            top: -1vw;
         }
         .following{
             width: 100%;
@@ -549,6 +651,7 @@ body{
 
             h6{
                 font-size: 5vw;
+                top: -1vw;
             }
             
         }
@@ -576,8 +679,24 @@ body{
             font-size: 4.5vw;
 
         }
+        
 
-
+        #homeprofile{
+            width: 99%;
+            height: 70vh;
+            min-height: 70vh;
+            left: 0vw;
+            margin-bottom: 10vw;
+        }
+        #logoutbtn{
+            font-size: 3vw;
+            height: 5vw;
+            width: 20%;
+            top: -8vw;
+           left: -38.5vw;
+            z-index: 2;
+            margin-bottom: 3vw;
+        }
     }
 }
 

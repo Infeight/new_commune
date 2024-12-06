@@ -124,11 +124,11 @@ let newprofilepic;
 
 app.get('/', async(req,res)=>{
     const posts = await allPosts.allPosts.find()
-    // res.send("Working"+ posts)
+    res.send("Working"+ posts)
 
-    if(req.cookies){
-      res.redirect('https://peoplecommune.onrender.com/Profile')
-    }
+    // if(req.cookies){
+    //   res.redirect('https://peoplecommune.onrender.com/Profile')
+    // }
 
 })
 
@@ -179,6 +179,11 @@ app.post('/login', async(req,res)=>{
   const loggedin = await login.login.findOne({username:data.username, password:data.password})
   res.cookie('data',data.username)
   res.json({loggedin:loggedin})
+})
+
+app.get('/getalllogin',async(req,res)=>{
+  const alllogins = await login.login.find();
+  res.send(alllogins);
 })
 
 

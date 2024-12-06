@@ -16,7 +16,7 @@ import './App.css'
 import Post from './components/post'
 
 function App() {
-  const [count, setCount] = useState(0)
+  // const [name, setName] = useState('')
 
 
 
@@ -25,11 +25,17 @@ function App() {
   for (let cookie of cookieArray) {
     const [key, value] = cookie.split("=");
     if (key === name) return value;
+    // console.log(value)
+
   }
   return null;
 };
 
-// console.log(getCookie("user"));
+
+console.log(getCookie("user"));
+console.log(document.cookie)
+
+
 
   return (
 
@@ -39,7 +45,7 @@ function App() {
  
 <BrowserRouter> 
         <Routes>
-           <Route path='/' element={getCookie('user')?<Profile/>:<Login/>}/>
+           <Route path='/' element={getCookie('user')!=null?<Profile/>:<Login/>}/>
            <Route path='/Profile' element={<Profile/>}/>
 
          

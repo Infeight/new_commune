@@ -30,6 +30,7 @@ import { Navigate } from 'react-router-dom';
 
 
 
+
 const Login = () => {
  
   let [user,setUser] = useState({
@@ -49,6 +50,12 @@ const Login = () => {
   
   const followinglist2 = []
 
+
+  useEffect(()=>{
+    alllogins()
+  },[])
+
+
   const setCookie = (name, value, days) => {
     const date = new Date();
     date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
@@ -56,7 +63,7 @@ const Login = () => {
     document.cookie = `${name}=${value}; ${expires}; path=/; secure; samesite=lax`;
   };
   
-  
+  console.log(document.cookie)
 
   const handlesignup_anim = ()=>{
     document.getElementById('cover').style.borderRadius = "5px 0px 0px 5px"
@@ -96,7 +103,13 @@ const Login = () => {
 
   }
 
-
+  const alllogins = async()=>{
+   const alllogins1 = await fetch('https://new-commune-2.onrender.com/getalllogin',{headers:{accept:'application/json'}})
+   const alllogins11 = await alllogins1.json();
+   alllogins11.map(logindet=>{
+    console.log(logindet)
+   })
+  }
   
 
   const submit = async()=>{
@@ -176,9 +189,9 @@ const Login = () => {
       'We’re cooking up something great—almost done baking!',
       'Loading... This is a great time to take a deep breath!']
 
-    let loadinterval =  setInterval(()=>{
-        document.getElementById('loadingstatement').innerText = loadingstatements[Math.floor(Math.random()*5)]
-      },3000)
+    // let loadinterval =  setInterval(()=>{
+    //     document.getElementById('loadingstatement').innerText = loadingstatements[Math.floor(Math.random()*5)]
+    //   },3000)
 
   return (
     <>
