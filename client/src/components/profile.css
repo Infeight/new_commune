@@ -703,6 +703,14 @@ body{
             z-index: 2;
             margin-bottom: 3vw;
         }
+        .loadingprofile{
+            left: 15vw;
+            width: 70vw;
+            height: 65vh;
+        }
+        .loadingstatement{
+            left: -5vw;
+        }
         
     }
 }
