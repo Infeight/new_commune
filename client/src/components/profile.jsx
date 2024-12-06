@@ -31,16 +31,21 @@ const Profile = () => {
   const followinglist = []
 
   useEffect(() => {
-    allusers()
-  }, [])
-  useEffect(()=>{
+    allusers().then(()=>{
     posts1()
-  },[])
+
+    }
+    )
+  }, [])
+  // useEffect(()=>{
+  //   posts1()
+  // },[])
  
 
   if(show==true){
-    document.getElementById('loading').style.display = 'none'
-    document.getElementById('profile').style.display = window.innerWidth<='600px'?'flex':'grid'
+    // let windowsize = window.innerWidth
+    document.getElementById('loadingprofile').style.display = 'none'
+    document.getElementById('profile').style.visibility = 'visible'
     
   }
   
@@ -339,19 +344,27 @@ const Profile = () => {
       document.getElementById("homeprofile").appendChild(postdisp)
     })
   }
+  let loadingstatements  = ['Just a moment... Excellence can’t be rushed!',
+    'Grabbing the magic wand... Sparkles loading!',
+    'Almost there! Great experiences are just seconds away.',
+    'We’re cooking up something great—almost done baking!',
+    'Loading... This is a great time to take a deep breath!']
 
+   setInterval(()=>{
+      document.getElementById('loadingstatement').innerText = loadingstatements[Math.floor(Math.random()*5)]
+    },3000)
   return (
     <>
           <Navbar />
 
-          <div className="loading" id='loading'>
+          <div className="loadingprofile" id='loadingprofile' style={{display:'block'}} >
 <iframe id='loadingframe' src="https://lottie.host/embed/0779841c-24c8-4da4-b4bb-8b366930a3af/z6EltEHTOI.lottie" frameborder="0"></iframe>
 
 <p className='loadingstatement' id='loadingstatement'></p>
 <p className='loadingstatement' id='notfound' style={{display:'none'}}>We're sorry for the inconvenience 😔</p>
 </div>
 
-      <div className='profile' id='profile' style={{display:'none'}}>
+      <div className='profile' id='profile' style={{visibility:'hidden'}}>
         <div className="logo-name">COMMUNE</div>
         <div className='profilepic' id='profilepic'>
           <div className="profilepic1"><img src='' onClick={updateprofilepic} id='profilepicture1' className='profilepicture' alt="" />
@@ -398,6 +411,7 @@ const Profile = () => {
         </div>
 
        
+      
 
 {/* Your posts */}
 

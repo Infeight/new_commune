@@ -16,7 +16,7 @@ import './App.css'
 import Post from './components/post'
 
 function App() {
-  // const [name, setName] = useState('')
+  const [name, setName] = useState('')
 
 
 

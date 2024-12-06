@@ -60,6 +60,7 @@ const Login = () => {
     document.getElementById('input-cont').style.display = 'flex'
     document.getElementById('loading').style.display='none'
     document.getElementById('notfound').style.display = 'none'
+    // clearInterval(interval)
   }
 
   const setCookie = (name, value, days) => {
@@ -218,9 +219,10 @@ const Login = () => {
       'We’re cooking up something great—almost done baking!',
       'Loading... This is a great time to take a deep breath!']
 
-    // let loadinterval =  setInterval(()=>{
+    // const interval =  setInterval(()=>{
     //     document.getElementById('loadingstatement').innerText = loadingstatements[Math.floor(Math.random()*5)]
     //   },3000)
+      
 
   return (
     <>
@@ -237,7 +239,7 @@ const Login = () => {
     /> */}
     <iframe id='loadingframe' src="https://lottie.host/embed/0779841c-24c8-4da4-b4bb-8b366930a3af/z6EltEHTOI.lottie" frameborder="0"></iframe>
 
-    <p className='loadingstatement' id='loadingstatement'></p>
+    <p className='loadingstatement' id='loadingstatement'>{loadingstatements[Math.floor(Math.random()*5)]}</p>
     <p className='loadingstatement' id='notfound' style={{display:'none'}}>We're sorry for the inconvenience 😔</p>
       </div>
 
