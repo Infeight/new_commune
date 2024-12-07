@@ -510,7 +510,11 @@ body{
     flex-direction: column;
     justify-content: start;
 }
-.nobtn{
+.confirmlogout iframe{
+     width: 25%;
+      height: 50%
+}
+.Nobtn{
     width: 8vw;
     font-size: 1.2vw;
     background-color: purple;
@@ -529,7 +533,7 @@ body{
     border-radius: 5px;
     box-shadow: 0px 1px 2px black;
     box-sizing: border-box;
-    cursor: auto;
+    cursor: default;
     
 }
 .logoutyesbtn a{
@@ -708,8 +712,34 @@ body{
             width: 70vw;
             height: 65vh;
         }
-        .loadingstatement{
+        /* .loadingstatement{
             left: -5vw;
+        } */
+        #loadingstatement1{
+            left: -5vw;
+        }
+        .confirmlogout{
+            top: 0vw;
+            font-size: 4.5vw;
+            margin: 0 0 ;
+            z-index: 4;
+            padding-top: 45vw;
+        }
+        .confirmlogout iframe{
+            width: 50%;
+            height: 40%;
+        }
+        .Nobtn{
+            font-size: 3.5vw;
+            width: 25vw;
+            height: 7vw;
+        }
+        .logoutyesbtn{
+            width: 25vw;
+            height: 7vw;
+        }
+        .logoutyesbtn a{
+            font-size: 3.5vw;
         }
         
     }

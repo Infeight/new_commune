@@ -351,7 +351,7 @@ const Profile = () => {
     'Loading... This is a great time to take a deep breath!']
 
    setInterval(()=>{
-      document.getElementById('loadingstatement').innerText = loadingstatements[Math.floor(Math.random()*5)]
+      document.getElementById('loadingstatement1').innerText = loadingstatements[Math.floor(Math.random()*5)]
     },3000)
   return (
     <>
@@ -360,7 +360,7 @@ const Profile = () => {
           <div className="loadingprofile" id='loadingprofile' style={{display:'block'}} >
 <iframe id='loadingframe' src="https://lottie.host/embed/0779841c-24c8-4da4-b4bb-8b366930a3af/z6EltEHTOI.lottie" frameborder="0"></iframe>
 
-<p className='loadingstatement' id='loadingstatement'></p>
+<p className='loadingstatement' id='loadingstatement1'></p>
 <p className='loadingstatement' id='notfound' style={{display:'none'}}>We're sorry for the inconvenience 😔</p>
 </div>
 
@@ -436,11 +436,11 @@ const Profile = () => {
 
 
 <div className='confirmlogout' id='confirmdel1'>
-  <iframe style={{ width: '25%', height: '50%' }} src="https://lottie.host/embed/7e551e9a-b560-4cbc-bd23-bbad97d95a03/LQemBCcnYs.lottie" frameborder="0"></iframe>
+  <iframe style={{ }} src="https://lottie.host/embed/7e551e9a-b560-4cbc-bd23-bbad97d95a03/LQemBCcnYs.lottie" frameborder="0"></iframe>
   Are you sure you want to Log out ?
-  <div style={{ display: 'flex', width: '40%', marginTop: '2vw', justifyContent: 'space-evenly' }}>
+  <div style={{ display: 'flex', width: '60%', marginTop: '2vw', justifyContent: 'space-evenly' }}>
     <button id='cancdel' className='Nobtn' onClick={() => { document.getElementById('confirmdel1').style.display = 'none' }}>No</button>
-    <button id='confdel' className='logoutyesbtn' onClick={handlelogout}><Link to={'/'}>Log out</Link></button></div>
+    <button id='confdel' className='logoutyesbtn' style={{cursor:'default'}} onClick={handlelogout}><Link to={'/'}>Log out</Link></button></div>
 </div>
 <button id='logoutbtn' onClick={conflogout}>Log Out</button>
 
