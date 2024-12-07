@@ -62,6 +62,10 @@ const Profile = () => {
     localStorage.removeItem('current-users-pass')
     localStorage.removeItem('curuserid')
     deleteCookie('user');
+    document.getElementById('profile').style.display = 'none';
+    document.querySelector('.nav-btns1').style.display = 'none'
+    document.getElementById('loggedoutscreen').style.display = 'block'
+
     console.log(document.cookie)
  
   }
@@ -445,6 +449,11 @@ const Profile = () => {
 <button id='logoutbtn' onClick={conflogout}>Log Out</button>
 
 </div>
+
+<div id='loggedoutscreen' style={{display:'none'}}>
+  <iframe src="https://lottie.host/embed/8d6a11f2-88d6-4644-8ff0-52aa8af6c152/W8r8FfGNvC.lottie" frameborder="0"></iframe>
+ <p> You're logged out! <br /> Please reload the page to log back in.</p>
+  </div>
 
 
       {/* <div className="nav-btns" id='nav-btns'>
