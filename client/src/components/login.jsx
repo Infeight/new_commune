@@ -100,6 +100,12 @@ const Login = () => {
     value = e.target.value;
     setUser({ ...user, [name]: value })
 
+    document.getElementById('wrongpass').style.display = 'none'
+        document.getElementById('loginbtn').innerText = 'Log In'
+     document.getElementById('loginbtn').style.backgroundColor = 'purple'
+     document.getElementById('loginbtn').style.zIndex = '1'
+
+
   }
   
 
@@ -135,6 +141,13 @@ const Login = () => {
   // console.log(logins)
 
   const submit = async()=>{
+
+    if(user.username==''|| user.password==''){
+      document.getElementById('username').style.border = '1px solid red'
+           document.getElementById('password').style.border = '1px solid red'
+         }
+         else{
+
      document.getElementById('loginbtn').innerText = 'Log In ...'
      document.getElementById('loginbtn').style.backgroundColor = '#a064a0'
      document.getElementById('loginbtn').style.zIndex = '-1'
@@ -148,8 +161,8 @@ const Login = () => {
   const alllogin = fetch('https://new-commune-2.onrender.com/login',{ method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(userdet) })
 
   alllogin.then(response=>response.json()).then(data=>{
-    // console.log(data)
-    if(data){
+    console.log()
+    if(data!=null){
       console.log('good')
       // setNewuser(false)
       setCookie("user", user.username, 7);
@@ -170,7 +183,7 @@ const Login = () => {
 
     }
    
-  })
+  })}
 
  if (newuser==false){
       document.getElementById("username").style.visibility = "visible"
