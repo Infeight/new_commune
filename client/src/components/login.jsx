@@ -161,8 +161,8 @@ const Login = () => {
   const alllogin = fetch('https://new-commune-2.onrender.com/login',{ method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(userdet) })
 
   alllogin.then(response=>response.json()).then(data=>{
-    console.log()
-    if(data!=null){
+    console.log(data)
+    if(data.loggedin!=null && data.loggedin.password === user.password){
       console.log('good')
       // setNewuser(false)
       setCookie("user", user.username, 7);
