@@ -1,10 +1,8 @@
 import {  useState } from 'react'
 import { Suspense,lazy } from 'react'
 import Profile from './components/profile'
-// const Home1 = lazy(()=>{
-//   import ('./components/home')
-// })
 import Home1 from './components/home1'
+// import Home1 from './components/home1'
 import Home from './components/home'
 import MyPosts from './components/MyPosts'
 import LikedPosts from './components/LikedPosts'

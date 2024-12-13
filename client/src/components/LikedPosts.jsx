@@ -9,7 +9,7 @@ import Post from './post'
 import { IoIosHeartEmpty } from "react-icons/io";
 
 const LikedPosts = () => {
-  const location = useLocation()
+  // const location = useLocation()
 
   let curuser = localStorage.getItem('current-users')
   const curuserpass = localStorage.getItem('current-users-pass')
@@ -35,6 +35,8 @@ const LikedPosts = () => {
     followingno:'',
     password:''
   })
+  const [likedposts1,setLikedposts1] = useState([])
+  const [trending,setTrending] = useState([]);
 
   useEffect(()=>{
 
@@ -457,7 +459,7 @@ const showfollowers = ()=>{
     
     const allPosts = await fetch('https://new-commune-2.onrender.com/newPost',{headers:{accept:'application/json'}})
     const profilepics = await fetch('https://new-commune-2.onrender.com/profilepics',{headers:{accept:'application/json'}})
-    const likedposts =  fetch('https://new-commune-2.onrender.com/likedposts',{method:'post',headers:{'Content-Type':'application/json'},body: JSON.stringify(userdet)})
+    var likedposts =  fetch('https://new-commune-2.onrender.com/likedposts',{method:'post',headers:{'Content-Type':'application/json'},body: JSON.stringify(userdet)})
     // const likedposts = await fetch('https://new-commune.onrender.com/likedposts',{headers:{accept:'application/json'}})
     
     const profilepics1 = await profilepics.json()
@@ -477,13 +479,26 @@ const showfollowers = ()=>{
         }
       })
     })
-
     likedposts.then(response=>response.json()).then
-    (data=>{
+
+    (data=>{setLikedposts1(data.likedposts)})
+   setTrending(trendingposts)
+   setLoad (false)
+
+  }
+  console.log(trending)
+  console.log(likedposts1)
 
 
+ useEffect(()=>{
+    
+        showposts();
+     
+        },[load])
 
-      trendingposts.forEach(element => {
+
+    const showposts = ()=>{
+     trending && trending.forEach(element => {
 
  
     
@@ -545,12 +560,12 @@ const showfollowers = ()=>{
              date.className = 'date'
            postownuser_id.innerText = element.user_id
            postownuser_id.style.display = 'none'
-
-
+  
+  
     
             name.innerText = element.username
            name.addEventListener('click',openacct)
-
+  
             postownpass.innerText = element.password
             postid.innerHTML = element._id
             postfollow.innerText = "Follow"
@@ -562,8 +577,8 @@ const showfollowers = ()=>{
             showcomment.innerText=" Comments"
            postcomment_hold.className = "postcomment_hold"
            date.innerHTML = `Posted on ${element.date}`
-
-
+  
+  
            element.comments.forEach(e=>{
           const com=  document.createElement("li")
           com.className = "commentli"
@@ -597,9 +612,9 @@ const showfollowers = ()=>{
               }
              })
     
-             if(data.likedposts.length !=0){
+             if(likedposts1.length !=0){
     
-              data.likedposts.map(liked=>{
+            likedposts1.map(liked=>{
                 if(element._id === liked ){
                   likenum.innerHTML = `${element.likes}`
                   likenum.style.color ='red'
@@ -614,23 +629,23 @@ const showfollowers = ()=>{
              
              }
             
-             profilepics1.map(elements=>{
-              const arr1 = elements.profile.data.data
-            const base64String1 = 
+            //  profilepics1.map(elements=>{
+            //   const arr1 = elements.profile.data.data
+            // const base64String1 = 
         
-                 btoa(
-                    arr1.reduce((data, byte) => data + String.fromCharCode(byte), '')
-                 );
+            //      btoa(
+            //         arr1.reduce((data, byte) => data + String.fromCharCode(byte), '')
+            //      );
       
-                 if(elements.user_id == element.user_id){
-                  profilepichold.src = `data:image/png;base64,${base64String1}`
-                 }
-            })
+            //      if(elements.user_id == element.user_id){
+            //       profilepichold.src = `data:image/png;base64,${base64String1}`
+            //      }
+            // })
              
     
             postownname.appendChild(name)
            postownname.appendChild(postownuser_id)
-
+  
             postownname.appendChild(profilepichold)
              postimgholder.appendChild(postimg)
              postimgholder.appendChild(postcomment)
@@ -656,11 +671,14 @@ const showfollowers = ()=>{
     
          
     
-        setLoad (false)
        document.getElementById("home").appendChild(postdisp)
     
     
        });
+      }
+    
+
+    
 
 
 
@@ -726,9 +744,9 @@ document.querySelectorAll(".showcomment").forEach(e=>{
     e.closest(".postdisp").querySelector('.allcommentshold').classList.toggle('show')
   })
 })
-})
+
     
-  }
+  
 
 
   return (

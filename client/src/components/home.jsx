@@ -42,6 +42,8 @@ const [allpostdata,setallpostdata] = useState([]);
 
   const[likedposts1,setLikedposts1] = useState([])
 
+if(allpostdata.length==0){}
+
   useEffect(()=>{
 setTimeout(()=>{
   posts()
@@ -505,6 +507,7 @@ const showfollowers = ()=>{
 
 
     const allpostsrev = allPosts1.reverse()
+    setallpostdata(allpostsrev);
     // const allpostsrev = allpostdata.reverse()
 
 
@@ -515,9 +518,9 @@ const showfollowers = ()=>{
        setLikedposts1(data.likedposts)
 
 let i=0;
- while(i<=allpostsrev.length-1){
+ while(i<=allpostdata.length-1){
       // allpostsrev.forEach(element => {
-        let element = allpostsrev[i];
+        let element = allpostdata[i];
         const arr = element.post.data.data
         const base64String = 
     

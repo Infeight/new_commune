@@ -15,6 +15,7 @@ const Profile = () => {
   const[show,setShow] = useState(false)
   const [followerno, setFollowerno] = useState('');
   const [followingno, setFollowingno] = useState('')
+  const [allpostssave,setAllpostssave] = useState([]);
   const [currentuser_id, setCurrentuser_id] = useState({
     userId: ""
   })
@@ -262,8 +263,11 @@ const Profile = () => {
     const allPosts = await fetch('https://new-commune-2.onrender.com/myPost', { method: 'post', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(userdata) })
     const allPosts1 = await allPosts.json()
     const allpostsrev = allPosts1.reverse()
+    setAllpostssave(allpostsrev);}
 
-    allpostsrev && allpostsrev.forEach(element => {
+
+
+    allpostssave && allpostssave.forEach(element => {
       let arr = element.post.data.data
       const base64String =
         btoa(
@@ -347,7 +351,7 @@ const Profile = () => {
       document.getElementById("communeload").style.display = "none"
       document.getElementById("homeprofile").appendChild(postdisp)
     })
-  }
+  
   let loadingstatements  = ['Just a moment... Excellence can’t be rushed!',
     'Grabbing the magic wand... Sparkles loading!',
     'Almost there! Great experiences are just seconds away.',
