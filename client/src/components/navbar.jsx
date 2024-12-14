@@ -14,7 +14,7 @@ const Navbar = () => {
         <div className="profilename">{localStorage.getItem('current-users').slice(0,11)}</div>
       </div>
     <button className='navbtn' ><Link to={'/Home'}>Home</Link></button>
-    <button  className='navbtn'><Link to={'/MyPosts'}>Posts</Link></button>
+    <button  className='navbtn'><Link to={'/MyPosts'}>People</Link></button>
     <button className='navbtn'><Link to={'/LikedPosts'}>#Trending</Link></button>
     <button className='navbtn' id=''><Link to={'/chat'}>Chats</Link></button>
     <button className='navbtn'><Link to={'/Profile'}>Profile</Link></button>

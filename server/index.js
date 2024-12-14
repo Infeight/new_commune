@@ -606,6 +606,15 @@ res.json({
   })
 
 
+
+app.get('/alluserdet', async(req,res)=>{
+   const userdets = await login.login.find();
+
+   res.send(userdets);
+})  
+
+
+
   const io = socket(server,{
     cors:{
       origin:'https://peoplecommune.onrender.com',

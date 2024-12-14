@@ -4,10 +4,11 @@ import Profile from './components/profile'
 import Home1 from './components/home1'
 // import Home1 from './components/home1'
 import Home from './components/home'
-import MyPosts from './components/MyPosts'
+// import MyPosts from './components/MyPosts'
 import LikedPosts from './components/LikedPosts'
 import Login from './components/login'
 import Chat from './components/chat'
+import People from './components/people'
 
 import {BrowserRouter,Routes,Route} from 'react-router-dom'
 import './App.css'
@@ -51,7 +52,7 @@ console.log(document.cookie)
 
 
            <Route path='/Home' element={<Home1/>}/>
-           <Route path='/MyPosts' element={<MyPosts/>}/>
+           <Route path='/MyPosts' element={<People/>}/>
            <Route path='/LikedPosts' element={<LikedPosts/>}/>
            <Route path='/post' element={<Post/>}/>
            <Route path='/chat' element={<Chat/>}/>

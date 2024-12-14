@@ -2,7 +2,7 @@ import React from 'react'
 import { Link, Navigate, useNavigate } from 'react-router-dom'
 import { useState, useEffect } from 'react'
 import Home from './home'
-import MyPosts from './MyPosts'
+// import MyPosts from './MyPosts'
 import LikedPosts from './LikedPosts'
 import Navbar from './navbar'
 
