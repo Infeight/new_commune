@@ -122,7 +122,7 @@ const Login = () => {
 
   const alllogins = async()=>{
    try{
-    const alllogins1 = await fetch('https://new-commune-2.onrender.com/getalllogin',{headers:{accept:'application/json'}})
+    const alllogins1 = await fetch('https://new-commune-3.onrender.com/getalllogin',{headers:{accept:'application/json'}})
 
    const alllogins11 = await alllogins1.json();
    alllogins11.map(logindet=>{
@@ -158,7 +158,7 @@ const Login = () => {
       password: user.password
     }
     console.log(userdet)
-  const alllogin = fetch('https://new-commune-2.onrender.com/login',{ method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(userdet) })
+  const alllogin = fetch('https://new-commune-3.onrender.com/login',{ method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(userdet) })
 
   alllogin.then(response=>response.json()).then(data=>{
     console.log(data)
@@ -217,7 +217,7 @@ const Login = () => {
       document.getElementById('input-cont').style.display = 'none'
       document.getElementById('logo').style.display = 'none'
       document.getElementById('newusercont').style.display = 'flex'
-      await  fetch('https://new-commune-2.onrender.com/signup', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(signup) })
+      await  fetch('https://new-commune-3.onrender.com/signup', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(signup) })
     }
 
    

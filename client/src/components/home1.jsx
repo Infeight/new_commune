@@ -17,7 +17,7 @@ const Home1 = () => {
   let curuserid = localStorage.getItem('curuserid')
   const postsarr = [];
 
- const followinglist = JSON.parse(localStorage.getItem('followinglist2'))
+ const followinglist = JSON.parse(localStorage.getItem('followinglist1'))
   const [load,setLoad] = useState(true)
   const [load1,setLoad1] = useState(true)
 
@@ -83,7 +83,7 @@ const handlecommentsend = async(e)=>{
   }
 
   if(comment!=""){
-    fetch('https://new-commune-2.onrender.com/comment', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(commentinfo) })
+    fetch('https://new-commune-3.onrender.com/comment', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(commentinfo) })
 
   }
 
@@ -113,7 +113,7 @@ e.target.closest('.postowner').querySelector('.postlike').querySelector('.likesy
    password:curuserpass
  }
 
-fetch('https://new-commune-2.onrender.com/likes', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(likeinfo) })
+fetch('https://new-commune-3.onrender.com/likes', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(likeinfo) })
  e.target.closest(".postowner").querySelector(".postlike").querySelector(".likenum").innerHTML = `${curlikes}`
 }
 
@@ -138,7 +138,7 @@ const handleremovelikes = async(e)=>{
  }
  e.target.closest(".postowner").querySelector(".postlike").querySelector(".likenum").innerHTML = `${curlikes}`
 
-fetch('https://new-commune-2.onrender.com/removelikes', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(likeinfo) })
+fetch('https://new-commune-3.onrender.com/removelikes', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(likeinfo) })
 }
 
 const handlefollow=async(e)=>{
@@ -155,7 +155,7 @@ const handlefollow=async(e)=>{
 
  }
 
- fetch('https://new-commune-2.onrender.com/follow',{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify(followdetails)})
+ fetch('https://new-commune-3.onrender.com/follow',{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify(followdetails)})
  
    setTimeout(()=>{
      e.target.closest('.postowner').querySelector('.postfollow').innerText = "Following"
@@ -180,7 +180,7 @@ const handleaccountfollow = (e)=>{
 
  }
 
- fetch('https://new-commune-2.onrender.com/follow',{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify(followdetails)})
+ fetch('https://new-commune-3.onrender.com/follow',{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify(followdetails)})
  
      e.target.innerText = "Following"
    
@@ -208,7 +208,7 @@ const handleunfollow=async(e)=>{
 
  }
 
- fetch('https://new-commune-2.onrender.com/unfollow',{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify(followdetails)})
+ fetch('https://new-commune-3.onrender.com/unfollow',{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify(followdetails)})
 
  setTimeout(()=>{
   e.target.closest('.postowner').querySelector('.postfollow').innerText = "Follow 📌"
@@ -234,7 +234,7 @@ const handleacctunfollow = (e)=>{
   curuserpass: curuserpass
  }
 
- fetch('https://new-commune-2.onrender.com/unfollow',{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify(followdetails)})
+ fetch('https://new-commune-3.onrender.com/unfollow',{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify(followdetails)})
 
  setTimeout(()=>{
   e.target.innerText = "Follow"
@@ -273,10 +273,10 @@ const openacct = async(e) =>{
     ownername:ownername
   }
 
- const detailsuser =  fetch('https://new-commune-2.onrender.com/searchusersdet',{method:'post',headers:{'Content-Type':'application/json'},body: JSON.stringify(searchdet)});
- const detailsdp =  fetch('https://new-commune-2.onrender.com/searchusersdp',{method:'post',headers:{'Content-Type':'application/json'},body: JSON.stringify(searchdet)});
+ const detailsuser =  fetch('https://new-commune-3.onrender.com/searchusersdet',{method:'post',headers:{'Content-Type':'application/json'},body: JSON.stringify(searchdet)});
+ const detailsdp =  fetch('https://new-commune-3.onrender.com/searchusersdp',{method:'post',headers:{'Content-Type':'application/json'},body: JSON.stringify(searchdet)});
 
- const details =  fetch('https://new-commune-2.onrender.com/searchusers',{method:'post',headers:{'Content-Type':'application/json'},body: JSON.stringify(searchdet)});
+ const details =  fetch('https://new-commune-3.onrender.com/searchusers',{method:'post',headers:{'Content-Type':'application/json'},body: JSON.stringify(searchdet)});
   
  
  detailsuser.then(response => response.json())
@@ -503,9 +503,9 @@ const showfollowers = ()=>{
       userid:curuserid
     }
     
-    const allPosts = await fetch('https://new-commune-2.onrender.com/newPost',{headers:{accept:'application/json'}});
-    const profilepics = await fetch('https://new-commune-2.onrender.com/profilepics',{headers:{accept:'application/json'}})
-    const likedposts =  fetch('https://new-commune-2.onrender.com/likedposts',{method:'post',headers:{'Content-Type':'application/json'},body: JSON.stringify(userdet)})
+    const allPosts = await fetch('https://new-commune-3.onrender.com/newPost',{headers:{accept:'application/json'}});
+    const profilepics = await fetch('https://new-commune-3.onrender.com/profilepics',{headers:{accept:'application/json'}})
+    const likedposts =  fetch('https://new-commune-3.onrender.com/likedposts',{method:'post',headers:{'Content-Type':'application/json'},body: JSON.stringify(userdet)})
     // const user_id = await fetch('https://new-commune.onrender.com/user_id',{headers:{accept:'application/json'}})
     const allPosts1 = await allPosts.json()
     const profilepics1 = await profilepics.json()

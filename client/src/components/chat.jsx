@@ -37,7 +37,7 @@ const Chat = () => {
    
  useEffect(()=>{
    if(curuserid){
-    socket.current = io('https://new-commune-2.onrender.com')
+    socket.current = io('https://new-commune-3.onrender.com')
     socket.current.emit('add-user',curuserid)
    }
  },[curuserid])     
@@ -68,7 +68,7 @@ const handlesend = ()=>{
     message:msg.caption
   })
 
-fetch('https://new-commune-2.onrender.com/sendmsg', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(sendmsg) })
+fetch('https://new-commune-3.onrender.com/sendmsg', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(sendmsg) })
 setCurrentmsg({message:msg.caption})
 document.querySelector('.react-input-emoji--input').innerText="";
 
@@ -86,7 +86,7 @@ const handlegetmsgs = async()=>{
 
   }
 let obj;
-    const response = fetch('https://new-commune-2.onrender.com/getmsg', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(getmsg) })
+    const response = fetch('https://new-commune-3.onrender.com/getmsg', { method: 'post', headers: { "Content-Type": "application/json" }, body: JSON.stringify(getmsg) })
     response.then(res => res.json())
   .then(data => {
     setAllmsgs(data)
@@ -157,7 +157,7 @@ const handleto_id = (e)=>{
         userpass: curuserpass,
         user_id : curuserid
       }
-        const allusers1 =  fetch('https://new-commune-2.onrender.com/loginbyname',{method:'post',headers:{'Content-Type':'application/json'},body: JSON.stringify(userdet)})
+        const allusers1 =  fetch('https://new-commune-3.onrender.com/loginbyname',{method:'post',headers:{'Content-Type':'application/json'},body: JSON.stringify(userdet)})
     //  const profilepics = await fetch('http://localhost:5004/profilepics',{headers:{accept:'application/json'}})
     //  const profilepics1 = await profilepics.json()
 

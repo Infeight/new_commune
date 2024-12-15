@@ -334,6 +334,12 @@
             .contacthold{
                 box-shadow: 0px 1px 4px 0px black;
             }
+            .allcontacts{
+                width: 30vw;
+            }
+            .contactname{
+                width: 20vw;
+            }
         }}
 
         @media screen and (min-width:760px) {

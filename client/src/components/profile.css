@@ -791,6 +791,9 @@ body{
             font-size: 2.3vw;
             padding: 10px 20px;
         }
+        #logoutbtn{
+            top: 2vw;
+        }
     }
 }
 
@@ -907,9 +910,9 @@ body{
             top: 50vw;
         }
         #logoutbtn{
-            font-size: 3vw;
-            height: 5vw;
-            width: 30%;
+            font-size: 2vw;
+            height: 4vw;
+            width: 25%;
             top: 5vw;
             left: -55.5vw;
             z-index: 0;
@@ -946,5 +949,8 @@ body{
         }
         #loggedoutscreen p{
             font-size: 3vw;
+        }
+        .loadingprofile{
+            left: 20vw;
         }
     }}

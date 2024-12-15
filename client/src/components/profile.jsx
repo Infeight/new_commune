@@ -30,6 +30,7 @@ const Profile = () => {
 
   const curuserpass = localStorage.getItem('current-users-pass')
   const followinglist = []
+  
 
   useEffect(() => {
     allusers().then(()=>{
@@ -99,7 +100,6 @@ const Profile = () => {
     }
   }
 
-  localStorage.setItem('followinglist1', JSON.stringify(followinglist))
 
   const updateholdclose = () => {
     document.getElementById('updatehold').style.display = 'none'
@@ -134,9 +134,9 @@ const Profile = () => {
       username: curuser,
       password: curuserpass
     }
-    let allusers1 = fetch('https://new-commune-2.onrender.com/login1', { method: 'post', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(userdet) })
-    let profilepic = fetch('https://new-commune-2.onrender.com/profilepic1', { method: 'post', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(userdet) })
-    const user_id = fetch('https://new-commune-2.onrender.com/user_id', { method: 'post', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(userdet) })
+    let allusers1 = fetch('https://new-commune-3.onrender.com/login1', { method: 'post', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(userdet) })
+    let profilepic = fetch('https://new-commune-3.onrender.com/profilepic1', { method: 'post', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(userdet) })
+    const user_id = fetch('https://new-commune-3.onrender.com/user_id', { method: 'post', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(userdet) })
     let user_id1;
 
     user_id.then(response => response.json()).
@@ -182,12 +182,15 @@ const Profile = () => {
       });
 
       data.logins1.following.map(follower => {
-        followers.push(follower)
+        followinglist.push(follower)
         const followingli = document.createElement('li')
         followingli.className = "followerli"
         followingli.innerText = follower.name
         document.getElementById('following').appendChild(followingli)
+
       });
+  localStorage.setItem('followinglist1', JSON.stringify(followinglist))
+
 
       setFollowerno(data.logins1.followers.length)
       setFollowingno(data.logins1.following.length)
@@ -244,7 +247,7 @@ const Profile = () => {
       }
       document.getElementById('confirmdel').style.display = 'none'
       document.getElementById('homeprofile').style.opacity = '100%'
-      await fetch('https://new-commune-2.onrender.com/delpost', { method: 'post', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(del_id_det) })
+      await fetch('https://new-commune-3.onrender.com/delpost', { method: 'post', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(del_id_det) })
     })
     document.getElementById('cancdel').addEventListener('click', async () => {
       document.getElementById('confirmdel').style.display = 'none'
@@ -260,7 +263,7 @@ const Profile = () => {
       password: localStorage.getItem("current-users-pass")
     }
 
-    const allPosts = await fetch('https://new-commune-2.onrender.com/myPost', { method: 'post', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(userdata) })
+    const allPosts = await fetch('https://new-commune-3.onrender.com/myPost', { method: 'post', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify(userdata) })
     const allPosts1 = await allPosts.json()
     const allpostsrev = allPosts1.reverse()
     setAllpostssave(allpostsrev);}
@@ -383,7 +386,7 @@ const Profile = () => {
             <div className='selectimg' style={{ position: 'absolute' }}>Select Picture</div>
           </label>
           {/* {console.log(currentuser_id.userId)} */}
-          <form style={{ position: 'absolute' }} id='picupdateform' className='picupdateform' action="https://new-commune-2.onrender.com/profilepic" method='post' encType='multipart/form-data'>
+          <form style={{ position: 'absolute' }} id='picupdateform' className='picupdateform' action="https://new-commune-3.onrender.com/profilepic" method='post' encType='multipart/form-data'>
             <input type="file" style={{ display: 'none' }} onChange={handleimage} name="newprofilepic" id='newprofilepic' />
             <input value={curuser} name='username' style={{ display: 'none' }} />
             <input value={curuserpass} name='userpass' style={{ display: 'none' }} />

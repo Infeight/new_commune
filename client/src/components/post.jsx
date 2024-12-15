@@ -58,7 +58,7 @@ const Post = () => {
       password:curuserpass
     }
 
-    const user_id =  fetch('https://new-commune-2.onrender.com/user_id',{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify(userdet)})
+    const user_id =  fetch('https://new-commune-3.onrender.com/user_id',{method:'post',headers:{'Content-Type':'application/json'},body:JSON.stringify(userdet)})
     let user_id1;
 
     user_id.then(response=>response.json()).
@@ -207,7 +207,7 @@ const Post = () => {
         </div>
 
 
-        <form action="https://new-commune-2.onrender.com/newPost" method='post' encType='multipart/form-data'>
+        <form action="https://new-commune-3.onrender.com/newPost" method='post' encType='multipart/form-data'>
         {/* {image.url!=""? document.getElementById('selectlabel').style.display = 'none': document.getElementById('selectlabel').style.display = 'flex'} */}
         {/* <label id='selectlabel' className='selectlabel' htmlFor="newPost">Select Image  <IoMdImages style={{marginLeft:'0.5vw'}}/>
         </label> */}
